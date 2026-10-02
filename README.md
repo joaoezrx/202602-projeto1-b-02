@@ -1,7 +1,7 @@
 # [Nome da solução]
 
 > Projeto em Ciência de Dados I · Ibmec BH · 2º semestre de 2026
-> Cliente: **Bulbe Energia** · Turma **[A/B]** · Squad **[XX]**
+> Cliente: **Bulbe Energia** · Turma **B** · Squad **02**
 
 [Uma frase que resume a solução: o que ela faz e para quem. Exemplo: "Painel que acompanha o cliente novo da Bulbe da adesão ao pagamento da primeira fatura."]
 
@@ -73,7 +73,7 @@
 
 | Integrante | GitHub | Papel principal |
 | --- | --- | --- |
-| [Nome] | [@usuario](https://github.com/usuario) | [ex.: Scrum Master, front-end, dados, documentação] |
+| João Vitor Oliveira | [@joaoezrx](https://github.com/joaoezrx) | Responsável pelo repositório |
 | [Nome] | [@usuario](https://github.com/usuario) | [ ] |
 | [Nome] | [@usuario](https://github.com/usuario) | [ ] |
 
