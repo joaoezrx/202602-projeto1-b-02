@@ -42,7 +42,7 @@
 
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/[usuario]/202602-projeto1-[turma]-[squad].git
+   git clone https://github.com/joaoezrx/202602-projeto1-b-02.git
    ```
 2. Abra a pasta no VS Code.
 3. Instale a extensão **Live Server** (o VS Code vai sugerir automaticamente).
@@ -67,16 +67,16 @@
 
 ## 7. Quadro do projeto
 
-- **GitHub Projects:** [link para o quadro do squad]
+ •⁠  ⁠*GitHub Projects:* [Quadro do Squad](https://github.com/users/joaoezrx/projects/4/views/1)
 
 ## 8. Equipe
 
 | Integrante | GitHub | Papel principal |
 | --- | --- | --- |
 | João Vitor Oliveira | [@joaoezrx](https://github.com/joaoezrx) | Responsável pelo repositório |
-| [Nome] | [@usuario](https://github.com/usuario) | [ ] |
-| [Nome] | [@usuario](https://github.com/usuario) | [ ] |
-
+| Felipe Rodrigues Pratti | [@FelipeRPratti](https://github.com/FelipeRPratti) | Colaborador 1 |
+| Gabriel Moura Muniz | [@gmunizzz](https://github.com/gmunizzz) | Colaborador 2 |
+| Enrico Pesso Cota | [@enricopesso](https://github.com/enricopesso) | Colaborador 3 |
 ## 9. Entregas
 
 | Marco | Aula | Status |
