@@ -3,7 +3,7 @@
 
 > Entregável da aula 19.
 
-## Persona
+## Persona 1 João Vitor
 
 - **Nome e idade:** Mariana Costa, 35 anos (fictícia).
 - **Contexto:** Conheceu a Bulbe pela internet e aderiu ao serviço buscando economizar na conta de energia.
@@ -40,6 +40,7 @@
 
 ## Oportunidades registradas como Issues
 
+- [ ] #5 Facilitar a compreensão da primeira fatura — João Vitor.
 - [ ] Criar acompanhamento da primeira fatura — Felipe Pratti.
-- [ ] Facilitar a compreensão da primeira fatura — João Vitor.
+
 
