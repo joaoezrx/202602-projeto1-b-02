@@ -34,4 +34,12 @@
 - [ ] A tela informa se existe alguma ação necessária por parte do cliente.
 - [ ] Quando disponível, a tela permite acessar a primeira fatura.
 - [ ] As informações são acessíveis pelo celular.
-```
+
+### HU04
+
+- [ ] A tela apresenta o valor total economizado desde a contratação.
+- [ ] A tela apresenta a economia de cada mês, com base nas faturas já pagas.
+- [ ] A tela compara o valor pago com a Bulbe e o valor estimado que seria pago apenas à distribuidora.
+- [ ] A tela explica como a economia é calculada.
+- [ ] Enquanto não houver fatura paga, a tela informa que a economia será exibida após o primeiro pagamento.
+- [ ] As informações são acessíveis pelo celular.
