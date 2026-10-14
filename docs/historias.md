@@ -1,13 +1,14 @@
-```markdown
+
 # Histórias de usuário
 
 > Entregável da aula 20. Cada história nasce de uma oportunidade do mapa de jornada e vira uma Issue com o label `historia`.
 
-| ID   | História                                                                                                                                                                  | Oportunidade de origem                                                | Prioridade | Issue   |
-| ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- | ---------- | ------- |
-| HU01 | Como cliente recém-contratado da Bulbe, quero entender os valores e descontos da minha primeira fatura para realizar o pagamento com segurança.                           | #5 - Facilitar a compreensão da primeira fatura                       | Alta       | #7      |
-| HU02 | Como cliente PJ, quero baixar um "Kit Contador" com instruções em PDF para que eu envie ao meu escritório contábil e eles entendam como lançar as novas notas fiscais.    | Falta de clareza fiscal/tributária na transição de modelo de energia. | Média      | #8      |
-| HU03 | Como cliente recém-contratado da Bulbe, quero acompanhar o status e a previsão de disponibilidade da minha primeira fatura para me preparar para o pagamento.             | Falta de visibilidade sobre a emissão da primeira cobrança.           | Alta       | A criar |
+| ID | História | Oportunidade de origem | Prioridade | Issue |
+| --- | --- | --- | --- | --- |
+| HU01 | Como cliente recém-contratado da Bulbe, quero entender os valores e descontos da minha primeira fatura para realizar o pagamento com segurança. | #5 - Facilitar a compreensão da primeira fatura | Alta | #7 |
+| HU02 | Como cliente PJ, quero baixar um "Kit Contador" com instruções em PDF para enviar ao meu escritório contábil e facilitar o entendimento das novas notas fiscais. | A confirmar | Média | A criar |
+| HU03 | Como cliente recém-contratado da Bulbe, quero acompanhar o status e a previsão de disponibilidade da minha primeira fatura para me preparar para o pagamento. | #6 - Criar envio da primeira fatura | Alta | #9 |
+| HU04 | A definir com o responsável pela história de economia acumulada. | A confirmar | A confirmar | A criar |
 
 ## Critérios de aceite
 
@@ -20,13 +21,13 @@
 
 ### HU02
 
-- [ ] O portal (área logada do cliente) possui uma seção chamada "Documentos Fiscais" ou "Para o seu Contador".
-- [ ] A tela exibe um card ou botão claro com a ação "Baixar Kit Contador (PDF)".
-- [ ] O sistema permite que o usuário baixe o arquivo no computador ou celular.
-- [ ] O sistema exibe a opção de "Compartilhar", permitindo enviar o PDF diretamente por WhatsApp ou e-mail.
-- [ ] O conteúdo do PDF baixado inclui explicações sobre a emissão das notas de injeção de energia (ICMS, PIS, COFINS e CFOPs utilizados).
+- [ ] O portal possui uma seção "Documentos Fiscais" ou "Para o seu Contador".
+- [ ] A tela exibe um botão "Baixar Kit Contador (PDF)".
+- [ ] O usuário consegue baixar o PDF no computador ou celular.
+- [ ] A tela oferece a opção de compartilhar o PDF por WhatsApp ou e-mail.
+- [ ] O PDF contém orientações fiscais sobre as notas de injeção de energia.
 
-| HU03 | Como cliente recém-contratado da Bulbe, quero acompanhar o status e a previsão de disponibilidade da minha primeira fatura para me preparar para o pagamento. | #6 - Criar envio da primeira fatura | Alta | #9 |
+### HU03
 
 - [ ] A tela apresenta o status atual da primeira fatura.
 - [ ] A tela informa a previsão de disponibilidade da primeira fatura.
