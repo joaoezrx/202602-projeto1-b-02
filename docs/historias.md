@@ -26,7 +26,7 @@
 - [ ] O sistema exibe a opção de "Compartilhar", permitindo enviar o PDF diretamente por WhatsApp ou e-mail.
 - [ ] O conteúdo do PDF baixado inclui explicações sobre a emissão das notas de injeção de energia (ICMS, PIS, COFINS e CFOPs utilizados).
 
-### HU03
+| HU03 | Como cliente recém-contratado da Bulbe, quero acompanhar o status e a previsão de disponibilidade da minha primeira fatura para me preparar para o pagamento. | #6 - Criar envio da primeira fatura | Alta | #9 |
 
 - [ ] A tela apresenta o status atual da primeira fatura.
 - [ ] A tela informa a previsão de disponibilidade da primeira fatura.
