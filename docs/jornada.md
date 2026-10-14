@@ -64,3 +64,21 @@
 - [ ] #6 Criar acompanhamento da primeira fatura — Felipe Pratti.
 
 
+## Persona 4 — Enrico Pesso Cota
+
+- **Nome e idade:** Ana Paula Ribeiro, 29 anos (fictícia).
+- **Contexto:** Mora de aluguel com o namorado e contratou a Bulbe há três meses após ver uma promessa de economia na conta de luz. Já pagou as primeiras faturas, mas, como recebe a cobrança da Bulbe e o valor residual da distribuidora separadamente, não consegue confirmar se está economizando de verdade.
+- **Objetivo:** Ter certeza de que a troca valeu a pena e acompanhar mês a mês quanto está economizando.
+- **Medos e dúvidas:** Medo de estar pagando mais caro sem perceber, de a economia prometida não ser real e de ter que fazer contas sozinha somando as duas faturas. Tem dúvida se o desconto muda conforme o consumo.
+- **Canais que usa:** Aplicativo ou Portal do Cliente, WhatsApp e e-mail.
+
+## Mapa
+
+| Fase | Ações | Pontos de contato | Pensamentos | Emoção | Dor (com evidência da Bulbe) | Oportunidade |
+| --- | --- | --- | --- | --- | --- | --- |
+| Contratação | Adere à Bulbe atraída pela promessa de desconto na conta. | Anúncio, site e WhatsApp. | "Quanto eu vou economizar de verdade?" | Expectativa | A economia é apresentada em percentual, sem mostrar quanto isso representa em reais para o cliente. | Mostrar na contratação uma simulação de economia em reais com base no consumo médio do cliente. |
+| Recebimento das faturas | Recebe a fatura da Bulbe e a conta residual da distribuidora. | E-mail, WhatsApp e fatura digital. | "Agora são duas contas. Isso está saindo mais barato mesmo?" | Desconfiança | A necessidade de somar a conta da distribuidora com a da Bulbe gera a sensação de que o cliente está pagando mais caro. | Exibir o valor total do mês (Bulbe + distribuidora) e compará-lo com o que seria pago sem a Bulbe. |
+| Verificação da economia | Tenta comparar as contas atuais com as antigas por conta própria. | Faturas antigas, aplicativo do banco e calculadora. | "Não sei se estou fazendo a conta certa." | Frustração | O cliente não encontra no portal nenhuma informação consolidada sobre sua economia. | Criar uma tela "Minha economia" com o valor economizado no mês e o total acumulado desde a contratação. |
+| Variação de consumo | Percebe que a economia mudou de um mês para o outro. | Fatura digital e Portal do Cliente. | "Por que esse mês economizei menos? O desconto diminuiu?" | Dúvida | A variação do valor economizado, sem explicação, faz o cliente achar que o desconto mudou. | Explicar como a economia é calculada e mostrar que a variação acompanha o consumo do mês. |
+| Permanência | Decide se continua com a Bulbe ou cancela o serviço. | Portal do Cliente, WhatsApp e e-mail. | "Se eu não consigo ver o benefício, por que continuar?" | Insegurança | A falta de percepção do benefício pode levar o cliente a cancelar mesmo estando economizando. | Enviar mensalmente um resumo da economia por e-mail ou WhatsApp, com o total acumulado. |
+
