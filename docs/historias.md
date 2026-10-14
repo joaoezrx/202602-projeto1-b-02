@@ -6,7 +6,7 @@
 | ID | História | Oportunidade de origem | Prioridade | Issue |
 | --- | --- | --- | --- | --- |
 | HU01 | Como cliente recém-contratado da Bulbe, quero entender os valores e descontos da minha primeira fatura para realizar o pagamento com segurança. | #5 - Facilitar a compreensão da primeira fatura | Alta | #7 |
-| HU02 | Como cliente PJ, quero baixar um "Kit Contador" com instruções em PDF para enviar ao meu escritório contábil e facilitar o entendimento das novas notas fiscais. | A confirmar | Média | A confirmar |
+| HU02 | Como cliente PJ, quero baixar um "Kit Contador" com instruções em PDF para enviar ao meu escritório contábil e facilitar o entendimento das novas notas fiscais. | A confirmar | Média | #12 |
 | HU03 | Como cliente recém-contratado da Bulbe, quero acompanhar o status e a previsão de disponibilidade da minha primeira fatura para me preparar para o pagamento. | #6 - Criar envio da primeira fatura | Alta | #9 |
 | HU04 | Como cliente da Bulbe, quero visualizar minha economia acumulada e mensal para entender quanto estou economizando com o serviço. | #13 - Facilitar a visualização da economia acumulada | Média | #14 |
 
