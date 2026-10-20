@@ -22,46 +22,20 @@
 
 ## Persona 2 Gabriel Muniz
 
--Nome e idade: Carlos Eduardo Mendes ("O Desconfiado das Duas Contas"), 42 anos.  
+- **Nome e idade:** Carlos Eduardo Mendes ("O Desconfiado das Duas Contas"), 42 anos.
+- **Contexto:** Comerciante e Gestor Financeiro de Pequeno Porte. Foi impactado por um anúncio da Bulbe e decidiu assinar pelo CNPJ para reduzir os altos custos fixos que tem com freezers e fornos.
+- **Objetivo:** Reduzir as despesas operacionais da empresa e integrar o pagamento da nova fatura na rotina financeira do seu negócio de forma prática.
+- **Medos e dúvidas:** Tem pânico de que a mudança cause cortes de energia (o que estragaria seus produtos), medo de pagar em duplicidade e preocupação em como vai explicar as duas faturas (Bulbe + Distribuidora) para o seu contador.
+- **Canais que usa:** WhatsApp, E-mail (para enviar notas ao financeiro) e Portal Web (pelo computador da loja).
 
--Contexto: Comerciante e Gestor Financeiro de Pequeno Porte em Belo Horizonte (MG) com consumo médio de 500 kWh (cerca de R$ 500,00 mensais). Contratou a Bulbe para garantir 15% de desconto na fatura de energia da sua loja.   
-
--Objetivo: Ter a comprovação matemática imediata da sua economia financeira (15% OFF), entender a rastreabilidade do crédito solar nas duas faturas e ter agilidade para pagar os boletos sem precisar acionar o suporte da Bulbe.   
-
--Medos e dúvidas: Tem sensação de cobrança duplicada ao receber boletos em datas diferentes (ex: Cemig dia 10 e Bulbe dia 15). Não compreende por que a conta da Cemig não vem zerada e possui dificuldade técnica para ler a fatura original e encontrar a linha do abatimento do crédito solar.   
-
--Canais que usa: App Mobile (para pagamentos rápidos via PIX no dia a dia) e Portal Web no computador da loja (para conferir detalhes financeiros e baixar PDFs de comprovantes)
-
-## Mapa
-
-Aqui está a persona e o mapa de jornada estruturados exatamente no modelo solicitado, baseados nas informações do documento "requisitos_raio_x_fatura (1).pdf":
-
-## Persona: Carlos Eduardo Mendes
-
-* **Nome e idade:** Carlos Eduardo Mendes ("O Desconfiado das Duas Contas"), 42 anos.
-
-
-* **Contexto:** Comerciante e Gestor Financeiro de Pequeno Porte em Belo Horizonte (MG) com consumo médio de 500 kWh (cerca de R$ 500,00 mensais). Contratou a Bulbe para garantir 15% de desconto na fatura de energia da sua loja.
-
-
-* **Objetivo:** Ter a comprovação matemática imediata da sua economia financeira (15% OFF), entender a rastreabilidade do crédito solar nas duas faturas e ter agilidade para pagar os boletos sem precisar acionar o suporte da Bulbe.
-
-
-* **Medos e dúvidas:** Tem sensação de cobrança duplicada ao receber boletos em datas diferentes (ex: Cemig dia 10 e Bulbe dia 15). Não compreende por que a conta da Cemig não vem zerada e possui dificuldade técnica para ler a fatura original e encontrar a linha do abatimento do crédito solar.
-
-
-* **Canais que usa:** App Mobile (para pagamentos rápidos via PIX no dia a dia) e Portal Web no computador da loja (para conferir detalhes financeiros e baixar PDFs de comprovantes).
-
-
-
-## Mapa
+## Mapa de Jornada
 
 | Fase | Ações | Pontos de contato | Pensamentos | Emoção | Dor (com evidência da Bulbe) | Oportunidade |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1. Acesso e Conferência do Mês | Acessa o painel do cliente para conferir o valor do consumo do mês e verificar sua assinatura. | Portal Web e App Mobile (Aba "Raio-X da Fatura").| "Contratei para ter 15% de desconto, mas vejo uma conta de R$ 100 e outra de R$ 340. Estou pagando duas vezes?"
-| Desconfiança e Confusão | A soma manual de faturas com datas diferentes gera sensação de cobrança duplicada e falta de percepção de economia.
-| Criar um "Banner Resumo" no topo com ancoragem visual, exibindo barras gráficas comparando a "Conta Tradicional" versus a "Soma Atual", destacando em reais e percentual a economia (15% OFF).| 2. Análise de Faturamento | Analisa o detalhamento das cobranças para entender o que está pagando para a concessionária e para a Bulbe. | Tela de Comparativo Lado a Lado (Cards empilhados ou duas colunas). | "Por que a conta da Cemig não está zerada? E por que estou pagando essas taxas extras?" | Frustração Regulamentar | Falta de clareza regulatória sobre cobrança de taxas mínimas e iluminação pública da rede da concessionária. | Mostrar as faturas lado a lado, conectando visualmente a energia injetada na Bulbe ao abatimento da Cemig, e adicionar um rodapé educativo explicando as taxas mínimas.| 3. Auditoria da Conta | Abre a fatura da concessionária para procurar a comprovação de que o desconto da Bulbe realmente foi aplicado lá. | Visualizador da Fatura da Concessionária (PDF Original).| "Onde diabos está escrito na conta da Cemig que a energia da Bulbe foi abatida?"| Estresse Técnico | A fatura original da concessionária é técnica, densa e dificulta a localização exata da linha de abatimento do crédito solar.
-| Implementar um "Localizador de Desconto", um botão que exibe uma prévia do PDF da Cemig com uma marcação visual (highlight) diretamente na linha da energia injetada/crédito.| 4. Pagamento Rápido | Realiza o pagamento da fatura aberta da Bulbe para voltar à rotina do comércio. | Fatura Aberta no App/Portal (Botões de Pagamento).| "Preciso resolver isso em segundos para voltar aos clientes da loja, sem ter que abrir chamado de suporte."| Pressa e Praticidade | Dificuldade em acessar métodos rápidos de pagamento faz o comerciante perder tempo na rotina da loja.| Disponibilizar um botão amarelo "Copiar Código PIX" com feedback visual imediato e botão secundário "Baixar Boleto", garantindo liquidação rápida sem atrito. |
+| Contratação | Acessa o painel do cliente para conferir o valor do consumo do mês e verificar sua assinatura. | Site e WhatsApp. | "Quando começarei a economizar?" | Expectativa | Falta de clareza sobre as próximas etapas. | Apresentar as etapas da adesão. |
+| Espera pela primeira fatura | Aguarda informações sobre a cobrança. | WhatsApp e e-mail. | "Quando minha fatura vai chegar?" | Insegurança | Clientes ficaram até 20 dias sem comunicação durante o onboarding. | Criar uma tela de acompanhamento da primeira fatura. |
+| Recebimento da fatura | Consulta os valores e o vencimento. | Fatura digital. | "Por que recebi essa cobrança?" | Confusão | A Bulbe identificou dificuldades dos clientes para compreender a fatura. | Criar uma tela que explique os valores e descontos. |
+| Pagamento | Tenta compreender e pagar a cobrança. | Fatura e canal de pagamento. | "Estou pagando corretamente?" | Dúvida | A inadimplência da primeira fatura é de 32,4%. | Facilitar o entendimento e orientar o pagamento. |
 
 
 ## Persona 3 — Felipe Pratti
