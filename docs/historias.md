@@ -6,7 +6,7 @@
 | ID | História | Oportunidade de origem | Prioridade | Issue |
 | --- | --- | --- | --- | --- |
 | HU01 | Como cliente recém-contratado da Bulbe, quero entender os valores e descontos da minha primeira fatura para realizar o pagamento com segurança. | #5 - Facilitar a compreensão da primeira fatura | Alta | #7 |
-| HU02 |Como cliente que recebe duas cobranças, quero ver lado a lado o detalhamento da conta da distribuidora e da fatura da Bulbe para compreender que só pago pelos créditos solares já abatidos. | A confirmar | Alta | #14 |
+| HU02 |Como cliente que recebe duas cobranças, quero ver lado a lado o detalhamento da conta da distribuidora e da fatura da Bulbe para compreender que só pago pelos créditos solares já abatidos. | #7 criar a comparacao das faturas| Alta | #14 |
 | HU03 | Como cliente recém-contratado da Bulbe, quero acompanhar o status e a previsão de disponibilidade da minha primeira fatura para me preparar para o pagamento. | #6 - Criar envio da primeira fatura | Alta | #9 |
 | HU04 | Como cliente da Bulbe, quero visualizar minha economia acumulada e mensal para entender quanto estou economizando com o serviço. | #13 - Facilitar a visualização da economia acumulada | Média | #14 |
 
