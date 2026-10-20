@@ -6,7 +6,7 @@
 | ID | História | Oportunidade de origem | Prioridade | Issue |
 | --- | --- | --- | --- | --- |
 | HU01 | Como cliente recém-contratado da Bulbe, quero entender os valores e descontos da minha primeira fatura para realizar o pagamento com segurança. | #5 - Facilitar a compreensão da primeira fatura | Alta | #7 |
-| HU02 | Como cliente PJ, quero baixar um "Kit Contador" com instruções em PDF para enviar ao meu escritório contábil e facilitar o entendimento das novas notas fiscais. | A confirmar | Média | #12 |
+| HU02 |Como cliente que recebe duas cobranças, quero ver lado a lado o detalhamento da conta da distribuidora e da fatura da Bulbe para compreender que só pago pelos créditos solares já abatidos. | A confirmar | Alta | #14 |
 | HU03 | Como cliente recém-contratado da Bulbe, quero acompanhar o status e a previsão de disponibilidade da minha primeira fatura para me preparar para o pagamento. | #6 - Criar envio da primeira fatura | Alta | #9 |
 | HU04 | Como cliente da Bulbe, quero visualizar minha economia acumulada e mensal para entender quanto estou economizando com o serviço. | #13 - Facilitar a visualização da economia acumulada | Média | #14 |
 
@@ -21,12 +21,11 @@
 - [ ] As informações são acessíveis pelo celular.
 
 ### HU02
-
-- [ ] O portal possui uma seção "Documentos Fiscais" ou "Para o seu Contador".
-- [ ] A tela exibe um botão "Baixar Kit Contador (PDF)".
-- [ ] O usuário consegue baixar o PDF no computador ou celular.
-- [ ] A tela oferece a opção de compartilhar o PDF por WhatsApp ou e-mail.
-- [ ] O PDF contém orientações fiscais sobre as notas de injeção de energia.
+- [ ] A tela exibe a seção "Comparativo Lado a Lado" em duas colunas (Web) ou cards empilhados (Mobile).
+- [ ] O Card da Distribuidora exibe o status, vencimento, consumo total, taxa mínima, destaque em pontilhado verde do Crédito Solar abatido e o valor final.
+- [ ] O Card da Assinatura Bulbe exibe status, vencimento, valor base da energia, destaque em amarelo do Desconto Garantido, taxas extras/isentas e valor final.
+- [ ] A tela apresenta um rodapé informativo ("Por que recebo duas faturas?") ou aba "Entenda o Cálculo" explicando de forma simples a cobrança da Cemig versus a da Bulbe.
+- [ ] A interface disponibiliza um botão direto de suporte (Dúvidas? WhatsApp Bulbe) próximo ao comparativo.
 
 ### HU03
 
