@@ -64,3 +64,36 @@ de validação das regras de faturamento da Bulbe.
 
 ![HU02 — Raio-X da Fatura](hu02comparacao-de-contas.png)
 
+## HU03 — Acompanhar a primeira fatura
+
+**Responsável:** Felipe Rodrigues Pratti
+
+**História:** [HU03 — Issue #9](https://github.com/joaoezrx/202602-projeto1-b-02/issues/9)
+
+**Oportunidade de origem:** [Issue #6](https://github.com/joaoezrx/202602-projeto1-b-02/issues/6)
+
+### Proposta de melhoria
+
+A proposta permite que o cliente acompanhe o andamento da sua primeira fatura desde a preparação até a disponibilização para pagamento.
+
+O fluxo apresenta quatro telas:
+
+1. Aviso na tela inicial sobre a preparação da primeira fatura.
+2. Linha do tempo com etapas da cobrança, datas previstas e canal de recebimento.
+3. Tela de fatura disponível, com acesso ao documento e opções de pagamento.
+4. Acompanhamento do processamento do pagamento e opções de lembretes.
+
+O objetivo é reduzir a incerteza sobre quando a primeira cobrança estará disponível e orientar o cliente durante o processo.
+
+**Observação:** datas, valores e funcionalidades de pagamento são ilustrativos e dependem de validação com a Bulbe.
+
+### Wireframes visuais
+
+![HU03 — Tela inicial](HU03-1.png)
+
+![HU03 — Acompanhamento](HU03-2.png)
+
+![HU03 — Fatura disponível](HU03-3.png)
+
+![HU03 — Pagamento](HU03-4.png)
+
