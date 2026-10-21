@@ -89,7 +89,9 @@ O objetivo é reduzir a incerteza sobre quando a primeira cobrança estará disp
 
 ### Wireframes visuais
 
-![HU03 — Tela inicial](HU03-1.png)
+| 1. Tela inicial | 2. Acompanhamento | 3. Fatura disponível | 4. Pagamento |
+|---|---|---|---|
+| <img src="HU03-1.png" width="180"> | <img src="HU03-2.png" width="180"> | <img src="HU03-3.png" width="180"> | <img src="HU03-4.png" width="180"> |
 
 ## HU04 — Visualizar economia acumulada
 
@@ -120,17 +122,12 @@ cálculo são ilustrativos e dependem de validação com a Bulbe.
 
 ### Wireframes visuais
 
-![HU04 — Tela inicial](hu04_home.png)
+| 1. Tela inicial | 2. Minha economia | 3. Como a economia é calculada |
+|---|---|---|
+| <img src="hu04_home.png" width="180"> | <img src="hu04_minha_economia.png" width="180"> | <img src="hu04_calculo.png" width="180"> |
 
-![HU04 — Minha economia](hu04_minha_economia.png)
+### Fluxo alternativo — Cliente sem faturas pagas
 
-![HU04 — Como a economia é calculada](hu04_calculo.png)
+<img src="hu04_minha_economia_vazia.png" width="220">
 
-![HU04 — Estado inicial sem faturas pagas](hu04_minha_economia_vazia.png)
-
-![HU03 — Acompanhamento](HU03-2.png)
-
-![HU03 — Fatura disponível](HU03-3.png)
-
-![HU03 — Pagamento](HU03-4.png)
 
