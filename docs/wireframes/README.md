@@ -91,6 +91,43 @@ O objetivo é reduzir a incerteza sobre quando a primeira cobrança estará disp
 
 ![HU03 — Tela inicial](HU03-1.png)
 
+## HU04 — Visualizar economia acumulada
+
+**Responsável:** Enrico Pesso Cota
+
+**História:** [HU04 — Issue #14](https://github.com/joaoezrx/202602-projeto1-b-02/issues/14)
+
+**Oportunidade de origem:** [Issue #13](https://github.com/joaoezrx/202602-projeto1-b-02/issues/13)
+
+### Proposta de melhoria
+
+A proposta facilita a visualização da economia mensal
+e acumulada do cliente Bulbe, apresentando comparativos
+com os custos estimados sem o serviço.
+
+O fluxo apresenta quatro telas:
+
+1. Tela inicial com resumo da economia e das faturas do mês.
+2. Detalhamento da economia acumulada, comparativo e gráfico histórico.
+3. Explicação do cálculo da economia, com exemplo ilustrativo.
+4. Estado inicial para clientes sem fatura paga, com próximos passos.
+
+O objetivo é tornar o benefício financeiro mais compreensível
+e visível ao longo do relacionamento com a Bulbe.
+
+**Observação:** valores, percentual de desconto e regras de
+cálculo são ilustrativos e dependem de validação com a Bulbe.
+
+### Wireframes visuais
+
+![HU04 — Tela inicial](hu04_home.png)
+
+![HU04 — Minha economia](hu04_minha_economia.png)
+
+![HU04 — Como a economia é calculada](hu04_calculo.png)
+
+![HU04 — Estado inicial sem faturas pagas](hu04_minha_economia_vazia.png)
+
 ![HU03 — Acompanhamento](HU03-2.png)
 
 ![HU03 — Fatura disponível](HU03-3.png)
