@@ -4,23 +4,43 @@ Guardem aqui as imagens exportadas dos wireframes (PNG ou JPG), uma por tela, e 
 
 Nomeie os arquivos de tela com o ID da história: `hu01-confirmar-contatos.png`.
 
-### HU01 — Entender a primeira fatura
 
-**Problema identificado:** o cliente pode receber sua primeira fatura sem compreender a composição dos valores, os descontos aplicados e a diferença entre as cobranças da Bulbe e da distribuidora.
+## HU01 — Entender a primeira fatura
 
-**Fonte:** apresentação institucional da Bulbe ao Ibmec (setembro/2026).
+**Responsável:** João Vitor Oliveira
 
-**Solução proposta:** desenvolvemos um fluxo de três telas para apresentar as informações de forma progressiva, evitando excesso de conteúdo.
+**História:** [HU01 — Issue #7](https://github.com/joaoezrx/202602-projeto1-b-02/issues/7)
 
-- **Tela A — Resumo:** apresenta o valor da fatura, a economia e a composição da cobrança.
-- **Tela B — Cálculo:** demonstra como o valor final é formado.
-- **Tela C — Dúvidas:** responde às principais perguntas sobre descontos, cobranças e pagamento.
+**Oportunidade de origem:** [Issue #5](https://github.com/joaoezrx/202602-projeto1-b-02/issues/5)
 
-**Objetivo:** aumentar a compreensão da primeira fatura e dar mais segurança ao cliente antes do pagamento.
+### Problema identificado
 
-**Priorização:** a HU01 foi escolhida como foco do MVP da Sprint II. As demais histórias permanecem documentadas para futuras etapas.
+O cliente pode receber sua primeira fatura sem compreender a composição dos valores, os descontos aplicados e a diferença entre as cobranças da Bulbe e da distribuidora.
 
-**Validação:** a hipótese será avaliada por meio de testes de compreensão com usuários. O indicador de 32,4% de inadimplência da primeira fatura, apresentado pela Bulbe, contextualiza o problema, mas não comprova que a falta de clareza seja sua causa.
+**Fonte:** Apresentação da Bulbe ao Ibmec — setembro/2026.
+
+### Proposta de melhoria
+
+A proposta busca facilitar o entendimento da primeira fatura por meio de uma interface mais clara, organizada e com informações apresentadas progressivamente.
+
+O fluxo apresenta três telas:
+
+1. **Resumo da fatura:** apresenta o valor total, o desconto obtido, o consumo e os principais componentes da cobrança.
+2. **Detalhamento do cálculo:** demonstra como o valor final da fatura é formado, destacando consumo, desconto e taxas.
+3. **Perguntas e respostas:** reúne as principais dúvidas sobre descontos, cobranças da distribuidora, impostos e pagamento.
+
+O objetivo é reduzir dúvidas e inseguranças antes do pagamento, permitindo que o cliente compreenda o que está sendo cobrado e quanto economizou.
+
+A HU01 foi escolhida como foco do MVP da Sprint II.
+
+**Observação:** os valores, descontos e demais informações apresentados nos wireframes são ilustrativos e dependem de validação com a Bulbe.
+
+### Wireframes visuais
+
+| 1. Resumo da fatura | 2. Detalhamento do cálculo | 3. Perguntas e respostas |
+|---|---|---|
+| <img src="HU01_Tela_A_Resumo.png" width="220"> | <img src="HU01_Tela_B_Calculo.png" width="220"> | <img src="HU01_Tela_C_Duvidas.png" width="220"> |
+
 
 ## HU02 — Comparativo das faturas (Raio-X da Fatura)
 
