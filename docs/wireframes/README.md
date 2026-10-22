@@ -4,35 +4,23 @@ Guardem aqui as imagens exportadas dos wireframes (PNG ou JPG), uma por tela, e 
 
 Nomeie os arquivos de tela com o ID da história: `hu01-confirmar-contatos.png`.
 
-## HU01 — Entender a primeira fatura
+### HU01 — Entender a primeira fatura
 
-**Responsável:** João Vitor Oliveira
+**Problema identificado:** o cliente pode receber sua primeira fatura sem compreender a composição dos valores, os descontos aplicados e a diferença entre as cobranças da Bulbe e da distribuidora.
 
-**História:** [HU01 — Issue #7](https://github.com/joaoezrx/202602-projeto1-b-02/issues/7)
+**Fonte:** apresentação institucional da Bulbe ao Ibmec (setembro/2026).
 
-### Proposta de melhoria
+**Solução proposta:** desenvolvemos um fluxo de três telas para apresentar as informações de forma progressiva, evitando excesso de conteúdo.
 
-A Bulbe já possui uma tela de detalhamento da fatura.
-A proposta da HU01 busca melhorar essa experiência,
-organizando as informações para facilitar a compreensão
-da primeira cobrança.
+- **Tela A — Resumo:** apresenta o valor da fatura, a economia e a composição da cobrança.
+- **Tela B — Cálculo:** demonstra como o valor final é formado.
+- **Tela C — Dúvidas:** responde às principais perguntas sobre descontos, cobranças e pagamento.
 
-O protótipo foi dividido em quatro partes:
+**Objetivo:** aumentar a compreensão da primeira fatura e dar mais segurança ao cliente antes do pagamento.
 
-1. Visão geral da primeira fatura, com valor e vencimento.
-2. Detalhamento das cobranças da Bulbe e da distribuidora.
-3. Explicação dos descontos e da economia.
-4. Orientações sobre a cobrança e canais de suporte.
+**Priorização:** a HU01 foi escolhida como foco do MVP da Sprint II. As demais histórias permanecem documentadas para futuras etapas.
 
-O objetivo é facilitar o entendimento da primeira fatura
-e dar mais segurança ao cliente antes do pagamento.
-
-**Observação:** os valores apresentados são ilustrativos.
-A proposta ainda depende de validação das regras de cobrança.
-
-### Protótipo visual
-
-![Protótipo HU01 — Primeira fatura](hu01-primeira-fatura.png.png)
+**Validação:** a hipótese será avaliada por meio de testes de compreensão com usuários. O indicador de 32,4% de inadimplência da primeira fatura, apresentado pela Bulbe, contextualiza o problema, mas não comprova que a falta de clareza seja sua causa.
 
 ## HU02 — Comparativo das faturas (Raio-X da Fatura)
 
