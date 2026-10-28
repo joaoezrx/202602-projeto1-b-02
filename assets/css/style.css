@@ -1,53 +1,101 @@
-/* Variáveis de cor e tipografia: ajustem para a identidade da solução */
-:root {
-  --cor-primaria: #0a2558;
-  --cor-destaque: #f2ae00;
-  --cor-fundo: #f7f9fc;
-  --cor-texto: #1f2937;
-  --fonte: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-}
 
-* { box-sizing: border-box; }
+/* Configuração geral */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0;
-  font-family: var(--fonte);
-  color: var(--cor-texto);
-  background: var(--cor-fundo);
-  line-height: 1.5;
+  font-family: Arial, sans-serif;
+  background-color: #e9edf2;
 }
 
-.topo {
-  background: var(--cor-primaria);
-  color: #fff;
-  padding: 1.5rem;
-}
-.topo a { color: var(--cor-destaque); }
-
-main {
-  max-width: 960px;
-  margin: 0 auto;
-  padding: 1.5rem;
+/* Estrutura do aplicativo */
+.app {
+  width: 375px;
+  height: 667px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  background-color: #0b078c;
+  overflow: hidden;
 }
 
-.aviso {
-  background: #fff4d6;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
+/* ÁREA 1: Cabeçalho */
+.cabecalho {
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  color: white;
+  background-color: #0b078c;
 }
 
-.lista { list-style: none; padding: 0; }
-.lista li {
-  background: #fff;
-  margin-bottom: 0.5rem;
-  padding: 0.75rem 1rem;
-  border-radius: 8px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+.cabecalho button {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
 }
 
-.rodape {
-  text-align: center;
-  padding: 1rem;
-  color: #5b6475;
-  font-size: 0.875rem;
+.logo {
+  font-size: 32px;
+  font-weight: bold;
+  letter-spacing: -2px;
 }
+
+.acoes {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.cabecalho .perfil {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background-color: white;
+  font-size: 20px;
+}
+
+/* ÁREA 2: Conteúdo principal */
+.conteudo {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  background-color: #0b078c;
+}
+
+/* ÁREA 3: Navegação inferior */
+.navegacao {
+  height: 58px;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: white;
+}
+
+.navegacao a {
+  color: #b8c4d4;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navegacao a.ativo {
+  color: #0b078c;
+  font-weight: bold;
+}
+
+/* Ajuste para celulares */
+@media (max-width: 375px) {
+  .app {
+    width: 100%;
+    margin: 0;
+  }
+}
+
