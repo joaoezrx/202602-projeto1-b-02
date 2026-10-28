@@ -1,0 +1,331 @@
+/* ===== HU04 · Minha economia =====
+   Valores tirados dos mockups HTML da HU04 (HU04_Tela_A..D).
+   O casco (.bulbe-app) só vale quando a .app recebe essa classe,
+   então o template base continua igual para as outras telas. */
+
+.bulbe-app {
+  --azul: #08068D;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --lavanda-selo: #ECECFA;
+  --lavanda-borda: #D4D3EC;
+  --lavanda-barra: #C9C8EE;
+  --cinza-marcador: #A9A8C9;
+  --divisor: #E3E3F0;
+  --verde: #0B5A37;
+  --verde-escuro: #0B3D27;
+  --verde-claro: #D9F6E8;
+
+  width: 390px;
+  height: 844px;
+  background-color: var(--azul);
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
+}
+
+/* Cabeçalho: menu · logo · notificações + avatar */
+.bulbe-app .cabecalho {
+  height: auto;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 14px 16px 6px;
+  background-color: var(--azul);
+}
+.bulbe-app .logo img { display: block; height: 34px; width: auto; }
+.bulbe-app .acoes { justify-content: flex-end; gap: 4px; }
+.bulbe-app .avatar {
+  width: 34px;
+  height: 34px;
+  border: 2px solid white;
+  border-radius: 50%;
+  background-color: var(--lavanda-barra);
+}
+.hbtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Rola normalmente, mas sem a barra de rolagem roubando largura (como no celular) */
+.bulbe-app .conteudo { background-color: var(--azul); scrollbar-width: none; }
+.bulbe-app .conteudo::-webkit-scrollbar { display: none; }
+
+/* Navegação inferior com ícones */
+.bulbe-app .navegacao {
+  height: auto;
+  padding: 10px 40px 18px;
+}
+.bulbe-app .navegacao a {
+  min-width: 96px;
+  min-height: 44px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  color: #6B6F8E;
+  font-size: 13px;
+  font-weight: 500;
+}
+.bulbe-app .navegacao a.ativo { color: var(--azul); font-weight: 500; }
+.bulbe-app .navegacao img { width: 30px; height: auto; }
+
+@media (max-width: 390px) {
+  .bulbe-app { width: 100%; margin: 0; }
+}
+
+/* Título com voltar (fica fora da pilha de conteúdo, como no mockup) */
+.titulo-pagina {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 0 10px;
+  color: white;
+}
+.titulo-pagina h1 { font-size: 18px; font-weight: 600; }
+
+/* Pilha de conteúdo de cada tela */
+.economia {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 18px 14px;
+}
+.economia.home { gap: 14px; padding: 10px 18px 18px; }
+.economia.vazio { gap: 14px; }
+#home-economia { display: contents; }
+
+.economia .card {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: white;
+}
+.economia .card h2 { font-size: 15px; font-weight: 700; color: var(--azul); }
+.economia .linha { display: flex; justify-content: space-between; align-items: center; }
+.economia .suave { color: var(--texto-suave); }
+.economia .divisor { height: 1px; background-color: var(--divisor); }
+
+.economia .botao {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--azul);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+}
+.economia .botao.claro { background-color: white; color: var(--azul); }
+.economia .link-claro {
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+/* Tela A · Home */
+.saudacao { color: white; }
+.saudacao-ola { font-size: 14px; color: var(--claro-sobre-azul); }
+.saudacao-nome { font-size: 22px; font-weight: 600; }
+
+.economia .card-economia { gap: 14px; padding: 20px; }
+.economia .card-economia h2 { font-size: 17px; }
+.selo-mes {
+  padding: 4px 10px;
+  border-radius: 99px;
+  background-color: var(--lavanda-selo);
+  color: var(--azul);
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: capitalize;
+}
+.economia-mes { display: flex; align-items: center; gap: 10px; }
+.economia-mes strong { font-size: 36px; font-weight: 700; line-height: 1.2; color: var(--azul); }
+.pill {
+  padding: 3px 8px;
+  border-radius: 99px;
+  background-color: var(--verde-claro);
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 600;
+}
+.total-contratacao { font-size: 22px; font-weight: 700; color: var(--azul); }
+
+.economia .card-contas { gap: 12px; padding: 18px; }
+.conta-nome { font-size: 14px; font-weight: 500; }
+.conta-valor { font-size: 14px; font-weight: 600; text-align: right; }
+.economia .detalhe { font-size: 12px; color: var(--texto-suave); }
+.status-paga { font-size: 12px; font-weight: 500; color: var(--verde); text-align: right; }
+
+/* Tela B · Minha economia */
+.economia-total { padding: 2px 0 4px; color: white; text-align: center; }
+.economia-total .rotulo { font-size: 14px; color: var(--claro-sobre-azul); }
+.economia-total .valor-grande { font-size: 42px; font-weight: 700; line-height: 1.15; }
+.economia-total .periodo { font-size: 13px; color: var(--claro-sobre-azul); }
+
+.card-comparativo { gap: 9px; }
+.seletor-mes { display: flex; align-items: center; gap: 4px; font-size: 13px; font-weight: 500; }
+.seletor-mes span { padding: 0 4px; text-transform: capitalize; }
+.seletor-mes button {
+  width: 40px;
+  height: 32px;
+  border: 1px solid var(--lavanda-borda);
+  border-radius: 8px;
+  background-color: white;
+  color: var(--azul);
+  font: inherit;
+  cursor: pointer;
+}
+.seletor-mes button:disabled { color: var(--cinza-marcador); cursor: default; }
+
+.bloco-valor { padding: 10px 12px; border-radius: 10px; background-color: var(--lavanda); }
+.bloco-valor span { font-size: 14px; }
+.bloco-valor strong { font-size: 16px; }
+.bloco-composto { display: flex; flex-direction: column; gap: 3px; }
+.bloco-composto .sub { font-size: 12px; color: var(--texto-suave); }
+.bloco-composto .sub span { font-size: 12px; }
+.destaque-economia { padding: 12px; background-color: var(--verde-claro); color: var(--verde); }
+.destaque-economia span { font-size: 15px; font-weight: 600; }
+.destaque-economia strong { font-size: 20px; }
+
+.card-grafico { gap: 8px; }
+.grafico {
+  height: 132px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1.5px solid var(--lavanda-borda);
+}
+.barra {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 6px;
+  padding: 0;
+  border: none;
+  background: none;
+  color: var(--azul);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.barra:focus-visible { outline: 2px solid var(--azul); outline-offset: 2px; border-radius: 6px; }
+.barra-coluna { width: 48px; border-radius: 6px 6px 0 0; background-color: var(--lavanda-barra); }
+.barra.ativa .barra-coluna { background-color: var(--azul); }
+.meses-grafico { display: flex; gap: 16px; padding: 0 16px; font-size: 12px; color: var(--texto-suave); text-align: center; }
+.meses-grafico span { flex: 1; text-transform: capitalize; }
+
+/* Tela C · Como a economia é calculada */
+.economia .card-realce { background-color: var(--verde-claro); color: var(--verde-escuro); }
+.economia .card-realce .titulo-realce { font-size: 16px; font-weight: 700; color: inherit; }
+.economia .card-realce p { margin-top: 2px; font-size: 14px; }
+
+.passos-calculo { gap: 12px; list-style: none; }
+.passos-calculo li { display: flex; align-items: flex-start; gap: 12px; font-size: 14px; }
+.num {
+  flex: none;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--azul);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.card-exemplo { gap: 6px; font-size: 14px; }
+.card-exemplo h2 { margin-bottom: 2px; }
+.card-exemplo .total { font-weight: 700; color: var(--verde); }
+
+.card-variacao { gap: 4px; }
+.card-variacao p { font-size: 13px; line-height: 1.5; }
+
+/* Tela D · Sem faturas pagas */
+.estado-vazio {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding-top: 4px;
+  color: white;
+  text-align: center;
+}
+.selo-bulbe {
+  width: 88px;
+  height: 88px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+}
+.selo-bulbe img { width: 46px; height: auto; }
+.estado-vazio h2 { margin-top: 6px; font-size: 20px; }
+.estado-vazio p { font-size: 14px; line-height: 1.5; color: var(--claro-sobre-azul); }
+
+.card-passos { gap: 13px; }
+.passos { display: flex; flex-direction: column; gap: 13px; list-style: none; }
+.passos li { display: flex; align-items: center; gap: 12px; font-size: 14px; }
+.passos .titulo-passo { font-weight: 600; }
+.passos .proximo { color: var(--texto-suave); }
+.marcador {
+  flex: none;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--cinza-marcador);
+  border-radius: 50%;
+}
+.passos .feito .marcador { border-color: var(--azul); background-color: var(--azul); }
+.passos .atual .marcador { border-color: var(--azul); }
+
+.grafico-vazio {
+  height: 70px;
+  display: flex;
+  align-items: flex-end;
+  gap: 16px;
+  padding: 0 16px;
+  border-bottom: 1.5px dashed var(--lavanda-barra);
+}
+.grafico-vazio span {
+  flex: 1;
+  border: 1.5px dashed var(--lavanda-barra);
+  border-bottom: none;
+  border-radius: 6px 6px 0 0;
+}
+.legenda-vazio { font-size: 12px; color: var(--texto-suave); text-align: center; }
+.economia.vazio .link-claro { margin-top: -8px; }
+
+/* Os blocos do comparativo entram direto na pilha do card (mesmo espaçamento) */
+#comparativo { display: contents; }
+
+/* O display: flex dos cards anularia o atributo hidden */
+.economia [hidden] { display: none; }
+
+/* Na home o cabeçalho tem um pouco mais de respiro embaixo (mockup A) */
+.bulbe-app:has(.economia.home) .cabecalho { padding-bottom: 10px; }

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bulbe | Início · Minha economia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/economia.css">
+</head>
+
+<body>
+  <div class="app bulbe-app">
+
+    <!-- ÁREA 1: Cabeçalho -->
+    <header class="cabecalho">
+      <button class="hbtn menu" aria-label="Abrir menu">
+        <svg aria-hidden="true" width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.6"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+
+      <div class="logo"><img src="../assets/img/logo-bulbe.png" alt="bulbe"></div>
+
+      <div class="acoes">
+        <button class="hbtn" aria-label="Notificações">
+          <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="1.8"><path d="M6 9a6 6 0 1 1 12 0c0 6 2.5 8 2.5 8h-17S6 15 6 9"/><path d="M10 20.5h4"/></svg>
+        </button>
+        <div class="avatar" aria-hidden="true"></div>
+      </div>
+    </header>
+
+    <!-- ÁREA 2: Conteúdo da HU04 (Tela A · resumo da economia) -->
+    <main class="conteudo">
+      <div class="economia home">
+        <div class="saudacao">
+          <div class="saudacao-ola">Olá,</div>
+          <div class="saudacao-nome" id="nome-cliente"></div>
+        </div>
+
+        <!-- Montado por assets/js/home-economia.js -->
+        <div id="home-economia"></div>
+      </div>
+    </main>
+
+    <!-- ÁREA 3: Navegação inferior -->
+    <nav class="navegacao" aria-label="Menu principal">
+      <a href="economia-inicio.html" class="ativo"><img src="../assets/img/icone-bulbe.png" alt="">Conexão</a>
+      <a href="#">
+        <svg aria-hidden="true" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#B8BCD6" stroke-width="1.6"><circle cx="9" cy="8" r="4"/><path d="M2 21c0-4 3-6.5 7-6.5s7 2.5 7 6.5"/><path d="M19 7v6M16 10h6"/></svg>
+        Indicações
+      </a>
+    </nav>
+
+  </div>
+
+  <script type="module" src="../assets/js/home-economia.js"></script>
+</body>
+</html>
