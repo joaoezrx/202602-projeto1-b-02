@@ -1,0 +1,263 @@
+
+/* =========================================
+   HU01 — RESUMO DA FATURA
+   CSS exclusivo do João
+   ========================================= */
+
+/* CONTEÚDO CENTRAL DA HU01 */
+
+.pagina-hu01 {
+  width: 100%;
+  min-height: 100%;
+  background-color: #ffffff;
+  color: #30343b;
+  padding: 14px 14px 24px;
+}
+
+/* CARTÃO PRINCIPAL */
+
+.pagina-hu01 .cartao-fatura {
+  border: 1px solid #dceee5;
+  border-radius: 12px;
+  overflow: hidden;
+  padding: 14px 15px 0;
+  background-color: #ffffff;
+}
+
+.pagina-hu01 .linha-fatura {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.pagina-hu01 .cartao-fatura .linha-fatura:first-child {
+  font-size: 14px;
+}
+
+.pagina-hu01 .cartao-fatura .linha-fatura:first-child span {
+  color: #087449;
+  background-color: #e8f7ef;
+  border-radius: 6px;
+  padding: 4px 8px;
+  font-size: 12px;
+}
+
+.pagina-hu01 .cartao-fatura p {
+  font-size: 12px;
+  color: #68717b;
+  margin: 6px 0;
+  line-height: 1.4;
+}
+
+.pagina-hu01 .cartao-fatura del {
+  color: #68717b;
+}
+
+.pagina-hu01 .cartao-fatura h1 {
+  color: #10069f;
+  font-size: 30px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  margin: 10px 0;
+}
+
+.pagina-hu01 .cartao-fatura .linha-fatura span {
+  font-size: 12px;
+}
+
+/* FAIXA AZUL DO DESCONTO */
+
+.pagina-hu01 .faixa-desconto {
+  background-color: #10069f;
+  color: #ffffff !important;
+  text-align: center;
+  font-size: 13px !important;
+  padding: 13px;
+  margin: 14px -15px 0 !important;
+}
+
+.pagina-hu01 .faixa-desconto strong {
+  color: #ffffff;
+}
+
+/* CARTÃO VERDE DE ECONOMIA */
+
+.pagina-hu01 .economia-fatura {
+  background-color: #effaf5;
+  border: 1px solid #cfe8db;
+  border-radius: 10px;
+  padding: 16px 12px;
+  margin: 18px 0 12px;
+
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-align: left;
+}
+
+.pagina-hu01 .economia-fatura h2 {
+  color: #087449;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 7px;
+}
+
+.pagina-hu01 .economia-fatura p {
+  font-size: 12px;
+  color: #526a78;
+  line-height: 1.5;
+}
+
+.pagina-hu01 .icone-economia {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: #d9f7e8;
+  font-size: 24px;
+}
+
+/* DETALHAMENTO DA FATURA */
+
+.pagina-hu01 .detalhes-fatura {
+  padding: 0 2px;
+}
+
+.pagina-hu01 .detalhes-fatura p {
+  color: #68717b;
+  font-size: 12px;
+  line-height: 1.5;
+  margin: 8px 0;
+}
+
+/* SEÇÕES EXPANSÍVEIS */
+
+.pagina-hu01 .detalhes-fatura details {
+  padding: 14px 2px;
+  border-bottom: 1px solid #e8e8e8;
+}
+
+.pagina-hu01 .detalhes-fatura summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+  font-size: 13px;
+}
+
+.pagina-hu01 .detalhes-fatura summary::-webkit-details-marker {
+  display: none;
+}
+
+.pagina-hu01 .detalhes-fatura summary::after {
+  content: "⌄";
+  font-size: 20px;
+  color: #454b55;
+}
+
+.pagina-hu01 .detalhes-fatura details[open] summary::after {
+  content: "⌃";
+}
+
+.pagina-hu01 .detalhes-fatura summary span {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.pagina-hu01 .detalhes-fatura summary b {
+  font-size: 13px;
+}
+
+/* VALORES EM DUAS COLUNAS */
+
+.pagina-hu01 .linha-detalhe {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 8px;
+  margin-top: 12px;
+  color: #68717b;
+  font-size: 11px;
+}
+
+.pagina-hu01 .linha-detalhe span:last-child,
+.pagina-hu01 .linha-detalhe strong {
+  text-align: right;
+  white-space: nowrap;
+}
+
+.pagina-hu01 .linha-detalhe strong {
+  color: #10069f;
+}
+
+/* LINHA DO DESCONTO */
+
+.pagina-hu01 .bloco-desconto {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 2px;
+  border-bottom: 1px solid #e8e8e8;
+  font-size: 13px;
+}
+
+.pagina-hu01 .bloco-desconto p {
+  font-size: 11px;
+  margin: 6px 0 0;
+}
+
+.pagina-hu01 .valor-desconto {
+  color: #10069f;
+  white-space: nowrap;
+}
+
+/* EXPLICAÇÃO DAS TAXAS */
+
+.pagina-hu01 .explicacao-taxas {
+  margin-top: 12px !important;
+  line-height: 1.5;
+}
+
+/* RESUMO FINAL */
+
+.pagina-hu01 .resumo-final {
+  border-top: 1px solid #e8e8e8;
+  margin-top: 15px;
+  padding: 12px 2px 0;
+}
+
+.pagina-hu01 .resumo-final p {
+  color: #555e68;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 8px 0;
+}
+
+.pagina-hu01 .resumo-final p strong {
+  color: #30343b;
+}
+
+.pagina-hu01 .resumo-final .linha-fatura {
+  font-size: 15px;
+  margin: 20px 0;
+}
+
+.pagina-hu01 .resumo-final .linha-fatura strong:last-child {
+  font-size: 17px;
+}
+
+.pagina-hu01 .resumo-final a {
+  display: block;
+  text-align: center;
+  color: #10069f;
+  font-size: 12px;
+  text-decoration: underline;
+  margin: 24px 0 10px;
+}
