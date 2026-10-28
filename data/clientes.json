@@ -34,5 +34,17 @@
     "emailConfirmado": false,
     "consumoMedioKwh": 180,
     "descontoPercentual": 12
+  },
+  {
+    "id": 4,
+    "nome": "Ana Paula Martins",
+    "cidade": "Belo Horizonte",
+    "dataAdesao": "2026-06-18",
+    "status": "conectado",
+    "canalPreferido": "app",
+    "whatsappConfirmado": true,
+    "emailConfirmado": true,
+    "consumoMedioKwh": 290,
+    "descontoPercentual": 20
   }
 ]
