@@ -1,0 +1,123 @@
+
+.hu01-duvidas {
+  background: #fff;
+  color: #30343b;
+  min-height: 100%;
+  padding: 22px 16px 32px;
+  font-family: Arial, sans-serif;
+}
+
+.hu01-duvidas * {
+  box-sizing: border-box;
+}
+
+.hu01-duvidas-titulo h1 {
+  color: #10069f;
+  font-size: 22px;
+  line-height: 1.25;
+  margin: 0 0 9px;
+}
+
+.hu01-duvidas-titulo p {
+  color: #68717b;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.hu01-perguntas h2 {
+  font-size: 16px;
+  margin: 0 0 12px;
+}
+
+.hu01-perguntas details {
+  border: 1px solid #e3e8ee;
+  border-radius: 10px;
+  background: #fff;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.hu01-perguntas summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px 13px;
+  font-size: 13px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.hu01-perguntas summary::-webkit-details-marker {
+  display: none;
+}
+
+.hu01-perguntas summary::after {
+  content: "+";
+  font-size: 21px;
+  color: #10069f;
+  flex-shrink: 0;
+}
+
+.hu01-perguntas details[open] summary::after {
+  content: "−";
+}
+
+.hu01-perguntas details[open] {
+  border-color: #c8c4f3;
+  background: #fafaff;
+}
+
+.hu01-perguntas details p {
+  color: #68717b;
+  font-size: 12px;
+  line-height: 1.6;
+  padding: 0 13px 16px;
+  margin: 0;
+}
+
+.hu01-ajuda {
+  margin-top: 24px;
+  border-radius: 12px;
+  padding: 22px 16px;
+  background: #effaf5;
+  border: 1px solid #cfe8db;
+  text-align: center;
+}
+
+.hu01-ajuda-icone {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.hu01-ajuda h2 {
+  color: #087449;
+  font-size: 17px;
+  margin: 0 0 8px;
+}
+
+.hu01-ajuda p {
+  color: #526a78;
+  font-size: 12px;
+  line-height: 1.6;
+  margin: 0 0 18px;
+}
+
+.hu01-botao-ajuda {
+  background: #087449;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  padding: 13px 22px;
+  font-size: 13px;
+  font-weight: bold;
+  cursor: pointer;
+  width: 100%;
+}
+
+.hu01-botao-ajuda:hover {
+  background: #065c3b;
+}
