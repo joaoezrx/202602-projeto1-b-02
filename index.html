@@ -7,45 +7,48 @@
 
   <title>Bulbe | Squad B-02</title>
 
-  <!-- CSS compartilhado -->
+  <!-- CSS padrão compartilhado -->
   <link rel="stylesheet" href="assets/css/style.css">
-
-  <!-- CSS exclusivo da HU01 -->
-  <link rel="stylesheet" href="assets/css/hu01.css">
 </head>
 
 <body>
   <div class="app">
 
-    <!-- ÁREA 1: Cabeçalho padrão da Bulbe -->
+    <!-- Cabeçalho padrão da Bulbe -->
     <header class="cabecalho">
-      <button class="menu" aria-label="Abrir menu">☰</button>
+      <button class="menu" type="button" aria-label="Abrir menu">
+        ☰
+      </button>
 
       <div class="logo">bulbe</div>
 
       <div class="acoes">
-        <button aria-label="Notificações">♧</button>
-        <button class="perfil" aria-label="Perfil">👤</button>
+        <button type="button" aria-label="Notificações">
+          ♧
+        </button>
+
+        <button class="perfil" type="button" aria-label="Perfil">
+          👤
+        </button>
       </div>
     </header>
 
-    <!-- ÁREA 2: Conteúdo das HUs -->
+    <!-- Área central onde as telas serão carregadas -->
     <main class="conteudo" id="conteudo-principal">
-      <!-- O JavaScript carrega a tela aqui -->
     </main>
 
-    <!-- ÁREA 3: Navegação inferior padrão -->
-    <nav class="navegacao">
+    <!-- Navegação inferior compartilhada -->
+    <nav class="navegacao" aria-label="Navegação principal">
       <a href="#" class="ativo">Conexão</a>
       <a href="#">Indicações</a>
     </nav>
 
   </div>
 
-  <!-- JavaScript compartilhado -->
+  <!-- JavaScript compartilhado do projeto -->
   <script type="module" src="assets/js/main.js"></script>
 
-  <!-- Carregamento da HU01 -->
-  <script src="assets/js/carregar-tela.js"></script>
+  <!-- JavaScript responsável por abrir a HU01 -->
+  <script type="module" src="assets/js/carregar-tela.js"></script>
 </body>
 </html>
