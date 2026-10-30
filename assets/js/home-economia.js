@@ -1,11 +1,11 @@
 import { buscarCliente, buscarFaturasDoCliente } from './api.js';
-import { resumirEconomia, formatarMoeda, formatarMes, formatarData, nomeMes } from './economia.js';
+import { resumirEconomia, formatarMoeda, formatarMes, formatarData, nomeMes, linkTela } from './economia.js';
 
 // Cliente exibido quando a URL não informa ?cliente=ID (ver pagina-economia.js).
 const CLIENTE_PADRAO = 4;
 
 const clienteId = Number(new URLSearchParams(location.search).get('cliente')) || CLIENTE_PADRAO;
-const linkDetalhes = `economia.html?cliente=${clienteId}`;
+const linkDetalhes = linkTela('economia', clienteId);
 const area = document.querySelector('#home-economia');
 
 // '2026-09-10' → '10/09'

@@ -1,12 +1,12 @@
 import { buscarCliente, buscarFaturasDoCliente } from './api.js';
-import { resumirEconomia, formatarMoeda, formatarMes, formatarData } from './economia.js';
+import { resumirEconomia, formatarMoeda, formatarMes, formatarData, linkTela } from './economia.js';
 
 // Cliente exibido quando a URL não informa ?cliente=ID.
 // Ana Paula (4) tem faturas pagas; Marina (1) mostra o estado sem economia.
 const CLIENTE_PADRAO = 4;
 
-// TODO: apontar para a tela da HU01/HU03 quando ela existir.
-const LINK_PRIMEIRA_FATURA = '../index.html';
+// O index.html abre a fatura da HU01.
+const LINK_PRIMEIRA_FATURA = 'index.html';
 
 // Altura da maior barra do gráfico, em px (mockup: R$ 61,90 → 98px).
 const ALTURA_MAXIMA_BARRA = 98;
@@ -14,12 +14,12 @@ const ALTURA_MAXIMA_BARRA = 98;
 const CHECK = '<svg aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="3"><path d="M5 12l5 5 9-10"/></svg>';
 
 const clienteId = Number(new URLSearchParams(location.search).get('cliente')) || CLIENTE_PADRAO;
-const linkCalculo = `economia-calculo.html?cliente=${clienteId}`;
+const linkCalculo = linkTela('calculo', clienteId);
 const conteudo = document.querySelector('#conteudo-economia');
 
 // Mantém o mesmo cliente ao voltar para o início da HU04.
 document.querySelectorAll('.link-inicio').forEach((link) => {
-  link.href = `economia-inicio.html?cliente=${clienteId}`;
+  link.href = linkTela('inicio', clienteId);
 });
 
 let meses = [];
@@ -116,7 +116,7 @@ function renderizarVazio(faturas) {
   conteudo.classList.add('vazio');
   conteudo.innerHTML = `
     <section class="estado-vazio">
-      <div class="selo-bulbe"><img src="../assets/img/icone-bulbe.png" alt=""></div>
+      <div class="selo-bulbe"><img src="assets/img/icone-bulbe.png" alt=""></div>
       <h2>Sua economia aparece aqui em breve</h2>
       <p>Assim que você pagar sua primeira fatura da Bulbe, vamos mostrar quanto você economizou na conta de energia.</p>
     </section>

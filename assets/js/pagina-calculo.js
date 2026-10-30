@@ -1,5 +1,5 @@
 import { buscarCliente, buscarFaturasDoCliente } from './api.js';
-import { resumirEconomia, formatarMoeda, nomeMes } from './economia.js';
+import { resumirEconomia, formatarMoeda, nomeMes, linkTela } from './economia.js';
 
 const CLIENTE_PADRAO = 4;
 
@@ -7,10 +7,7 @@ const clienteId = Number(new URLSearchParams(location.search).get('cliente')) ||
 
 // Mantém o mesmo cliente ao voltar para a tela anterior.
 document.querySelectorAll('.link-economia').forEach((link) => {
-  link.href = `economia.html?cliente=${clienteId}`;
-});
-document.querySelectorAll('.link-inicio').forEach((link) => {
-  link.href = `economia-inicio.html?cliente=${clienteId}`;
+  link.href = linkTela('economia', clienteId);
 });
 
 // 214.6 → '214,60' (sem o "R$", para caber dentro dos parênteses)

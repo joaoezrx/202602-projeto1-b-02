@@ -9,6 +9,11 @@ const MESES = [
 
 const moeda = new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' });
 
+// As telas da HU04 abrem dentro do template, pelo index.html.
+export function linkTela(tela, clienteId) {
+  return `index.html?hu=04&tela=${tela}&cliente=${clienteId}`;
+}
+
 // Valores ausentes (null) aparecem como "Sem valor" em vez de "R$ NaN".
 export function formatarMoeda(valor) {
   return valor === null ? 'Sem valor' : moeda.format(valor);
