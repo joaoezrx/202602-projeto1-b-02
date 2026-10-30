@@ -3,61 +3,83 @@
 
 <div class="pagina-hu01">
 
-  <!-- Cartão principal -->
+  <!-- Cartão principal da fatura -->
   <section class="cartao-fatura">
-    <div class="linha-fatura">
+
+    <div class="linha-fatura topo-fatura">
       <strong>Janeiro/26</strong>
-      <span>✓ paga</span>
+      <span class="status-pagamento">✓ paga</span>
     </div>
 
-    <p>Paga dia <strong>15 de fevereiro</strong></p>
-    <p>De <del>R$ 475,97</del> por</p>
-
-    <div class="linha-fatura">
-      <h1>R$ 420,14</h1>
-      <span>392 kWh ⚡</span>
-    </div>
-
-    <p class="faixa-desconto">
-      Desconto Bulbe: <strong>R$ 55,83</strong>
+    <p class="data-pagamento">
+      Paga dia <strong>15 de fevereiro</strong>
     </p>
+
+    <p class="valor-anterior">
+      De <del>R$ 475,97</del> por
+    </p>
+
+    <div class="linha-fatura linha-valor">
+      <h1>R$ 420,14</h1>
+      <span class="consumo-fatura">
+        392 kWh <span class="raio">⚡</span>
+      </span>
+    </div>
+
+    <div class="faixa-desconto">
+      Desconto Bulbe: <strong>R$ 55,83</strong>
+    </div>
+
   </section>
 
-  <!-- Destaque da economia -->
+  <!-- Cartão de economia -->
   <section class="economia-fatura">
-    <div class="icone-economia" aria-hidden="true">🌿</div>
 
-    <div>
+    <div class="icone-economia" aria-hidden="true">
+      <svg viewBox="0 0 24 24" width="25" height="25"
+           fill="none" stroke="#00a86b" stroke-width="1.8"
+           stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 4c-9 0-15 4-15 11a5 5 0 0 0 5 5c7 0 11-6 10-16Z"/>
+        <path d="M5 20c3-5 7-8 12-11"/>
+      </svg>
+    </div>
+
+    <div class="texto-economia">
       <h2>Você economizou R$ 55,83</h2>
       <p>
-        Com a Bulbe, sua energia é mais leve
-        para o seu bolso e para o planeta.
+        Com a Bulbe, sua energia é mais leve para o
+        seu bolso e para o planeta.
       </p>
     </div>
+
   </section>
 
-  <!-- Detalhes da fatura -->
+  <!-- Detalhamento da fatura -->
   <section class="detalhes-fatura">
 
+    <!-- Consumo -->
     <details open>
       <summary>
-        <span>
+        <span class="titulo-detalhe">
           <strong>1. O que você consumiu</strong>
           <b>R$ 372,30</b>
         </span>
       </summary>
 
-      <div class="linha-detalhe">
-        <span>Parte da Cemig (distribuição)</span>
-        <span>50 kWh · R$ 55,92</span>
-      </div>
+      <div class="conteudo-detalhe">
+        <div class="linha-detalhe">
+          <span>Parte da Cemig (distribuição)</span>
+          <span>50 kWh · R$ 55,92</span>
+        </div>
 
-      <div class="linha-detalhe">
-        <span>Energia Bulbe</span>
-        <strong>342 kWh · R$ 316,38</strong>
+        <div class="linha-detalhe">
+          <span>Energia Bulbe</span>
+          <strong>342 kWh · R$ 316,38</strong>
+        </div>
       </div>
     </details>
 
+    <!-- Desconto -->
     <div class="bloco-desconto">
       <div>
         <strong>2. Quanto descontamos</strong>
@@ -67,41 +89,56 @@
       <strong class="valor-desconto">−R$ 55,83</strong>
     </div>
 
+    <!-- Taxas -->
     <details open>
       <summary>
-        <span>
+        <span class="titulo-detalhe">
           <strong>3. Taxas obrigatórias</strong>
           <b>R$ 47,84</b>
         </span>
       </summary>
 
-      <p class="explicacao-taxas">
-        ⓘ Impostos e encargos como PIS/COFINS,
-        cobrados por lei em toda conta de luz.
-        Não entram no desconto.
-      </p>
+      <div class="conteudo-detalhe">
+        <p class="explicacao-taxas">
+          <span class="icone-info">ⓘ</span>
+          Impostos e encargos como PIS/COFINS,
+          cobrados por lei em toda conta de luz.
+          Não entram no desconto.
+        </p>
+      </div>
     </details>
 
   </section>
 
-  <!-- Resumo final -->
+  <!-- Resumo da fatura -->
   <section class="resumo-final">
-    <p>
+
+    <p class="texto-resumo">
       <strong>Em resumo:</strong> você usou 392 kWh.
-      Sem a Bulbe pagaria R$ 475,97;
-      com o desconto, pagou R$ 420,14.
+      Sem a Bulbe pagaria R$ 475,97; com o desconto,
+      pagou R$ 420,14.
     </p>
 
-    <div class="linha-fatura">
+    <div class="linha-fatura total-fatura">
       <strong>Valor total</strong>
-      <strong>R$ 420,14</strong>
+
+      <div class="valores-total">
+        <del>R$ 475,97</del>
+        <strong>R$ 420,14</strong>
+      </div>
     </div>
 
-    <a href="#">Ver fatura completa (PDF)</a>
-  </section>
-
-    <button type="button" data-hu01-destino="calculo">
-      Entenda como calculamos sua fatura →
+    <!-- Navegação para a Tela B -->
+    <button
+      class="botao-calculo"
+      type="button"
+      data-hu01-destino="calculo"
+    >
+      Entenda como calculamos sua fatura
+      <span aria-hidden="true">→</span>
     </button>
 
-  </div>
+  </section>
+
+</div>
+  

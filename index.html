@@ -7,48 +7,39 @@
 
   <title>Bulbe | Squad B-02</title>
 
-  <!-- CSS padrão compartilhado -->
+  <!-- CSS global compartilhado -->
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
   <div class="app">
 
-    <!-- Cabeçalho padrão da Bulbe -->
+    <!-- Cabeçalho padrão do projeto -->
     <header class="cabecalho">
-      <button class="menu" type="button" aria-label="Abrir menu">
-        ☰
-      </button>
-
-      <div class="logo">bulbe</div>
-
-      <div class="acoes">
-        <button type="button" aria-label="Notificações">
-          ♧
-        </button>
-
-        <button class="perfil" type="button" aria-label="Perfil">
-          👤
-        </button>
-      </div>
+      <img
+        class="imagem-cabecalho"
+        src="assets/img/header.svg"
+        alt="Bulbe - Menu, notificações e perfil"
+      >
     </header>
 
-    <!-- Área central onde as telas serão carregadas -->
-    <main class="conteudo" id="conteudo-principal">
-    </main>
+    <!-- Área central das telas -->
+    <main class="conteudo" id="conteudo-principal"></main>
 
-    <!-- Navegação inferior compartilhada -->
+    <!-- Navegação inferior -->
     <nav class="navegacao" aria-label="Navegação principal">
-      <a href="#" class="ativo">Conexão</a>
-      <a href="#">Indicações</a>
+      <a href="#" class="ativo" aria-label="Conexão">
+        <img src="assets/img/conexao.svg" alt="Conexão">
+      </a>
+
+      <a href="#" aria-label="Indicações">
+        <img src="assets/img/indicacoes.svg" alt="Indicações">
+      </a>
     </nav>
 
   </div>
 
-  <!-- JavaScript compartilhado do projeto -->
   <script type="module" src="assets/js/main.js"></script>
-
-  <!-- JavaScript responsável por abrir a HU01 -->
   <script type="module" src="assets/js/carregar-tela.js"></script>
 </body>
 </html>

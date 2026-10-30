@@ -6,10 +6,12 @@ const telasHU01 = {
     html: "pages/hu01-resumo.html",
     css: "assets/css/hu01.css"
   },
+
   calculo: {
     html: "pages/hu01-calculo.html",
     css: "assets/css/hu01-calculo.css"
   },
+
   duvidas: {
     html: "pages/hu01-duvidas.html",
     css: "assets/css/hu01-duvidas.css"
@@ -18,7 +20,7 @@ const telasHU01 = {
 
 export async function abrirTelaHU01(tela = "resumo") {
   const configuracao = telasHU01[tela];
-  const conteudo = document.querySelector("main.conteudo");
+  const conteudo = document.querySelector("#conteudo-principal");
 
   if (!configuracao || !conteudo) {
     console.error("Tela da HU01 não encontrada:", tela);
@@ -54,7 +56,7 @@ export async function abrirTelaHU01(tela = "resumo") {
   }
 }
 
-/* Navegação pelos botões e links da HU01 */
+/* Navegação entre as telas */
 
 document.addEventListener("click", (evento) => {
   const botao = evento.target.closest("[data-hu01-destino]");
@@ -63,6 +65,5 @@ document.addEventListener("click", (evento) => {
 
   evento.preventDefault();
 
-  const destino = botao.dataset.hu01Destino;
-  abrirTelaHU01(destino);
+  abrirTelaHU01(botao.dataset.hu01Destino);
 });
