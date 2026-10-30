@@ -1,20 +1,32 @@
-import { buscarClientes } from './api.js';
+
+import { buscarClientes } from "./api.js";
 
 const STATUS = {
-  aguardando_qualificacao: 'Aguardando qualificação',
-  em_conexao: 'Em conexão',
-  conectado: 'Conectado'
+  aguardando_qualificacao: "Aguardando qualificação",
+  em_conexao: "Em conexão",
+  conectado: "Conectado"
 };
 
 async function iniciar() {
-  const lista = document.querySelector('#lista-clientes');
+  const lista = document.querySelector("#lista-clientes");
+
+  // Só executa se a lista existir nesta página
+  if (!lista) return;
+
   try {
     const clientes = await buscarClientes();
+
     lista.innerHTML = clientes
-      .map((c) => `<li><strong>${c.nome}</strong> · ${c.cidade} · ${STATUS[c.status] ?? c.status}</li>`)
-      .join('');
+      .map(
+        (c) =>
+          `<li><strong>${c.nome}</strong> · ${c.cidade} · ${STATUS[c.status] ?? c.status}</li>`
+      )
+      .join("");
+
   } catch (erro) {
-    lista.innerHTML = '<li>Não foi possível carregar os dados. O projeto está aberto pelo Live Server?</li>';
+    lista.innerHTML =
+      "<li>Não foi possível carregar os dados. O projeto está aberto pelo Live Server?</li>";
+
     console.error(erro);
   }
 }
