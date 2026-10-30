@@ -1,170 +1,235 @@
 
+/* =========================================
+   HU01 - TELA B
+   DETALHAMENTO DA FATURA
+   ========================================= */
+
 .hu01-calculo {
-  background: #fff;
-  color: #30343b;
+  box-sizing: border-box;
+  width: 100%;
   min-height: 100%;
-  padding: 22px 16px 32px;
+  padding: 16px 16px 24px;
+  background: #ffffff;
+  color: #343942;
   font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 
 .hu01-calculo * {
   box-sizing: border-box;
 }
 
-.hu01-titulo h1 {
+/* CABEÇALHO DO CONTEÚDO */
+
+.hu01-calculo-cabecalho {
+  margin-bottom: 17px;
+}
+
+.hu01-calculo-cabecalho h1 {
   color: #10069f;
-  font-size: 22px;
-  line-height: 1.25;
-  margin: 0 0 8px;
+  font-size: 17px;
+  line-height: 1.3;
+  font-weight: 700;
+  letter-spacing: -0.35px;
+  margin: 0 0 10px;
 }
 
-.hu01-titulo p {
-  color: #68717b;
-  font-size: 13px;
-  line-height: 1.5;
-  margin-bottom: 22px;
-}
-
-.hu01-consumo,
-.hu01-composicao,
-.hu01-comparacao {
-  border: 1px solid #e4e8ed;
-  border-radius: 12px;
-  padding: 16px;
-  margin-bottom: 16px;
-  background: #fff;
-}
-
-.hu01-consumo > span {
-  display: block;
-  font-size: 12px;
-  color: #68717b;
-}
-
-.hu01-consumo > strong {
-  display: block;
-  font-size: 27px;
-  color: #10069f;
-  margin: 7px 0 15px;
-}
-
-.hu01-barra-consumo {
-  display: flex;
-  height: 13px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #eee;
-}
-
-.hu01-parte-cemig {
-  width: 12.76%;
-  background: #8c93a3;
-}
-
-.hu01-parte-bulbe {
-  width: 87.24%;
-  background: #10069f;
-}
-
-.hu01-legenda {
-  display: flex;
-  justify-content: space-between;
-  gap: 8px;
-  margin-top: 12px;
+.hu01-calculo-cabecalho p {
+  color: #9299a6;
   font-size: 11px;
-}
-
-.hu01-legenda span:first-child {
-  color: #8c93a3;
-}
-
-.hu01-legenda span:last-child {
-  color: #10069f;
-}
-
-.hu01-composicao h2,
-.hu01-comparacao h2 {
-  font-size: 16px;
-  margin: 0 0 14px;
-}
-
-.hu01-linha-valor {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  gap: 10px;
-  padding: 14px 0;
-  border-bottom: 1px solid #eceff2;
-}
-
-.hu01-linha-valor:last-child {
-  border-bottom: none;
-}
-
-.hu01-linha-valor strong {
-  font-size: 13px;
-}
-
-.hu01-linha-valor > strong {
-  white-space: nowrap;
-}
-
-.hu01-linha-valor p {
-  color: #68717b;
-  font-size: 11px;
-  margin: 5px 0 0;
-}
-
-.hu01-linha-verde > strong {
-  color: #087449;
-}
-
-.hu01-total-calculo {
-  background: #10069f;
-  border-radius: 12px;
-  padding: 20px 16px;
-  color: #fff;
-  text-align: center;
-  margin-bottom: 16px;
-}
-
-.hu01-total-calculo span {
-  display: block;
-  font-size: 13px;
-}
-
-.hu01-total-calculo strong {
-  display: block;
-  font-size: 30px;
-  margin: 10px 0;
-}
-
-.hu01-total-calculo p {
-  font-size: 12px;
+  line-height: 1.4;
   margin: 0;
 }
 
-.hu01-comparacao {
-  background: #effaf5;
-  border-color: #cfe8db;
+/* GRÁFICO SEGMENTADO */
+
+.hu01-calculo-grafico {
+  margin-bottom: 12px;
 }
 
-.hu01-comparacao h2 {
-  color: #087449;
+.hu01-calculo-barra {
+  display: flex;
+  width: 100%;
+  height: 20px;
+  overflow: hidden;
+  background: #e1e4e5;
 }
 
-.hu01-comparacao p {
-  font-size: 12px;
-  line-height: 1.6;
-  margin: 8px 0;
-}
-
-.hu01-link-duvidas {
+.hu01-calculo-barra span {
   display: block;
+  height: 100%;
+}
+
+.hu01-barra-energia {
+  width: 66%;
+  background: #f5a133;
+}
+
+.hu01-barra-desconto {
+  width: 12%;
+  background: #10069f;
+}
+
+.hu01-barra-taxas {
+  width: 10%;
+  background: #34c36e;
+}
+
+.hu01-barra-restante {
+  width: 12%;
+  background: #e1e4e5;
+}
+
+.hu01-calculo-grafico p {
+  color: #9198a3;
+  font-size: 10px;
+  line-height: 1.4;
+  margin: 7px 0 0;
+}
+
+/* LISTA DE VALORES */
+
+.hu01-calculo-detalhamento {
+  width: 100%;
+}
+
+.hu01-calculo-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 65px;
+  padding: 13px 2px;
+  border-bottom: 1px solid #eeeeef;
+}
+
+/* MARCADORES COLORIDOS */
+
+.hu01-calculo-marcador {
+  display: block;
+  width: 11px;
+  height: 11px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.marcador-laranja {
+  background: #f5a133;
+}
+
+.marcador-azul {
+  background: #10069f;
+}
+
+.marcador-verde {
+  background: #34c36e;
+}
+
+/* DESCRIÇÕES */
+
+.hu01-calculo-descricao {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.hu01-calculo-descricao strong {
+  color: #55585d;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.hu01-calculo-descricao span {
+  color: #9299a3;
+  font-size: 10px;
+  line-height: 1.35;
+}
+
+/* VALORES */
+
+.hu01-calculo-valor {
+  color: #464b53;
+  font-size: 12px;
+  font-weight: 700;
+  white-space: nowrap;
+  text-align: right;
+}
+
+.hu01-calculo-valor.valor-azul {
   color: #10069f;
+}
+
+/* TOTAL */
+
+.hu01-calculo-total {
+  margin-top: 4px;
+  padding-top: 18px;
+  border-bottom: none;
+}
+
+.marcador-total {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #10069f;
+  color: #ffffff;
   font-size: 13px;
   font-weight: bold;
+}
+
+.hu01-calculo-total .hu01-calculo-descricao strong {
+  font-size: 13px;
+}
+
+.hu01-calculo-valor.valor-total {
+  color: #10069f;
+  font-size: 17px;
+  font-weight: 800;
+}
+
+/* LINK DE DÚVIDAS */
+
+.hu01-calculo-duvidas {
+  display: block;
+  width: fit-content;
+  max-width: 100%;
+  margin: auto auto 0;
+  padding: 36px 0 8px;
+  color: #10069f;
+  font-size: 11px;
   text-align: center;
-  text-decoration: none;
-  padding: 16px 8px;
+  text-decoration: underline;
+  font-weight: 400;
+}
+
+.hu01-calculo-duvidas:hover {
+  color: #08046e;
+}
+
+/* TELAS MENORES */
+
+@media (max-width: 360px) {
+  .hu01-calculo {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .hu01-calculo-cabecalho h1 {
+    font-size: 16px;
+  }
+
+  .hu01-calculo-item {
+    gap: 8px;
+  }
+
+  .hu01-calculo-descricao strong,
+  .hu01-calculo-valor {
+    font-size: 11px;
+  }
 }
