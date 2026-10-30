@@ -4,17 +4,17 @@
 const telasHU01 = {
   resumo: {
     html: "pages/hu01-resumo.html",
-    css: "pages/css/hu01.css"
+    css: "assets/css/hu01.css"
   },
 
   calculo: {
     html: "pages/hu01-calculo.html",
-    css: "pages/css/hu01-calculo.css"
+    css: "assets/css/hu01-calculo.css"
   },
 
   duvidas: {
     html: "pages/hu01-duvidas.html",
-    css: "pages/css/hu01-duvidas.css"
+    css: "assets/css/hu01-duvidas.css"
   }
 };
 
