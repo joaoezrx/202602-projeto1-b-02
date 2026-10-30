@@ -1,64 +1,71 @@
 
 <section class="hu01-calculo">
-  <div class="hu01-titulo">
+
+  <header class="hu01-calculo-cabecalho">
     <h1>Como chegamos em R$ 420,14</h1>
-    <p>Entenda de forma simples os valores da sua fatura.</p>
+    <p>Fatura de janeiro/26 · 392 kWh</p>
+  </header>
+
+  <div class="hu01-calculo-grafico">
+    <div class="hu01-calculo-barra" role="img" aria-label="Composição ilustrativa da fatura: energia consumida, desconto Bulbe, taxas e parte que você deixou de pagar">
+      <span class="hu01-barra-energia"></span>
+      <span class="hu01-barra-desconto"></span>
+      <span class="hu01-barra-taxas"></span>
+      <span class="hu01-barra-restante"></span>
+    </div>
+
+    <p>Barra: consumo, desconto, taxas e a parte que você deixou de pagar.</p>
   </div>
 
-  <div class="hu01-consumo">
-    <span>Seu consumo em janeiro/26</span>
-    <strong>392 kWh</strong>
-    <div class="hu01-barra-consumo">
-      <span class="hu01-parte-cemig"></span>
-      <span class="hu01-parte-bulbe"></span>
-    </div>
-    <div class="hu01-legenda">
-      <span>● Cemig: 50 kWh</span>
-      <span>● Bulbe: 342 kWh</span>
-    </div>
-  </div>
+  <div class="hu01-calculo-detalhamento">
 
-  <section class="hu01-composicao">
-    <h2>Entenda o cálculo</h2>
+    <div class="hu01-calculo-item">
+      <span class="hu01-calculo-marcador marcador-laranja"></span>
 
-    <div class="hu01-linha-valor">
-      <div>
-        <strong>Energia consumida</strong>
-        <p>Valor antes do desconto</p>
+      <div class="hu01-calculo-descricao">
+        <strong>Energia que você usou</strong>
+        <span>Cemig 50 kWh + Bulbe 342 kWh</span>
       </div>
-      <strong>R$ 428,13</strong>
+
+      <strong class="hu01-calculo-valor">R$ 428,13</strong>
     </div>
 
-    <div class="hu01-linha-valor hu01-linha-verde">
-      <div>
+    <div class="hu01-calculo-item">
+      <span class="hu01-calculo-marcador marcador-azul"></span>
+
+      <div class="hu01-calculo-descricao">
         <strong>Desconto Bulbe</strong>
-        <p>Economia aplicada à sua conta</p>
+        <span>Automático, sobre a energia Bulbe</span>
       </div>
-      <strong>− R$ 55,83</strong>
+
+      <strong class="hu01-calculo-valor valor-azul">R$ 55,83</strong>
     </div>
 
-    <div class="hu01-linha-valor">
-      <div>
+    <div class="hu01-calculo-item">
+      <span class="hu01-calculo-marcador marcador-verde"></span>
+
+      <div class="hu01-calculo-descricao">
         <strong>Taxas obrigatórias</strong>
-        <p>Impostos e encargos</p>
+        <span>Impostos por lei, como PIS/COFINS</span>
       </div>
-      <strong>R$ 47,84</strong>
+
+      <strong class="hu01-calculo-valor">R$ 47,84</strong>
     </div>
-  </section>
 
-  <section class="hu01-total-calculo">
-    <span>Valor final da fatura</span>
-    <strong>R$ 420,14</strong>
-    <p>Esse é o valor que você pagou.</p>
-  </section>
+    <div class="hu01-calculo-item hu01-calculo-total">
+      <span class="hu01-calculo-marcador marcador-total">=</span>
 
-  <section class="hu01-comparacao">
-    <h2>Olha só sua economia!</h2>
-    <p>Sem a Bulbe, essa conta seria de <strong>R$ 475,97</strong>.</p>
-    <p>Com a Bulbe, você economizou <strong>R$ 55,83</strong>.</p>
-  </section>
+      <div class="hu01-calculo-descricao">
+        <strong>Você paga</strong>
+      </div>
 
-  <a class="hu01-link-duvidas" href="#" data-hu01-destino="duvidas">
-    Dúvidas sobre esta fatura →
+      <strong class="hu01-calculo-valor valor-total">R$ 420,14</strong>
+    </div>
+
+  </div>
+
+  <a class="hu01-calculo-duvidas" href="#" data-hu01-destino="duvidas">
+    Dúvidas sobre esta fatura
   </a>
+
 </section>
