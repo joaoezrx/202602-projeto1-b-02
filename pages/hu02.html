@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <title>Bulbe Energia - Raio-X da Fatura</title>
+    <!-- Link para o CSS na pasta css/ -->
+    <link rel="stylesheet" href="hu02.css">
+    <!-- Fonte Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Barra de Simulação de Dispositivos (para testes rápidos de responsividade) -->
+    <div class="device-simulator-bar">
+        <span class="sim-label">Modo de Visualização:</span>
+        <div class="sim-buttons">
+            <button class="sim-btn active" data-viewport="auto">Automático (Tela Cheia / Responsivo)</button>
+            <button class="sim-btn" data-viewport="375x667">iPhone SE (375×667)</button>
+            <button class="sim-btn" data-viewport="393x852">iPhone 15 Pro (393×852)</button>
+            <button class="sim-btn" data-viewport="768x1024">Tablet / iPad (768×1024)</button>
+            <button class="sim-btn" data-viewport="1280x800">Desktop (1280×800)</button>
+        </div>
+        <span id="viewport-dimensions" class="sim-dims">Responsivo</span>
+    </div>
+
+    <!-- Container Principal que se adapta automaticamente ou simula um frame -->
+    <div id="app-wrapper" class="app-wrapper auto-mode">
+        
+        <!-- HEADER BULBE (Template Azul Escuro no Mobile / Adaptativo no Desktop) -->
+        <header class="bulbe-header">
+            <div class="header-container">
+                <button class="icon-btn menu-btn" id="btn-menu" aria-label="Abrir Menu">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round">
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </button>
+
+                <!-- Logo Bulbe com raios coloridos -->
+                <div class="brand-area">
+                    <div class="bulbe-logo">
+                        <span class="logo-text">bulbe</span>
+                        <div class="logo-rays">
+                            <span class="ray ray-green"></span>
+                            <span class="ray ray-blue"></span>
+                            <span class="ray ray-orange"></span>
+                        </div>
+                    </div>
+                    <!-- Breadcrumb visível em telas maiores (Tablet/Desktop) -->
+                    <nav class="desktop-breadcrumb" aria-label="Breadcrumb">
+                        <span class="divider">|</span>
+                        <span class="crumb-muted">Painel do Cliente</span>
+                        <span class="crumb-arrow">&rsaquo;</span>
+                        <span class="crumb-active">Raio-X da Fatura</span>
+                    </nav>
+                </div>
+
+                <!-- Ações Direita: Seletor de Mês (Desktop), Sino e Avatar -->
+                <div class="header-actions">
+                    <div class="month-selector-wrapper desktop-only">
+                        <label for="month-select-desktop">Mês:</label>
+                        <select id="month-select-desktop" class="month-select">
+                            <option value="out">Outubro / 2026</option>
+                            <option value="set">Setembro / 2026</option>
+                            <option value="ago">Agosto / 2026</option>
+                        </select>
+                    </div>
+
+                    <button class="icon-btn notif-btn" id="btn-notif" aria-label="Notificações">
+                        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+                            <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+                        </svg>
+                        <span class="notif-dot"></span>
+                    </button>
+
+                    <div class="user-avatar" id="btn-profile" title="Perfil do Cliente">
+                        <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <circle cx="20" cy="20" r="20" fill="#E2E8F0"/>
+                            <circle cx="20" cy="15" r="7" fill="#64748B"/>
+                            <path d="M8 35C8 28.9249 12.9249 24 19 24H21C27.0751 24 32 28.9249 32 35V40H8V35Z" fill="#475569"/>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- CONTEÚDO PRINCIPAL (Scrollável e Responsivo) -->
+        <main class="main-content">
+            <div class="content-container">
+                
+                <!-- Subheader Mobile (Título da página + Seletor de Mês compacto) -->
+                <div class="mobile-subheader">
+                    <h1 class="page-title">Raio-X da Fatura</h1>
+                    <select id="month-select-mobile" class="month-select-compact" aria-label="Selecionar mês">
+                        <option value="out">Out/2026</option>
+                        <option value="set">Set/2026</option>
+                        <option value="ago">Ago/2026</option>
+                    </select>
+                </div>
+
+                <!-- BANNER DE ECONOMIA -->
+                <section class="savings-card" aria-labelledby="savings-heading">
+                    <div class="savings-banner">
+                        <span class="savings-emoji" role="img" aria-label="Festa">🎉</span>
+                        <p id="savings-heading" class="savings-title">
+                            <span class="desktop-text">RESUMO DO MÊS: Você <strong>economizou <span id="val-economia">R$ 60,00</span></strong> (<span id="val-perc">15%</span> sobre a energia injetada)!</span>
+                            <span class="mobile-text">Economizou <strong id="val-economia-mob">R$ 60,00</strong>!</span>
+                        </p>
+                    </div>
+
+                    <!-- Barras Comparativas -->
+                    <div class="comparison-bars">
+                        <div class="bar-group">
+                            <div class="bar-label-row">
+                                <span class="bar-label">Conta Tradicional (Sem Bulbe): <strong id="val-tradicional">R$ 500,00</strong></span>
+                            </div>
+                            <div class="progress-track">
+                                <div class="progress-fill fill-gray" style="width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <div class="bar-group">
+                            <div class="bar-label-row">
+                                <span class="bar-label">
+                                    Seu Total Hoje (Com Bulbe): 
+                                    <strong id="val-total-breakdown" class="breakdown-inline">R$ 100,00 (Cemig) + R$ 340,00 (Bulbe) = R$ 440,00</strong>
+                                </span>
+                            </div>
+                            <div class="progress-track multi-bar">
+                                <div id="bar-cemig" class="progress-fill fill-green" style="width: 20%;" title="Cemig: R$ 100,00"></div>
+                                <div id="bar-bulbe" class="progress-fill fill-yellow" style="width: 68%;" title="Bulbe: R$ 340,00"></div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SEÇÃO COMPARATIVA: DUAS CONTAS (Empilhado no Mobile, Lado a Lado no Tablet/Desktop) -->
+                <section class="bills-comparison-section">
+                    <h2 class="section-heading">COMPARATIVO LADO A LADO: ENTENDA SUAS DUAS CONTAS</h2>
+
+                    <div class="bills-grid">
+                        
+                        <!-- CARD 1: CONTA DA DISTRIBUIDORA (CEMIG) -->
+                        <article class="bill-card">
+                            <div class="bill-card-header">
+                                <div class="bill-title-row">
+                                    <span class="bill-icon" role="img" aria-label="Distribuidora">🏢</span>
+                                    <h3 class="bill-title">1. CONTA DA DISTRIBUIDORA (Cemig)</h3>
+                                </div>
+                                <div class="bill-meta">
+                                    <span id="status-cemig" class="badge badge-paid">[ Paga ]</span>
+                                    <span class="due-date">- Venc. <span id="venc-cemig">10/10</span></span>
+                                </div>
+                            </div>
+
+                            <ul class="bill-items">
+                                <li class="bill-item">
+                                    <span class="item-name">
+                                        <span class="dot dot-gray"></span>
+                                        Consumo na Rede (<span id="kwh-rede">500</span> kWh):
+                                    </span>
+                                    <span id="val-consumo-rede" class="item-value">R$ 450,00</span>
+                                </li>
+                                <li class="bill-item">
+                                    <span class="item-name">
+                                        <span class="item-icon">🔔</span>
+                                        Taxa Mínima + Ilum. Púb.:
+                                    </span>
+                                    <span id="val-taxas" class="item-value">+R$ 50,00</span>
+                                </li>
+                                <li class="bill-item highlight-deduction">
+                                    <span class="item-name">
+                                        <span class="item-icon">⚡</span>
+                                        <span>(–) Crédito Solar Bulbe:<br><small class="sub-note">Abatido na fatura</small></span>
+                                    </span>
+                                    <span id="val-credito-cemig" class="item-value text-deduction">-R$ 400,00</span>
+                                </li>
+                            </ul>
+
+                            <div class="bill-total-row">
+                                <span class="total-label">VALOR COBRADO PELA CEMIG:</span>
+                                <span id="val-final-cemig" class="total-value">R$ 100,00</span>
+                            </div>
+
+                            <div class="bill-actions">
+                                <button class="btn btn-outline" id="btn-ver-desconto">
+                                    <span>🔍</span> Ver onde o desconto aparece
+                                </button>
+                                <button class="btn btn-outline" id="btn-pdf-cemig">
+                                    <span>📄</span> Abrir PDF Original
+                                </button>
+                            </div>
+                        </article>
+
+                        <!-- CARD 2: ASSINATURA BULBE ENERGIA -->
+                        <article class="bill-card">
+                            <div class="bill-card-header">
+                                <div class="bill-title-row">
+                                    <span class="bill-icon" role="img" aria-label="Energia Solar">☀️</span>
+                                    <h3 class="bill-title">2. ASSINATURA BULBE ENERGIA</h3>
+                                </div>
+                                <div class="bill-meta">
+                                    <span id="status-bulbe" class="badge badge-open">[ Aberta ]</span>
+                                    <span class="due-date">- Venc. <span id="venc-bulbe">15/10</span></span>
+                                </div>
+                            </div>
+
+                            <ul class="bill-items">
+                                <li class="bill-item">
+                                    <span class="item-name">
+                                        <span class="dot dot-green"></span>
+                                        Energia Solar Enviada (<span id="kwh-solar">444</span> kWh):
+                                    </span>
+                                    <span id="val-energia-solar" class="item-value">R$ 400,00</span>
+                                </li>
+                                <li class="bill-item">
+                                    <span class="item-name">
+                                        <span class="item-icon">🏷️</span>
+                                        (–) Seu Desconto Bulbe (15%):
+                                    </span>
+                                    <span id="val-desconto-bulbe" class="item-value text-success">-R$ 60,00</span>
+                                </li>
+                            </ul>
+
+                            <div class="bill-total-row">
+                                <span class="total-label">VALOR COBRADO PELA BULBE:</span>
+                                <span id="val-final-bulbe" class="total-value">R$ 340,00</span>
+                            </div>
+
+                            <div class="bill-actions">
+                                <div class="action-row-split">
+                                    <button class="btn btn-primary-outline" id="btn-copiar-pix">
+                                        <span>📋</span> Copiar PIX
+                                    </button>
+                                    <button class="btn btn-primary-outline" id="btn-baixar-boleto">
+                                        <span>⬇️</span> Baixar Boleto
+                                    </button>
+                                </div>
+                                <button class="btn btn-outline btn-full" id="btn-detalhamento">
+                                    Detalhamento de Consumo
+                                </button>
+                            </div>
+                        </article>
+
+                    </div>
+                </section>
+
+                <!-- EXPLICATIVO DE RODAPÉ -->
+                <section class="explainer-box">
+                    <div class="explainer-icon">💡</div>
+                    <div class="explainer-text">
+                        <strong>Por que recebo duas contas?</strong>
+                        <p id="explainer-dynamic-text">A Cemig cobra taxas obrigatórias (R$ 100) e a Bulbe desconta R$ 400 e cobra R$ 340.</p>
+                    </div>
+                </section>
+
+            </div>
+        </main>
+
+        <!-- NAVEGAÇÃO INFERIOR (Padrão do Template Base Mobile da Bulbe) -->
+        <nav class="bottom-nav" aria-label="Navegação Principal Mobile">
+            <button class="nav-tab active" data-tab="conexao">
+                <div class="nav-icon-bulbe">
+                    <span class="e-char">e</span>
+                    <div class="mini-rays">
+                        <span class="m-ray m-green"></span>
+                        <span class="m-ray m-blue"></span>
+                        <span class="m-ray m-orange"></span>
+                    </div>
+                </div>
+                <span class="nav-label">Conexão</span>
+            </button>
+
+            <button class="nav-tab" data-tab="indicacoes">
+                <div class="nav-icon-svg">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="9" cy="7" r="4"></circle>
+                        <line x1="19" y1="8" x2="19" y2="14"></line>
+                        <line x1="22" y1="11" x2="16" y2="11"></line>
+                    </svg>
+                </div>
+                <span class="nav-label">Indicações</span>
+            </button>
+        </nav>
+
+    </div>
+
+    <!-- MODAL INTERATIVO (Para "Ver onde o desconto aparece" e "Detalhamento") -->
+    <div id="info-modal" class="modal-overlay" aria-hidden="true">
+        <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+            <div class="modal-header">
+                <h3 id="modal-title">Onde o desconto aparece?</h3>
+                <button id="modal-close" class="modal-close-btn" aria-label="Fechar">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body">
+                <!-- Preenchido via JS -->
+            </div>
+            <div class="modal-footer">
+                <button id="modal-ok-btn" class="btn btn-solid-blue">Entendi</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST DE NOTIFICAÇÃO (Para Copiar PIX, Boleto, etc.) -->
+    <div id="toast-notification" class="toast" role="status" aria-live="polite">
+        <span id="toast-message">Código PIX copiado com sucesso!</span>
+    </div>
+
+    <!-- Link para o JavaScript na pasta js/ -->
+    <script src="js/app.js"></script>
+</body>
+</html>
