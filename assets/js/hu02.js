@@ -168,14 +168,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const targetViewport = btn.getAttribute("data-viewport");
 
-            if (targetViewport === "auto") {
+            if (targetViewport === "auto") 
+            {
                 appWrapper.className = "app-wrapper auto-mode";
                 appWrapper.style.width = "";
                 appWrapper.style.height = "";
-            } else {
+            } else 
+            {
                 const [w, h] = targetViewport.split("x").map(Number);
                 appWrapper.className = "app-wrapper framed-mode";
-                if (w < 768) {
+                if (w < 768) 
+                {
                     appWrapper.classList.add("force-mobile");
                 }
                 appWrapper.style.width = `${w}px`;
@@ -199,7 +202,8 @@ document.addEventListener("DOMContentLoaded", () => {
         toastMsg.textContent = message;
         toastEl.classList.add("show");
         clearTimeout(toastTimeout);
-        toastTimeout = setTimeout(() => {
+        toastTimeout = setTimeout(() => 
+        {
             toastEl.classList.remove("show");
         }, 2800);
     }
