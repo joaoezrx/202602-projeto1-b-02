@@ -22,6 +22,9 @@
 
   font-family: "Poppins", sans-serif;
   color: var(--texto);
+  /* O fundo azul é da HU04; o template deixa o .app e o .conteudo brancos */
+  min-height: 100%;
+  background-color: var(--azul);
 }
 
 /* Em telefones, o app ocupa a tela inteira do aparelho em vez do tamanho fixo */
