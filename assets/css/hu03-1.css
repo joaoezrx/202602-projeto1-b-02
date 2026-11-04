@@ -57,23 +57,27 @@ img, svg { display: block; }
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  overflow: hidden;
 }
 
-.hf-logo {
-  display: flex;
-  align-items: center;
-  gap: 4px;
+.hf-icon-menu {
+  width: 22px;
+  height: 16px;
 }
 
-.hf-logo-word {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.3px;
+.hf-logo-img {
+  height: 18px;
+  width: auto;
 }
 
-.hf-logo-word--white {
-  color: #FFFFFF;
+.hf-logo-img--lg {
+  height: 22px;
+}
+
+.hf-avatar-img {
+  width: 18px;
+  height: 18px;
+  object-fit: contain;
 }
 
 /* content */
@@ -155,6 +159,11 @@ img, svg { display: block; }
   align-items: center;
   gap: 4px;
   padding: 10px 0 16px 0;
+}
+
+.hf-tab-icon {
+  width: 20px;
+  height: 20px;
 }
 
 .hf-tab span {
