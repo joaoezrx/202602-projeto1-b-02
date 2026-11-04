@@ -16,6 +16,11 @@ export function buscarClientes() {
   return lerJSON('clientes.json');
 }
 
+export async function buscarCliente(clienteId) {
+  const clientes = await buscarClientes();
+  return clientes.find((cliente) => cliente.id === clienteId);
+}
+
 export function buscarFaturas() {
   return lerJSON('faturas.json');
 }

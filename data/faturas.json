@@ -18,5 +18,44 @@
     "economia": 40.92,
     "status": "prevista",
     "pixCopiaECola": null
+  },
+  {
+    "id": 103,
+    "clienteId": 4,
+    "referencia": "2026-07",
+    "vencimento": "2026-07-10",
+    "vencimentoDistribuidora": "2026-07-15",
+    "valor": 192.8,
+    "valorDistribuidora": 41.5,
+    "valorSemBulbe": 282.5,
+    "economia": 48.2,
+    "status": "paga",
+    "pixCopiaECola": null
+  },
+  {
+    "id": 104,
+    "clienteId": 4,
+    "referencia": "2026-08",
+    "vencimento": "2026-08-10",
+    "vencimentoDistribuidora": "2026-08-15",
+    "valor": 247.6,
+    "valorDistribuidora": 43.2,
+    "valorSemBulbe": 352.7,
+    "economia": 61.9,
+    "status": "paga",
+    "pixCopiaECola": null
+  },
+  {
+    "id": 105,
+    "clienteId": 4,
+    "referencia": "2026-09",
+    "vencimento": "2026-09-10",
+    "vencimentoDistribuidora": "2026-09-15",
+    "valor": 214.6,
+    "valorDistribuidora": 42.1,
+    "valorSemBulbe": 310.35,
+    "economia": 53.65,
+    "status": "paga",
+    "pixCopiaECola": null
   }
 ]
