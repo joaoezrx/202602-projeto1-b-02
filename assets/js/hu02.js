@@ -194,6 +194,11 @@ document.addEventListener("DOMContentLoaded", () => {
         tab.addEventListener("click", () => {
             document.querySelectorAll(".nav-tab").forEach((t) => t.classList.remove("active"));
             tab.classList.add("active");
+            // Conexão volta para a home do app
+            if (tab.dataset.tab === "conexao") {
+                location.href = "../index.html";
+                return;
+            }
             showToast(`Aba: ${tab.dataset.tab === "conexao" ? "Conexão" : "Indicações"}`);
         });
     });

@@ -1,0 +1,67 @@
+/* ===== Home · Tela principal =====
+   Segue o template: fundo azul, saudação em branco e um card por HU.
+   Este arquivo só é carregado na home (assets/js/home.js). */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.home-app {
+  --azul: #0b078c;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda-selo: #ECECFA;
+
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 10px 18px 18px;
+  background-color: var(--azul);
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
+}
+
+.home-saudacao { color: white; }
+.home-ola { font-size: 14px; color: var(--claro-sobre-azul); }
+.home-titulo { font-size: 22px; font-weight: 600; line-height: 1.25; }
+
+.home-atalhos {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.home-card {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: white;
+  color: inherit;
+  text-decoration: none;
+}
+.home-card:focus-visible { outline: 3px solid var(--claro-sobre-azul); outline-offset: 2px; }
+
+.home-icone {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  background-color: var(--lavanda-selo);
+  color: var(--azul);
+}
+
+.home-texto {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.home-card-titulo { font-size: 15px; font-weight: 700; color: var(--azul); }
+.home-card-desc { font-size: 13px; line-height: 1.4; color: var(--texto-suave); }
+
+.home-seta { flex-shrink: 0; color: var(--texto-suave); }
