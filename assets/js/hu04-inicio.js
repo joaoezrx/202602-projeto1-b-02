@@ -1,7 +1,7 @@
 import { buscarCliente, buscarFaturasDoCliente } from './api.js';
-import { resumirEconomia, formatarMoeda, formatarMes, formatarData, nomeMes, linkTela } from './economia.js';
+import { resumirEconomia, formatarMoeda, formatarMes, formatarData, nomeMes, linkTela } from './hu04-util.js';
 
-// Cliente exibido quando a URL não informa ?cliente=ID (ver pagina-economia.js).
+// Cliente exibido quando a URL não informa ?cliente=ID (ver hu04-economia.js).
 const CLIENTE_PADRAO = 4;
 
 const clienteId = Number(new URLSearchParams(location.search).get('cliente')) || CLIENTE_PADRAO;

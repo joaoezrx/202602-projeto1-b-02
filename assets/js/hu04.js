@@ -1,9 +1,9 @@
 // HU04 — Abre as telas de economia na área central do template.
 
 const telasHU04 = {
-  inicio: { html: 'pages/economia-inicio.html', script: './home-economia.js' },
-  economia: { html: 'pages/economia.html', script: './pagina-economia.js' },
-  calculo: { html: 'pages/economia-calculo.html', script: './pagina-calculo.js' }
+  inicio: { html: 'pages/hu04-inicio.html', script: './hu04-inicio.js' },
+  economia: { html: 'pages/hu04-economia.html', script: './hu04-economia.js' },
+  calculo: { html: 'pages/hu04-calculo.html', script: './hu04-calculo.js' }
 };
 
 // Espera o CSS carregar para a tela não aparecer sem estilo.
@@ -11,7 +11,7 @@ function carregarEstilo() {
   return new Promise((resolve, reject) => {
     const estilo = document.createElement('link');
     estilo.rel = 'stylesheet';
-    estilo.href = 'assets/css/economia.css';
+    estilo.href = 'assets/css/hu04.css';
     estilo.onload = resolve;
     estilo.onerror = reject;
     document.head.appendChild(estilo);

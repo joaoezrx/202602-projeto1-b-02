@@ -57,16 +57,9 @@ input[type="checkbox"] { margin: 0; }
   gap: 4px;
 }
 
-.hf-logo-word {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.3px;
-}
-
-.hf-logo-word--navy {
-  color: var(--hf-navy);
-  font-size: 18px;
+.hf-logo-img {
+  height: 18px;
+  width: auto;
 }
 
 /* content */

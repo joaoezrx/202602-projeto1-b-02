@@ -1,5 +1,5 @@
 import { buscarCliente, buscarFaturasDoCliente } from './api.js';
-import { resumirEconomia, formatarMoeda, formatarMes, formatarData, linkTela } from './economia.js';
+import { resumirEconomia, formatarMoeda, formatarMes, formatarData, linkTela } from './hu04-util.js';
 
 // Cliente exibido quando a URL não informa ?cliente=ID.
 // Ana Paula (4) tem faturas pagas; Marina (1) mostra o estado sem economia.

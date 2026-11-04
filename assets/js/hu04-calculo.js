@@ -1,5 +1,5 @@
 import { buscarCliente, buscarFaturasDoCliente } from './api.js';
-import { resumirEconomia, formatarMoeda, nomeMes, linkTela } from './economia.js';
+import { resumirEconomia, formatarMoeda, nomeMes, linkTela } from './hu04-util.js';
 
 const CLIENTE_PADRAO = 4;
 
