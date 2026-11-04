@@ -1,10 +1,8 @@
 
 /* =========================================
    BULBE — SQUAD B-02
-   CSS GLOBAL — TEMPLATE COMPARTILHADO
+   CSS GLOBAL
    ========================================= */
-
-/* CONFIGURAÇÕES GERAIS */
 
 * {
   margin: 0;
@@ -18,7 +16,7 @@ body {
   color: #30343b;
 }
 
-/* TEMPLATE COMPARTILHADO */
+/* ESTRUTURA DO APLICATIVO */
 
 .app {
   width: 375px;
@@ -27,83 +25,73 @@ body {
   margin: 20px auto;
   display: flex;
   flex-direction: column;
-  background-color: #0b078c;
+  background-color: #ffffff;
   overflow: hidden;
 }
 
-/* ÁREA 1 — CABEÇALHO */
+/* CABEÇALHO PADRÃO DA BULBE */
 
 .cabecalho {
+  width: 100%;
   height: 70px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 20px;
-  color: white;
+  justify-content: center;
   background-color: #0b078c;
+  overflow: hidden;
 }
 
-.cabecalho button {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 24px;
-  cursor: pointer;
+.imagem-cabecalho {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
 }
 
-.logo {
-  font-size: 32px;
-  font-weight: bold;
-  letter-spacing: -2px;
-}
-
-.acoes {
-  display: flex;
-  align-items: center;
-  gap: 18px;
-}
-
-.cabecalho .perfil {
-  width: 34px;
-  height: 34px;
-  border-radius: 50%;
-  background-color: white;
-  font-size: 20px;
-}
-
-/* ÁREA 2 — CONTEÚDO PRINCIPAL */
+/* CONTEÚDO CENTRAL */
 
 .conteudo {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
-  background-color: #0b078c;
+  overflow-x: hidden;
+  background-color: #ffffff;
 }
 
-/* ÁREA 3 — NAVEGAÇÃO INFERIOR */
+/* NAVEGAÇÃO INFERIOR */
 
 .navegacao {
-  height: 58px;
+  height: 70px;
   flex-shrink: 0;
   display: flex;
   justify-content: space-around;
   align-items: center;
-  background-color: white;
+  background-color: #ffffff;
+  border-top: 1px solid #f0f0f0;
 }
 
 .navegacao a {
-  color: #b8c4d4;
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  font-size: 14px;
 }
 
-.navegacao a.ativo {
-  color: #0b078c;
-  font-weight: bold;
+.navegacao img {
+  width: auto;
+  height: 57px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
-/* RESPONSIVIDADE DO TEMPLATE */
+.navegacao a.ativo img {
+  height: 62px;
+}
+
+/* RESPONSIVIDADE */
 
 @media (max-width: 375px) {
   .app {

@@ -1,27 +1,27 @@
 
 /* =========================================
-   HU01 — RESUMO DA FATURA
-   CSS exclusivo do João
+   HU01 — TELA A: RESUMO DA FATURA
    ========================================= */
 
-/* CONTEÚDO CENTRAL DA HU01 */
+/* CONFIGURAÇÃO GERAL */
 
 .pagina-hu01 {
   width: 100%;
   min-height: 100%;
+  padding: 14px 14px 26px;
   background-color: #ffffff;
-  color: #30343b;
-  padding: 14px 14px 24px;
+  color: #171b38;
+  font-family: Arial, sans-serif;
 }
 
 /* CARTÃO PRINCIPAL */
 
 .pagina-hu01 .cartao-fatura {
-  border: 1px solid #dceee5;
-  border-radius: 12px;
+  background: #ffffff;
+  border: 1px solid #e5eee9;
+  border-radius: 15px;
+  padding: 15px 15px 0;
   overflow: hidden;
-  padding: 14px 15px 0;
-  background-color: #ffffff;
 }
 
 .pagina-hu01 .linha-fatura {
@@ -31,123 +31,134 @@
   gap: 10px;
 }
 
-.pagina-hu01 .cartao-fatura .linha-fatura:first-child {
+.pagina-hu01 .topo-fatura strong {
+  color: #10069f;
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.pagina-hu01 .status-pagamento {
+  background: #e8f8ef;
+  color: #008a57;
+  font-size: 11px;
+  padding: 5px 10px;
+  border-radius: 6px;
+}
+
+.pagina-hu01 .data-pagamento {
+  margin-top: 5px;
+  font-size: 11px;
+  color: #737b8b;
+}
+
+.pagina-hu01 .valor-anterior {
+  margin-top: 13px;
+  font-size: 11px;
+  color: #737b8b;
+}
+
+.pagina-hu01 .valor-anterior del {
+  color: #8c91a0;
+}
+
+.pagina-hu01 .linha-valor {
+  margin: 3px 0 12px;
+}
+
+.pagina-hu01 .linha-valor h1 {
+  font-size: 29px;
+  font-weight: 800;
+  letter-spacing: -1px;
+  color: #10069f;
+  line-height: 1.2;
+}
+
+.pagina-hu01 .consumo-fatura {
+  font-size: 11px;
+  color: #626b7a;
+  white-space: nowrap;
+}
+
+.pagina-hu01 .raio {
+  color: #f5a623;
   font-size: 14px;
 }
 
-.pagina-hu01 .cartao-fatura .linha-fatura:first-child span {
-  color: #087449;
-  background-color: #e8f7ef;
-  border-radius: 6px;
-  padding: 4px 8px;
-  font-size: 12px;
-}
-
-.pagina-hu01 .cartao-fatura p {
-  font-size: 12px;
-  color: #68717b;
-  margin: 6px 0;
-  line-height: 1.4;
-}
-
-.pagina-hu01 .cartao-fatura del {
-  color: #68717b;
-}
-
-.pagina-hu01 .cartao-fatura h1 {
-  color: #10069f;
-  font-size: 30px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  margin: 10px 0;
-}
-
-.pagina-hu01 .cartao-fatura .linha-fatura span {
-  font-size: 12px;
-}
-
-/* FAIXA AZUL DO DESCONTO */
+/* FAIXA AZUL */
 
 .pagina-hu01 .faixa-desconto {
-  background-color: #10069f;
-  color: #ffffff !important;
+  margin: 0 -15px;
+  padding: 13px 8px;
   text-align: center;
-  font-size: 13px !important;
-  padding: 13px;
-  margin: 14px -15px 0 !important;
+  background: #10069f;
+  color: #ffffff;
+  font-size: 12px;
 }
 
 .pagina-hu01 .faixa-desconto strong {
-  color: #ffffff;
+  font-weight: 700;
 }
 
 /* CARTÃO VERDE DE ECONOMIA */
 
 .pagina-hu01 .economia-fatura {
-  background-color: #effaf5;
-  border: 1px solid #cfe8db;
-  border-radius: 10px;
-  padding: 16px 12px;
-  margin: 18px 0 12px;
-
+  margin-top: 14px;
+  padding: 13px 12px;
   display: flex;
   align-items: center;
-  gap: 12px;
-  text-align: left;
-}
-
-.pagina-hu01 .economia-fatura h2 {
-  color: #087449;
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 7px;
-}
-
-.pagina-hu01 .economia-fatura p {
-  font-size: 12px;
-  color: #526a78;
-  line-height: 1.5;
+  gap: 10px;
+  background: #effaf5;
+  border: 1px solid #b9d8c8;
+  border-radius: 10px;
 }
 
 .pagina-hu01 .icone-economia {
-  width: 44px;
-  height: 44px;
+  width: 42px;
+  height: 42px;
   flex-shrink: 0;
+  border-radius: 50%;
+  background: #d8f7e8;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
-  background: #d9f7e8;
-  font-size: 24px;
 }
 
-/* DETALHAMENTO DA FATURA */
+.pagina-hu01 .texto-economia {
+  flex: 1;
+  min-width: 0;
+}
+
+.pagina-hu01 .economia-fatura h2 {
+  color: #008553;
+  font-size: 14px;
+  font-weight: 700;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+.pagina-hu01 .economia-fatura p {
+  font-size: 11px;
+  color: #596c77;
+  line-height: 1.4;
+}
+
+/* DETALHAMENTO */
 
 .pagina-hu01 .detalhes-fatura {
-  padding: 0 2px;
+  margin-top: 13px;
 }
-
-.pagina-hu01 .detalhes-fatura p {
-  color: #68717b;
-  font-size: 12px;
-  line-height: 1.5;
-  margin: 8px 0;
-}
-
-/* SEÇÕES EXPANSÍVEIS */
 
 .pagina-hu01 .detalhes-fatura details {
-  padding: 14px 2px;
-  border-bottom: 1px solid #e8e8e8;
+  padding: 12px 2px;
+  border-bottom: 1px solid #e8e9ed;
 }
 
 .pagina-hu01 .detalhes-fatura summary {
   display: flex;
-  align-items: center;
   justify-content: space-between;
-  cursor: pointer;
+  align-items: center;
   list-style: none;
-  font-size: 13px;
+  cursor: pointer;
 }
 
 .pagina-hu01 .detalhes-fatura summary::-webkit-details-marker {
@@ -156,108 +167,184 @@
 
 .pagina-hu01 .detalhes-fatura summary::after {
   content: "⌄";
+  color: #10069f;
   font-size: 20px;
-  color: #454b55;
+  line-height: 1;
+  margin-left: 10px;
 }
 
 .pagina-hu01 .detalhes-fatura details[open] summary::after {
   content: "⌃";
 }
 
-.pagina-hu01 .detalhes-fatura summary span {
+.pagina-hu01 .titulo-detalhe {
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  gap: 5px;
 }
 
-.pagina-hu01 .detalhes-fatura summary b {
+.pagina-hu01 .titulo-detalhe strong {
+  color: #10069f;
   font-size: 13px;
+  font-weight: 700;
 }
 
-/* VALORES EM DUAS COLUNAS */
+.pagina-hu01 .titulo-detalhe b {
+  color: #10069f;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.pagina-hu01 .conteudo-detalhe {
+  padding-top: 10px;
+}
 
 .pagina-hu01 .linha-detalhe {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
-  margin-top: 12px;
-  color: #68717b;
-  font-size: 11px;
+  margin: 8px 0;
+  font-size: 10px;
+  color: #7b8290;
 }
 
-.pagina-hu01 .linha-detalhe span:last-child,
-.pagina-hu01 .linha-detalhe strong {
+.pagina-hu01 .linha-detalhe span:last-child {
   text-align: right;
   white-space: nowrap;
 }
 
 .pagina-hu01 .linha-detalhe strong {
   color: #10069f;
+  text-align: right;
+  white-space: nowrap;
+  font-size: 10px;
 }
 
-/* LINHA DO DESCONTO */
+/* DESCONTO */
 
 .pagina-hu01 .bloco-desconto {
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  justify-content: space-between;
   gap: 10px;
   padding: 14px 2px;
-  border-bottom: 1px solid #e8e8e8;
+  border-bottom: 1px solid #e8e9ed;
+}
+
+.pagina-hu01 .bloco-desconto strong {
   font-size: 13px;
+  color: #10069f;
 }
 
 .pagina-hu01 .bloco-desconto p {
-  font-size: 11px;
-  margin: 6px 0 0;
+  margin-top: 6px;
+  color: #818794;
+  font-size: 10px;
 }
 
-.pagina-hu01 .valor-desconto {
+.pagina-hu01 .bloco-desconto .valor-desconto {
   color: #10069f;
+  font-size: 13px;
   white-space: nowrap;
 }
 
-/* EXPLICAÇÃO DAS TAXAS */
+/* TAXAS OBRIGATÓRIAS */
 
 .pagina-hu01 .explicacao-taxas {
-  margin-top: 12px !important;
+  display: flex;
+  align-items: flex-start;
+  gap: 6px;
+  color: #7c8391;
+  font-size: 10px;
   line-height: 1.5;
+}
+
+.pagina-hu01 .icone-info {
+  color: #10069f;
+  font-size: 14px;
+  flex-shrink: 0;
+  line-height: 1;
 }
 
 /* RESUMO FINAL */
 
 .pagina-hu01 .resumo-final {
-  border-top: 1px solid #e8e8e8;
-  margin-top: 15px;
-  padding: 12px 2px 0;
+  margin-top: 12px;
 }
 
-.pagina-hu01 .resumo-final p {
-  color: #555e68;
-  font-size: 12px;
-  line-height: 1.6;
-  margin: 8px 0;
+.pagina-hu01 .texto-resumo {
+  padding: 12px 2px;
+  border-bottom: 1px solid #e8e9ed;
+  font-size: 11px;
+  line-height: 1.5;
+  color: #78808d;
 }
 
-.pagina-hu01 .resumo-final p strong {
-  color: #30343b;
+.pagina-hu01 .texto-resumo strong {
+  color: #5b6574;
 }
 
-.pagina-hu01 .resumo-final .linha-fatura {
-  font-size: 15px;
-  margin: 20px 0;
+.pagina-hu01 .total-fatura {
+  margin-top: 18px;
+  padding: 2px;
 }
 
-.pagina-hu01 .resumo-final .linha-fatura strong:last-child {
-  font-size: 17px;
-}
-
-.pagina-hu01 .resumo-final a {
-  display: block;
-  text-align: center;
+.pagina-hu01 .total-fatura > strong {
+  font-size: 14px;
   color: #10069f;
+}
+
+.pagina-hu01 .valores-total {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.pagina-hu01 .valores-total del {
+  color: #999daa;
+  font-size: 10px;
+}
+
+.pagina-hu01 .valores-total strong {
+  color: #10069f;
+  font-size: 18px;
+  font-weight: 800;
+}
+
+/* BOTÃO DE NAVEGAÇÃO PARA A TELA B */
+
+.pagina-hu01 .botao-calculo {
+  width: 100%;
+  min-height: 46px;
+  margin-top: 22px;
+  padding: 12px 10px;
+  border: none;
+  border-radius: 10px;
+  background: #10069f;
+  color: #ffffff;
+  font-family: inherit;
   font-size: 12px;
-  text-decoration: underline;
-  margin: 24px 0 10px;
+  font-weight: 700;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.pagina-hu01 .botao-calculo span {
+  font-size: 19px;
+  line-height: 1;
+}
+
+.pagina-hu01 .botao-calculo:hover {
+  background: #08046e;
+}
+
+.pagina-hu01 .botao-calculo:focus-visible {
+  outline: 3px solid #57b8ff;
+  outline-offset: 3px;
 }
