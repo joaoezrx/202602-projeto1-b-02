@@ -1,6 +1,6 @@
 // Regras e formatação da HU04 (Minha economia).
 // Nada aqui mexe na página: as funções recebem dados e devolvem dados ou texto,
-// para serem usadas tanto em economia.html quanto em economia-calculo.html.
+// para serem usadas tanto em hu04-economia.html quanto em hu04-calculo.html.
 
 const MESES = [
   'janeiro', 'fevereiro', 'março', 'abril', 'maio', 'junho',
