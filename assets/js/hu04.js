@@ -28,7 +28,18 @@ export async function abrirTelaHU04(tela) {
     const [resposta] = await Promise.all([fetch(configuracao.html), carregarEstilo()]);
     if (!resposta.ok) throw new Error(`Erro HTTP: ${resposta.status}`);
 
-    conteudo.innerHTML = await resposta.text();
+    const html = await resposta.text();
+
+conteudo.innerHTML = tela === "inicio"
+  ? `
+    <div class="hu04-container">
+      <a href="index.html" class="hu04-voltar" aria-label="Voltar ao menu principal" title="Voltar">
+        <span aria-hidden="true">‹</span>
+      </a>
+      ${html}
+    </div>
+  `
+  : html;
 
     // O script da tela procura os elementos ao ser importado, então vem depois do HTML.
     await import(configuracao.script);

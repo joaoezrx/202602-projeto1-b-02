@@ -1,70 +1,107 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<title>Fatura disponível — Bulbe</title>
-<link rel="stylesheet" href="../assets/css/hu03-3.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fatura disponível — Bulbe</title>
+  <link rel="stylesheet" href="../assets/css/hu03-3.css">
+  <link rel="stylesheet" href="../assets/css/hu03-template.css">
 </head>
 <body>
-<div class="hf-screen hf-screen--light">
+  <div class="hf-screen hf-screen--light">
 
-  <div class="hf-header-sub">
-    <a href="hu03-2.html" aria-label="Voltar" class="hf-back-btn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18181B" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
-    </a>
-    <div class="hf-logo">
-      <img src="../assets/img/logo-bulbe.svg" alt="bulbe" class="hf-logo-img">
-    </div>
+    <header class="hf-header-padronizado">
+      <img src="../assets/img/header.svg"
+           alt="Bulbe - Menu, notificações e perfil"
+           class="hf-header-imagem">
+    </header>
+
+    <nav class="hf-navegacao-voltar">
+      <a href="hu03-2.html" class="hf-back-btn"
+         aria-label="Voltar ao acompanhamento" title="Voltar">
+        <svg width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             aria-hidden="true">
+          <path d="M15 6l-6 6 6 6"/>
+        </svg>
+      </a>
+    </nav>
+
+    <main class="hf-content--stack">
+
+      <div class="hf-success-banner">
+        <div class="hf-success-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24"
+               fill="none" stroke="#FFFFFF" stroke-width="2.5"
+               aria-hidden="true">
+            <path d="M5 13l4 4L19 7"/>
+          </svg>
+        </div>
+        <div class="hf-card-title hf-card-title--lg">
+          Sua primeira fatura chegou!
+        </div>
+        <div class="hf-card-desc hf-card-desc--tight hf-card-desc--center">
+          Pague até 28 nov para evitar juros e manter o serviço em dia.
+        </div>
+      </div>
+
+      <div class="hf-card hf-card--col hf-card--gap14">
+        <div class="hf-row-baseline">
+          <div>
+            <div class="hf-card-title">Janeiro/26</div>
+            <div class="hf-label">
+              Vence dia <strong class="hf-text-strong">28 de novembro</strong>
+            </div>
+          </div>
+          <span class="hf-pill">em aberto</span>
+        </div>
+
+        <div class="hf-row-end">
+          <div>
+            <span class="hf-label">R$</span>
+            <span class="hf-price">—,—</span>
+          </div>
+          <span class="hf-label">— kWh ⚡</span>
+        </div>
+
+        <div class="hf-discount-bar">
+          <span>Desconto Bulbe: <strong>a calcular</strong></span>
+        </div>
+
+        <div class="hf-barcode">
+          <span class="hf-barcode-label">código de barras / Pix</span>
+        </div>
+      </div>
+
+      <div class="hf-btn-grid">
+        <button class="hf-btn">Ver fatura</button>
+        <button class="hf-btn">Baixar PDF</button>
+        <button class="hf-btn">Copiar código</button>
+        <a href="hu03-4.html" class="hf-btn hf-btn--primary">
+          Pagar agora
+        </a>
+      </div>
+
+      <a href="#" class="hf-link-center">
+        Ver histórico de faturas
+      </a>
+
+    </main>
+
+    <nav class="hf-tabbar" aria-label="Navegação inferior">
+      <div class="hf-tab hf-tab--active">
+        <img src="../assets/img/conexao.svg" alt="" class="hf-tab-icon">
+        <span>Conexão</span>
+      </div>
+      <div class="hf-tab hf-tab--inactive">
+        <img src="../assets/img/indicacoes.svg" alt="" class="hf-tab-icon">
+        <span>Indicações</span>
+      </div>
+    </nav>
+
   </div>
 
-  <div class="hf-content--stack">
-
-    <div class="hf-success-banner">
-      <div class="hf-success-icon">
-        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" aria-hidden="true"><path d="M5 13l4 4L19 7"/></svg>
-      </div>
-      <div class="hf-card-title hf-card-title--lg">Sua primeira fatura chegou!</div>
-      <div class="hf-card-desc hf-card-desc--tight hf-card-desc--center">Pague até 28 nov para evitar juros e manter o serviço em dia.</div>
-    </div>
-
-    <div class="hf-card hf-card--col hf-card--gap14">
-      <div class="hf-row-baseline">
-        <div>
-          <div class="hf-card-title">Janeiro/26</div>
-          <div class="hf-label">Vence dia <strong class="hf-text-strong">28 de novembro</strong></div>
-        </div>
-        <span class="hf-pill">em aberto</span>
-      </div>
-
-      <div class="hf-row-end">
-        <div>
-          <span class="hf-label">R$</span>
-          <span class="hf-price">—,—</span>
-        </div>
-        <span class="hf-label">— kWh ⚡</span>
-      </div>
-
-      <div class="hf-discount-bar">
-        <span>Desconto Bulbe: <strong>a calcular</strong></span>
-      </div>
-
-      <div class="hf-barcode">
-        <span class="hf-barcode-label">código de barras / Pix</span>
-      </div>
-    </div>
-
-    <div class="hf-btn-grid">
-      <button class="hf-btn">Ver fatura</button>
-      <button class="hf-btn">Baixar PDF</button>
-      <button class="hf-btn">Copiar código</button>
-      <a href="hu03-4.html" class="hf-btn hf-btn--primary">Pagar agora</a>
-    </div>
-
-    <a href="#" class="hf-link-center">Ver histórico de faturas</a>
-
-  </div>
-</div>
-
-<script src="../assets/js/hu03-3.js" defer></script>
+  <script src="../assets/js/hu03-3.js" defer></script>
 </body>
 </html>

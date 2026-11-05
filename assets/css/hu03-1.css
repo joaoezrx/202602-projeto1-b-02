@@ -1,13 +1,47 @@
-/* hu03-1.css — Início (HU03: Acompanhamento da primeira fatura) */
+
+/* HU03 - Tela 1: Início */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; padding: 0; }
-img, svg { display: block; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #e9edf3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+img, svg {
+  display: block;
+}
 
 :root {
   --hf-navy: #15178C;
@@ -19,23 +53,30 @@ img, svg { display: block; }
   --font-body: 'Inter', system-ui, sans-serif;
 }
 
+/* Estrutura da tela */
+
 .hf-screen {
   width: 375px;
+  max-width: 100%;
   height: 667px;
+  min-height: 667px;
+  margin: 0 auto;
   font-family: var(--font-body);
   color: var(--hf-text);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 .hf-screen--navy {
   background: var(--hf-navy);
 }
 
-/* header (root screen: menu + logo + bell + avatar) */
+/* Cabeçalho original */
+
 .hf-header-root {
-  padding: 20px 20px 16px 20px;
+  padding: 20px 20px 16px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -80,14 +121,33 @@ img, svg { display: block; }
   object-fit: contain;
 }
 
-/* content */
-.hf-content {
-  flex: 1;
+/* Cabeçalho padronizado com header.svg */
+
+.hf-header-padronizado {
+  width: 100%;
+  background: var(--hf-navy);
   overflow: hidden;
-  padding: 4px 20px 20px 20px;
+  flex-shrink: 0;
 }
 
-/* card */
+.hf-header-imagem {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Conteúdo */
+
+.hf-content {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 4px 20px 20px;
+}
+
+/* Cards */
+
 .hf-card {
   background: #FFFFFF;
   border-radius: 20px;
@@ -104,7 +164,9 @@ img, svg { display: block; }
   flex-direction: column;
 }
 
-.hf-card--gap10 { gap: 10px; }
+.hf-card--gap10 {
+  gap: 10px;
+}
 
 .hf-row-top {
   display: flex;
@@ -144,26 +206,35 @@ img, svg { display: block; }
   text-decoration: underline;
 }
 
-/* tab bar */
+/* Barra inferior */
+
 .hf-tabbar {
+  width: 100%;
+  min-height: 68px;
   background: #FFFFFF;
   border-top: 1px solid #ECECEF;
   display: flex;
   flex-shrink: 0;
+  align-items: center;
+  justify-content: space-around;
 }
 
 .hf-tab {
   flex: 1;
+  min-width: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   gap: 4px;
-  padding: 10px 0 16px 0;
+  padding: 6px 0;
 }
 
 .hf-tab-icon {
-  width: 20px;
-  height: 20px;
+  display: block;
+  width: 56px;
+  height: 28px;
+  object-fit: contain;
 }
 
 .hf-tab span {
@@ -177,4 +248,36 @@ img, svg { display: block; }
 
 .hf-tab--inactive span {
   color: #A1A1AA;
+}
+
+/* Botão de voltar */
+
+.hf-voltar-menu {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-bottom: 8px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 32px;
+  line-height: 1;
+  border-radius: 50%;
+}
+
+.hf-voltar-menu:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* Responsividade */
+
+@media (max-width: 375px) {
+  body {
+    background: #FFFFFF;
+  }
+
+  .hf-screen {
+    width: 100%;
+  }
 }

@@ -295,3 +295,35 @@
 
 /* O display: flex dos cards anularia o atributo hidden */
 .economia [hidden] { display: none; }
+
+
+/* Botão de voltar da tela inicial HU04 */
+
+.hu04-container {
+  position: relative;
+}
+
+.hu04-voltar {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  text-decoration: none;
+  font-size: 32px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.hu04-voltar:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
