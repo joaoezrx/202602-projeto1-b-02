@@ -65,6 +65,10 @@ img, svg { display: block; }
 
 /* content */
 .hf-content--stack {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 12px 20px 20px 20px;
   display: flex;
   flex-direction: column;
@@ -194,6 +198,7 @@ img, svg { display: block; }
 
 .hf-barcode-label {
   font-size: 11px;
+  font-weight: 700;
   color: var(--hf-text-muted);
   background: #FFFFFF;
   padding: 0 6px;
