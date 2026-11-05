@@ -1,74 +1,124 @@
+
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8">
-<title>Pagamento — Bulbe</title>
-<link rel="stylesheet" href="../assets/css/hu03-4.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pagamento — Bulbe</title>
+  <link rel="stylesheet" href="../assets/css/hu03-4.css">
+  <link rel="stylesheet" href="../assets/css/hu03-template.css">
 </head>
 <body>
-<div class="hf-screen hf-screen--light">
+  <div class="hf-screen hf-screen--light">
 
-  <div class="hf-header-sub">
-    <a href="hu03-3.html" aria-label="Voltar" class="hf-back-btn">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#18181B" stroke-width="2" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>
-    </a>
-    <div class="hf-logo">
-      <img src="../assets/img/logo-bulbe.svg" alt="bulbe" class="hf-logo-img">
-    </div>
+    <header class="hf-header-padronizado">
+      <img src="../assets/img/header.svg"
+           alt="Bulbe - Menu, notificações e perfil"
+           class="hf-header-imagem">
+    </header>
+
+    <nav class="hf-navegacao-voltar">
+      <a href="hu03-3.html" class="hf-back-btn"
+         aria-label="Voltar à fatura" title="Voltar">
+        <svg width="22" height="22" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.5"
+             aria-hidden="true">
+          <path d="M15 6l-6 6 6 6"/>
+        </svg>
+      </a>
+    </nav>
+
+    <main class="hf-content--stack">
+
+      <div class="hf-card hf-card--col hf-card--gap14">
+
+        <div class="hf-status-row">
+          <div class="hf-status-icon">
+            <svg width="13" height="13" viewBox="0 0 24 24"
+                 fill="none" stroke="#FFFFFF" stroke-width="2.5"
+                 aria-hidden="true">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 3"/>
+            </svg>
+          </div>
+          <div>
+            <div class="hf-timeline-title">
+              Pagamento em processamento
+            </div>
+            <div class="hf-timeline-desc">
+              Normalmente confirmado em até 1 dia útil.
+            </div>
+          </div>
+        </div>
+
+        <div class="hf-status-row hf-status-row--pending">
+          <div class="hf-status-icon hf-status-icon--pending"></div>
+          <div>
+            <div class="hf-timeline-title hf-timeline-title--pending">
+              Pagamento confirmado
+            </div>
+            <div class="hf-timeline-desc hf-timeline-desc--pending">
+              Você verá a confirmação aqui assim que compensado.
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="hf-card hf-card--col hf-card--gap4">
+        <span class="hf-label">Próxima fatura</span>
+        <span class="hf-card-title hf-card-title--tight">
+          Emissão prevista para o próximo ciclo
+        </span>
+      </div>
+
+      <div class="hf-card--col hf-card--gap14">
+
+        <div class="hf-card hf-card--row">
+          <div>
+            <div class="hf-timeline-title">
+              Lembretes de vencimento
+            </div>
+            <div class="hf-timeline-desc">
+              Avisamos alguns dias antes de cada fatura vencer.
+            </div>
+          </div>
+          <input type="checkbox" checked
+                 aria-label="Ativar lembretes de vencimento"
+                 class="hf-toggle">
+        </div>
+
+        <div class="hf-card hf-card--row">
+          <div>
+            <div class="hf-timeline-title">
+              Débito automático
+            </div>
+            <div class="hf-timeline-desc">
+              Suas próximas faturas são pagas automaticamente.
+            </div>
+          </div>
+          <input type="checkbox"
+                 aria-label="Ativar débito automático"
+                 class="hf-toggle hf-toggle--off">
+        </div>
+
+      </div>
+
+    </main>
+
+    <nav class="hf-tabbar" aria-label="Navegação inferior">
+      <div class="hf-tab hf-tab--active">
+        <img src="../assets/img/conexao.svg" alt="" class="hf-tab-icon">
+        <span>Conexão</span>
+      </div>
+      <div class="hf-tab hf-tab--inactive">
+        <img src="../assets/img/indicacoes.svg" alt="" class="hf-tab-icon">
+        <span>Indicações</span>
+      </div>
+    </nav>
+
   </div>
 
-  <div class="hf-content--stack">
-
-    <div class="hf-card hf-card--col hf-card--gap14">
-
-      <div class="hf-status-row">
-        <div class="hf-status-icon">
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2.5" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
-        </div>
-        <div>
-          <div class="hf-timeline-title">Pagamento em processamento</div>
-          <div class="hf-timeline-desc">Normalmente confirmado em até 1 dia útil.</div>
-        </div>
-      </div>
-
-      <div class="hf-status-row hf-status-row--pending">
-        <div class="hf-status-icon hf-status-icon--pending"></div>
-        <div>
-          <div class="hf-timeline-title hf-timeline-title--pending">Pagamento confirmado</div>
-          <div class="hf-timeline-desc hf-timeline-desc--pending">Você verá a confirmação aqui assim que compensado.</div>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="hf-card hf-card--col hf-card--gap4">
-      <span class="hf-label">Próxima fatura</span>
-      <span class="hf-card-title hf-card-title--tight">Emissão prevista para o próximo ciclo</span>
-    </div>
-
-    <div class="hf-card--col hf-card--gap14">
-
-      <div class="hf-card hf-card--row">
-        <div>
-          <div class="hf-timeline-title">Lembretes de vencimento</div>
-          <div class="hf-timeline-desc">Avisamos alguns dias antes de cada fatura vencer.</div>
-        </div>
-        <input type="checkbox" checked aria-label="Ativar lembretes de vencimento" class="hf-toggle">
-      </div>
-
-      <div class="hf-card hf-card--row">
-        <div>
-          <div class="hf-timeline-title">Débito automático</div>
-          <div class="hf-timeline-desc">Suas próximas faturas são pagas automaticamente.</div>
-        </div>
-        <input type="checkbox" aria-label="Ativar débito automático" class="hf-toggle hf-toggle--off">
-      </div>
-
-    </div>
-
-  </div>
-</div>
-
-<script src="../assets/js/hu03-4.js" defer></script>
+  <script src="../assets/js/hu03-4.js" defer></script>
 </body>
 </html>

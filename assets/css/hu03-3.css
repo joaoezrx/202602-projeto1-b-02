@@ -1,13 +1,47 @@
-/* hu03-3.css — Fatura disponível (HU03: Acompanhamento da primeira fatura) */
+
+/* HU03 - Tela 3: Fatura disponível */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-a { color: inherit; text-decoration: none; }
-button { font-family: inherit; cursor: pointer; border: none; background: none; padding: 0; }
-img, svg { display: block; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #e9edf3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+  padding: 0;
+}
+
+img, svg {
+  display: block;
+}
 
 :root {
   --hf-navy: #15178C;
@@ -21,23 +55,30 @@ img, svg { display: block; }
   --font-body: 'Inter', system-ui, sans-serif;
 }
 
+/* Estrutura */
+
 .hf-screen {
   width: 375px;
+  max-width: 100%;
   height: 667px;
+  min-height: 667px;
+  margin: 0 auto;
   font-family: var(--font-body);
   color: var(--hf-text);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 .hf-screen--light {
   background: #F4F4F5;
 }
 
-/* header (sub-screen: back arrow + logo) */
+/* Cabeçalho */
+
 .hf-header-sub {
-  padding: 20px 20px 8px 20px;
+  padding: 20px 20px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -63,25 +104,27 @@ img, svg { display: block; }
   width: auto;
 }
 
-/* content */
+/* Conteúdo */
+
 .hf-content--stack {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 12px 20px 20px 20px;
+  padding: 12px 20px 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* success banner */
+/* Mensagem de sucesso */
+
 .hf-success-banner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  padding: 4px 0 2px 0;
+  padding: 4px 0 2px;
 }
 
 .hf-success-icon {
@@ -93,6 +136,8 @@ img, svg { display: block; }
   align-items: center;
   justify-content: center;
 }
+
+/* Textos */
 
 .hf-card-title {
   font-family: var(--font-display);
@@ -119,7 +164,8 @@ img, svg { display: block; }
   text-align: center;
 }
 
-/* card */
+/* Cards */
+
 .hf-card {
   background: #FFFFFF;
   border-radius: 20px;
@@ -132,7 +178,9 @@ img, svg { display: block; }
   flex-direction: column;
 }
 
-.hf-card--gap14 { gap: 14px; }
+.hf-card--gap14 {
+  gap: 14px;
+}
 
 .hf-row-baseline {
   display: flex;
@@ -190,7 +238,11 @@ img, svg { display: block; }
 .hf-barcode {
   height: 52px;
   border-radius: 10px;
-  background: repeating-linear-gradient(90deg, var(--hf-border) 0 2px, transparent 2px 6px);
+  background: repeating-linear-gradient(
+    90deg,
+    var(--hf-border) 0 2px,
+    transparent 2px 6px
+  );
   display: flex;
   align-items: center;
   justify-content: center;
@@ -204,7 +256,8 @@ img, svg { display: block; }
   padding: 0 6px;
 }
 
-/* buttons */
+/* Botões */
+
 .hf-btn-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -236,4 +289,16 @@ img, svg { display: block; }
   text-decoration: underline;
   text-align: center;
   display: block;
+}
+
+/* Responsividade */
+
+@media (max-width: 375px) {
+  body {
+    background: #FFFFFF;
+  }
+
+  .hf-screen {
+    width: 100%;
+  }
 }

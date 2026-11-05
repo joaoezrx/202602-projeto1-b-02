@@ -1,12 +1,39 @@
-/* hu03-2.css — Acompanhamento (HU03: Acompanhamento da primeira fatura) */
+
+/* HU03 - Tela 2: Acompanhamento */
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
 
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-a { color: inherit; text-decoration: none; }
-img, svg { display: block; }
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background: #e9edf3;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img, svg {
+  display: block;
+}
 
 :root {
   --hf-navy: #15178C;
@@ -19,23 +46,30 @@ img, svg { display: block; }
   --font-body: 'Inter', system-ui, sans-serif;
 }
 
+/* Estrutura */
+
 .hf-screen {
   width: 375px;
+  max-width: 100%;
   height: 667px;
+  min-height: 667px;
+  margin: 0 auto;
   font-family: var(--font-body);
   color: var(--hf-text);
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  position: relative;
 }
 
 .hf-screen--light {
   background: #F4F4F5;
 }
 
-/* header (sub-screen: back arrow + logo) */
+/* Cabeçalho */
+
 .hf-header-sub {
-  padding: 20px 20px 8px 20px;
+  padding: 20px 20px 8px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -61,19 +95,21 @@ img, svg { display: block; }
   width: auto;
 }
 
-/* content */
+/* Conteúdo */
+
 .hf-content--stack {
   flex: 1;
   min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 12px 20px 20px 20px;
+  padding: 12px 20px 20px;
   display: flex;
   flex-direction: column;
   gap: 16px;
 }
 
-/* card */
+/* Cards */
+
 .hf-card {
   background: #FFFFFF;
   border-radius: 20px;
@@ -92,8 +128,13 @@ img, svg { display: block; }
   align-items: center;
 }
 
-.hf-card--gap14 { gap: 14px; }
-.hf-card--gap18 { gap: 18px; }
+.hf-card--gap14 {
+  gap: 14px;
+}
+
+.hf-card--gap18 {
+  gap: 18px;
+}
 
 .hf-card-title {
   font-family: var(--font-display);
@@ -112,7 +153,8 @@ img, svg { display: block; }
   margin-top: 4px;
 }
 
-/* rows / fields */
+/* Informações */
+
 .hf-row-baseline {
   display: flex;
   justify-content: space-between;
@@ -148,7 +190,8 @@ img, svg { display: block; }
   text-decoration: underline;
 }
 
-/* timeline */
+/* Linha do tempo */
+
 .hf-timeline-step {
   display: flex;
   gap: 12px;
@@ -212,4 +255,16 @@ img, svg { display: block; }
 
 .hf-timeline-desc--pending {
   color: var(--hf-text-muted);
+}
+
+/* Responsividade */
+
+@media (max-width: 375px) {
+  body {
+    background: #FFFFFF;
+  }
+
+  .hf-screen {
+    width: 100%;
+  }
 }

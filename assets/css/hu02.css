@@ -231,3 +231,26 @@ html, body {
     .action-row-split { width: 100%; }
     .toast { bottom: 30px; }
 }
+
+.voltar-menu {
+  position: fixed;
+  top: 100px;
+  left: 16px;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: white;
+  color: #18181b;
+  text-decoration: none;
+  font-size: 32px;
+  line-height: 1;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.12);
+}
+
+.voltar-menu:hover {
+  background: #f0f0f5;
+}
