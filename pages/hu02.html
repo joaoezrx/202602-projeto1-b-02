@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -8,11 +9,39 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* Exibe somente a logo central do header.svg */
+        .bulbe-logo.hu02-logo-original {
+            position: relative !important;
+            display: block !important;
+            flex: 0 0 135px !important;
+            width: 135px !important;
+            height: 47px !important;
+            overflow: hidden !important;
+            padding: 0 !important;
+            margin: 0 !important;
+            background: transparent !important;
+        }
+
+        .bulbe-logo.hu02-logo-original img {
+            position: absolute !important;
+            top: 0 !important;
+            left: -120px !important;
+            display: block !important;
+            width: 375px !important;
+            height: 47px !important;
+            max-width: none !important;
+            object-fit: fill !important;
+        }
+    </style>
 </head>
+
 <body>
     <a href="../index.html" class="voltar-menu" aria-label="Voltar ao menu principal" title="Voltar">
         <span aria-hidden="true">‹</span>
     </a>
+
     <div id="app-wrapper" class="app-wrapper auto-mode">
         <header class="bulbe-header">
             <div class="header-container">
@@ -25,14 +54,10 @@
                 </button>
 
                 <div class="brand-area">
-                    <div class="bulbe-logo">
-                        <span class="logo-text">bulbe</span>
-                        <div class="logo-rays">
-                            <span class="ray ray-green"></span>
-                            <span class="ray ray-blue"></span>
-                            <span class="ray ray-orange"></span>
-                        </div>
+                    <div class="bulbe-logo hu02-logo-original" role="img" aria-label="Bulbe Energia">
+                        <img src="../assets/img/header.svg" alt="" aria-hidden="true">
                     </div>
+
                     <nav class="desktop-breadcrumb" aria-label="Breadcrumb">
                         <span class="divider">|</span>
                         <span class="crumb-muted">Painel do Cliente</span>
@@ -85,16 +110,26 @@
                     <div class="savings-banner">
                         <span class="savings-emoji" role="img" aria-label="Festa">🎉</span>
                         <p id="savings-heading" class="savings-title">
-                            <span class="desktop-text">RESUMO DO MÊS: Você <strong>economizou <span id="val-economia">R$ 60,00</span></strong> (<span id="val-perc">15%</span> sobre a energia injetada)!</span>
-                            <span class="mobile-text">Economizou <strong id="val-economia-mob">R$ 60,00</strong>!</span>
+                            <span class="desktop-text">
+                                RESUMO DO MÊS: Você
+                                <strong>economizou <span id="val-economia">R$ 60,00</span></strong>
+                                (<span id="val-perc">15%</span> sobre a energia injetada)!
+                            </span>
+                            <span class="mobile-text">
+                                Economizou <strong id="val-economia-mob">R$ 60,00</strong>!
+                            </span>
                         </p>
                     </div>
 
                     <div class="comparison-bars">
                         <div class="bar-group">
                             <div class="bar-label-row">
-                                <span class="bar-label">Conta Tradicional (Sem Bulbe): <strong id="val-tradicional">R$ 500,00</strong></span>
+                                <span class="bar-label">
+                                    Conta Tradicional (Sem Bulbe):
+                                    <strong id="val-tradicional">R$ 500,00</strong>
+                                </span>
                             </div>
+
                             <div class="progress-track">
                                 <div class="progress-fill fill-gray" style="width: 100%;"></div>
                             </div>
@@ -103,10 +138,13 @@
                         <div class="bar-group">
                             <div class="bar-label-row">
                                 <span class="bar-label">
-                                    Seu Total Hoje (Com Bulbe): 
-                                    <strong id="val-total-breakdown" class="breakdown-inline">R$ 100,00 (Cemig) + R$ 340,00 (Bulbe) = R$ 440,00</strong>
+                                    Seu Total Hoje (Com Bulbe):
+                                    <strong id="val-total-breakdown" class="breakdown-inline">
+                                        R$ 100,00 (Cemig) + R$ 340,00 (Bulbe) = R$ 440,00
+                                    </strong>
                                 </span>
                             </div>
+
                             <div class="progress-track multi-bar">
                                 <div id="bar-cemig" class="progress-fill fill-green" style="width: 20%;" title="Cemig: R$ 100,00"></div>
                                 <div id="bar-bulbe" class="progress-fill fill-yellow" style="width: 68%;" title="Bulbe: R$ 340,00"></div>
@@ -116,18 +154,25 @@
                 </section>
 
                 <section class="bills-comparison-section">
-                    <h2 class="section-heading">COMPARATIVO LADO A LADO: ENTENDA SUAS DUAS CONTAS</h2>
+                    <h2 class="section-heading">
+                        COMPARATIVO LADO A LADO: ENTENDA SUAS DUAS CONTAS
+                    </h2>
 
                     <div class="bills-grid">
                         <article class="bill-card">
                             <div class="bill-card-header">
                                 <div class="bill-title-row">
                                     <span class="bill-icon" role="img" aria-label="Distribuidora">🏢</span>
-                                    <h3 class="bill-title">1. CONTA DA DISTRIBUIDORA (Cemig)</h3>
+                                    <h3 class="bill-title">
+                                        1. CONTA DA DISTRIBUIDORA (Cemig)
+                                    </h3>
                                 </div>
+
                                 <div class="bill-meta">
                                     <span id="status-cemig" class="badge badge-paid">[ Paga ]</span>
-                                    <span class="due-date">- Venc. <span id="venc-cemig">10/10</span></span>
+                                    <span class="due-date">
+                                        - Venc. <span id="venc-cemig">10/10</span>
+                                    </span>
                                 </div>
                             </div>
 
@@ -139,6 +184,7 @@
                                     </span>
                                     <span id="val-consumo-rede" class="item-value">R$ 450,00</span>
                                 </li>
+
                                 <li class="bill-item">
                                     <span class="item-name">
                                         <span class="item-icon">🔔</span>
@@ -146,10 +192,14 @@
                                     </span>
                                     <span id="val-taxas" class="item-value">+R$ 50,00</span>
                                 </li>
+
                                 <li class="bill-item highlight-deduction">
                                     <span class="item-name">
                                         <span class="item-icon">⚡</span>
-                                        <span>(–) Crédito Solar Bulbe:<br><small class="sub-note">Abatido na fatura</small></span>
+                                        <span>
+                                            (–) Crédito Solar Bulbe:
+                                            <small class="sub-note">Abatido na fatura</small>
+                                        </span>
                                     </span>
                                     <span id="val-credito-cemig" class="item-value text-deduction">-R$ 400,00</span>
                                 </li>
@@ -164,6 +214,7 @@
                                 <button class="btn btn-outline" id="btn-ver-desconto">
                                     <span>🔍</span> Ver onde o desconto aparece
                                 </button>
+
                                 <button class="btn btn-outline" id="btn-pdf-cemig">
                                     <span>📄</span> PDF Original
                                 </button>
@@ -176,9 +227,12 @@
                                     <span class="bill-icon" role="img" aria-label="Energia Solar">☀️</span>
                                     <h3 class="bill-title">2. ASSINATURA BULBE ENERGIA</h3>
                                 </div>
+
                                 <div class="bill-meta">
                                     <span id="status-bulbe" class="badge badge-open">[ Aberta ]</span>
-                                    <span class="due-date">- Venc. <span id="venc-bulbe">15/10</span></span>
+                                    <span class="due-date">
+                                        - Venc. <span id="venc-bulbe">15/10</span>
+                                    </span>
                                 </div>
                             </div>
 
@@ -190,6 +244,7 @@
                                     </span>
                                     <span id="val-energia-solar" class="item-value">R$ 400,00</span>
                                 </li>
+
                                 <li class="bill-item">
                                     <span class="item-name">
                                         <span class="item-icon">🏷️</span>
@@ -209,10 +264,12 @@
                                     <button class="btn btn-primary-outline" id="btn-copiar-pix">
                                         <span>📋</span> Copiar PIX
                                     </button>
+
                                     <button class="btn btn-primary-outline" id="btn-baixar-boleto">
                                         <span>⬇️</span> Baixar Boleto
                                     </button>
                                 </div>
+
                                 <button class="btn btn-outline btn-full" id="btn-detalhamento">
                                     Detalhamento de Consumo
                                 </button>
@@ -225,7 +282,9 @@
                     <div class="explainer-icon">💡</div>
                     <div class="explainer-text">
                         <strong>Por que recebo duas contas?</strong>
-                        <p id="explainer-dynamic-text">A Cemig cobra taxas obrigatórias (R$ 100) e a Bulbe desconta R$ 400 e cobra R$ 340.</p>
+                        <p id="explainer-dynamic-text">
+                            A Cemig cobra taxas obrigatórias (R$ 100) e a Bulbe desconta R$ 400 e cobra R$ 340.
+                        </p>
                     </div>
                 </section>
             </div>
@@ -246,7 +305,10 @@
 
             <button class="nav-tab" data-tab="indicacoes">
                 <div class="nav-icon-svg">
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg width="24" height="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor"
+                         stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
                         <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
                         <circle cx="9" cy="7" r="4"></circle>
                         <line x1="19" y1="8" x2="19" y2="14"></line>
@@ -262,11 +324,17 @@
         <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modal-title">
             <div class="modal-header">
                 <h3 id="modal-title"></h3>
-                <button id="modal-close" class="modal-close-btn" aria-label="Fechar">&times;</button>
+                <button id="modal-close" class="modal-close-btn" aria-label="Fechar">
+                    &times;
+                </button>
             </div>
+
             <div id="modal-body" class="modal-body"></div>
+
             <div class="modal-footer">
-                <button id="modal-ok-btn" class="btn btn-solid-blue">Entendi</button>
+                <button id="modal-ok-btn" class="btn btn-solid-blue">
+                    Entendi
+                </button>
             </div>
         </div>
     </div>
@@ -275,6 +343,6 @@
         <span id="toast-message"></span>
     </div>
 
-    <script src="assets/js/hu02.js"></script>
+    <script src="../assets/js/hu02.js"></script>
 </body>
 </html>
