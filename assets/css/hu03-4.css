@@ -1,144 +1,145 @@
-/* hu03-4.css — Pagamento (HU03: Acompanhamento da primeira fatura) */
+/* hu03-4.css — Pagamento (HU03: Acompanhamento da primeira fatura)
+   Visual alinhado ao design system do app (base: HU04).
+   A página usa o shell do style.css global (.app, .cabecalho,
+   .conteudo) sem alterá-lo; os tokens ficam aqui. */
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
-
-*, *::before, *::after { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-a { color: inherit; text-decoration: none; }
-img, svg { display: block; }
-input[type="checkbox"] { margin: 0; }
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 :root {
-  --hf-navy: #15178C;
-  --hf-text: #18181B;
-  --hf-text-secondary: #71717A;
-  --hf-text-muted: #A1A1AA;
-  --hf-text-pending: #52525B;
-  --hf-border: #D4D4D8;
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
+  /* Tokens do design system (mesmos valores da HU04) */
+  --azul: #0b078c;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --lavanda-selo: #ECECFA;
+  --lavanda-barra: #C9C8EE;
+  --cinza-marcador: #A9A8C9;
 }
 
-.hf-screen {
-  width: 375px;
-  height: 667px;
-  font-family: var(--font-body);
-  color: var(--hf-text);
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
+}
+
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
+}
+
+/* Fundo azul e rolagem sem barra (igual à HU04) */
+.conteudo {
+  background-color: var(--azul);
+  scrollbar-width: none;
+}
+.conteudo::-webkit-scrollbar { display: none; }
+
+a { color: inherit; text-decoration: none; }
+
+/* PILHA DE CONTEÚDO */
+
+.hf-pilha {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  gap: 12px;
+  padding: 0 18px 18px;
 }
 
-.hf-screen--light {
-  background: #F4F4F5;
-}
-
-/* header (sub-screen: back arrow + logo) */
-.hf-header-sub {
-  padding: 20px 20px 8px 20px;
+.hf-grupo {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.hf-back-btn {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* TÍTULO COM VOLTAR (branco sobre o azul) */
 
-.hf-logo {
+.titulo-pagina {
   display: flex;
   align-items: center;
   gap: 4px;
+  margin: 0 -8px;
+  color: white;
 }
 
-.hf-logo-word {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: 20px;
-  letter-spacing: -0.3px;
-}
-
-.hf-logo-word--navy {
-  color: var(--hf-navy);
+.titulo-pagina h1 {
   font-size: 18px;
-}
-
-/* content */
-.hf-content--stack {
-  padding: 12px 20px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* card */
-.hf-card {
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.hf-card--col {
-  display: flex;
-  flex-direction: column;
-}
-
-.hf-card--row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hf-card--gap4 { gap: 4px; }
-.hf-card--gap14 { gap: 14px; }
-
-.hf-card-title {
-  font-family: var(--font-display);
-  font-size: 16px;
   font-weight: 600;
 }
 
-.hf-card-title--tight {
-  margin-top: 0;
+.hbtn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.hbtn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* CARD */
+
+.hf-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.hf-card--gap4 { gap: 4px; }
+
+.hf-card--row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.hf-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--azul);
 }
 
 .hf-label {
   font-size: 13px;
-  color: var(--hf-text-secondary);
+  color: var(--texto-suave);
 }
 
-/* status rows */
+/* STATUS DO PAGAMENTO */
+
 .hf-status-row {
   display: flex;
-  gap: 12px;
   align-items: flex-start;
-}
-
-.hf-status-row--pending {
-  opacity: 0.45;
+  gap: 12px;
 }
 
 .hf-status-icon {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: var(--hf-navy);
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background-color: var(--azul);
+  box-shadow: 0 0 0 4px var(--lavanda-selo);
 }
 
 .hf-status-icon--pending {
-  border: 2px solid var(--hf-border);
-  background: none;
+  border: 2px solid var(--cinza-marcador);
+  background-color: white;
+  box-shadow: none;
 }
 
 .hf-timeline-title {
@@ -146,29 +147,54 @@ input[type="checkbox"] { margin: 0; }
   font-weight: 600;
 }
 
-.hf-timeline-title--pending {
-  color: var(--hf-text-pending);
+.hf-timeline-title--atual {
+  color: var(--azul);
 }
 
 .hf-timeline-desc {
-  font-size: 12px;
-  color: var(--hf-text-secondary);
   margin-top: 2px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--texto-suave);
 }
 
-.hf-timeline-desc--pending {
-  color: var(--hf-text-muted);
-}
+/* INTERRUPTOR (checkbox com cara de switch) */
 
-/* toggles */
 .hf-toggle {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--hf-navy);
+  position: relative;
+  width: 46px;
+  height: 28px;
   flex-shrink: 0;
+  margin: 0;
+  border-radius: 99px;
+  background-color: var(--lavanda-barra);
+  appearance: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.hf-toggle--off {
-  accent-color: var(--hf-text-muted);
+.hf-toggle::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(20, 19, 63, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.hf-toggle:checked {
+  background-color: var(--azul);
+}
+
+.hf-toggle:checked::before {
+  transform: translateX(18px);
+}
+
+.hf-toggle:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
 }
