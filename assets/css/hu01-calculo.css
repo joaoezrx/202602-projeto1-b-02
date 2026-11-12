@@ -1,235 +1,242 @@
-
 /* =========================================
-   HU01 - TELA B
-   DETALHAMENTO DA FATURA
+   HU01 — TELA B: COMO CHEGAMOS NO VALOR
+   Visual alinhado ao design system do app (base: HU04).
+   O style.css global não é alterado: os tokens ficam aqui.
    ========================================= */
 
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
 .hu01-calculo {
-  box-sizing: border-box;
+  /* Tokens do design system (mesmos valores da HU04) */
+  --azul: #0b078c;
+  --azul-escuro: #08046e;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --lavanda-barra: #C9C8EE;
+  --divisor: #E3E3F0;
+  --verde: #0B5A37;
+  --verde-claro: #D9F6E8;
+  --verde-vivo: #1FA45F;
+  --laranja: #F5A133;
+
   width: 100%;
   min-height: 100%;
-  padding: 16px 16px 24px;
-  background: #ffffff;
-  color: #343942;
-  font-family: Arial, sans-serif;
+  padding-bottom: 18px;
+  background-color: var(--azul);
+  color: var(--texto);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
+}
+
+/* Rola sem a barra roubando largura (igual à HU04) */
+.conteudo { scrollbar-width: none; }
+.conteudo::-webkit-scrollbar { display: none; }
+
+/* TÍTULO COM VOLTAR */
+
+.hu01-calculo-titulo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px 0;
+  color: white;
+}
+
+.hu01-calculo-titulo h1 {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.hu01-voltar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hu01-voltar:focus-visible,
+.hu01-calculo-duvidas:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+/* PILHA DE CONTEÚDO */
+
+.hu01-calculo-pilha {
   display: flex;
   flex-direction: column;
+  gap: 12px;
+  padding: 4px 18px 0;
 }
 
-.hu01-calculo * {
-  box-sizing: border-box;
+.hu01-cartao {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 16px;
+  background-color: white;
 }
 
-/* CABEÇALHO DO CONTEÚDO */
+/* CABEÇALHO DO CARD */
 
 .hu01-calculo-cabecalho {
-  margin-bottom: 17px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-.hu01-calculo-cabecalho h1 {
-  color: #10069f;
-  font-size: 17px;
-  line-height: 1.3;
+.hu01-calculo-rotulo {
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.hu01-calculo-total-topo {
+  font-size: 32px;
   font-weight: 700;
-  letter-spacing: -0.35px;
-  margin: 0 0 10px;
-}
-
-.hu01-calculo-cabecalho p {
-  color: #9299a6;
-  font-size: 11px;
-  line-height: 1.4;
-  margin: 0;
+  line-height: 1.2;
+  color: var(--azul);
 }
 
 /* GRÁFICO SEGMENTADO */
 
-.hu01-calculo-grafico {
-  margin-bottom: 12px;
-}
-
 .hu01-calculo-barra {
   display: flex;
+  gap: 3px;
   width: 100%;
-  height: 20px;
-  overflow: hidden;
-  background: #e1e4e5;
+  height: 14px;
 }
 
 .hu01-calculo-barra span {
   display: block;
   height: 100%;
+  border-radius: 4px;
 }
 
-.hu01-barra-energia {
-  width: 66%;
-  background: #f5a133;
-}
-
-.hu01-barra-desconto {
-  width: 12%;
-  background: #10069f;
-}
-
-.hu01-barra-taxas {
-  width: 10%;
-  background: #34c36e;
-}
-
-.hu01-barra-restante {
-  width: 12%;
-  background: #e1e4e5;
-}
+.hu01-barra-energia { width: 66%; background-color: var(--laranja); }
+.hu01-barra-desconto { width: 12%; background-color: var(--azul); }
+.hu01-barra-taxas { width: 10%; background-color: var(--verde-vivo); }
+.hu01-barra-restante { width: 12%; background-color: var(--lavanda-barra); }
 
 .hu01-calculo-grafico p {
-  color: #9198a3;
-  font-size: 10px;
+  margin-top: 8px;
+  font-size: 12px;
   line-height: 1.4;
-  margin: 7px 0 0;
+  color: var(--texto-suave);
 }
 
 /* LISTA DE VALORES */
 
-.hu01-calculo-detalhamento {
-  width: 100%;
-}
-
 .hu01-calculo-item {
   display: flex;
   align-items: center;
-  gap: 10px;
-  min-height: 65px;
-  padding: 13px 2px;
-  border-bottom: 1px solid #eeeeef;
+  gap: 12px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--divisor);
 }
 
-/* MARCADORES COLORIDOS */
+.hu01-calculo-item:first-child {
+  padding-top: 0;
+}
+
+.hu01-calculo-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
 
 .hu01-calculo-marcador {
-  display: block;
-  width: 11px;
-  height: 11px;
-  border-radius: 2px;
+  width: 12px;
+  height: 12px;
   flex-shrink: 0;
+  border-radius: 4px;
 }
 
-.marcador-laranja {
-  background: #f5a133;
-}
-
-.marcador-azul {
-  background: #10069f;
-}
-
-.marcador-verde {
-  background: #34c36e;
-}
-
-/* DESCRIÇÕES */
+.marcador-laranja { background-color: var(--laranja); }
+.marcador-azul { background-color: var(--azul); }
+.marcador-verde { background-color: var(--verde-vivo); }
 
 .hu01-calculo-descricao {
   display: flex;
   flex: 1;
   min-width: 0;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px;
 }
 
 .hu01-calculo-descricao strong {
-  color: #55585d;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   line-height: 1.3;
 }
 
 .hu01-calculo-descricao span {
-  color: #9299a3;
-  font-size: 10px;
+  font-size: 12px;
   line-height: 1.35;
+  color: var(--texto-suave);
 }
 
-/* VALORES */
-
 .hu01-calculo-valor {
-  color: #464b53;
-  font-size: 12px;
-  font-weight: 700;
+  font-size: 14px;
+  font-weight: 600;
   white-space: nowrap;
   text-align: right;
 }
 
-.hu01-calculo-valor.valor-azul {
-  color: #10069f;
+.hu01-calculo-valor.valor-desconto {
+  color: var(--verde);
 }
 
 /* TOTAL */
 
 .hu01-calculo-total {
-  margin-top: 4px;
-  padding-top: 18px;
-  border-bottom: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 10px;
+  background-color: var(--lavanda);
 }
 
-.marcador-total {
+.hu01-calculo-total span {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.hu01-calculo-total strong {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+/* BOTÃO DE DÚVIDAS (variante clara, branco sobre o azul — como na HU04) */
+
+.hu01-calculo-duvidas {
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  background: #10069f;
-  color: #ffffff;
-  font-size: 13px;
-  font-weight: bold;
-}
-
-.hu01-calculo-total .hu01-calculo-descricao strong {
-  font-size: 13px;
-}
-
-.hu01-calculo-valor.valor-total {
-  color: #10069f;
-  font-size: 17px;
-  font-weight: 800;
-}
-
-/* LINK DE DÚVIDAS */
-
-.hu01-calculo-duvidas {
-  display: block;
-  width: fit-content;
-  max-width: 100%;
-  margin: auto auto 0;
-  padding: 36px 0 8px;
-  color: #10069f;
-  font-size: 11px;
-  text-align: center;
-  text-decoration: underline;
-  font-weight: 400;
+  border-radius: 12px;
+  background-color: white;
+  color: var(--azul);
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .hu01-calculo-duvidas:hover {
-  color: #08046e;
-}
-
-/* TELAS MENORES */
-
-@media (max-width: 360px) {
-  .hu01-calculo {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .hu01-calculo-cabecalho h1 {
-    font-size: 16px;
-  }
-
-  .hu01-calculo-item {
-    gap: 8px;
-  }
-
-  .hu01-calculo-descricao strong,
-  .hu01-calculo-valor {
-    font-size: 11px;
-  }
+  background-color: var(--lavanda);
 }

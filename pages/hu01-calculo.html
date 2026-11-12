@@ -1,71 +1,83 @@
-
 <section class="hu01-calculo">
 
-  <header class="hu01-calculo-cabecalho">
-    <h1>Como chegamos em R$ 420,14</h1>
-    <p>Fatura de janeiro/26 · 392 kWh</p>
-  </header>
-
-  <div class="hu01-calculo-grafico">
-    <div class="hu01-calculo-barra" role="img" aria-label="Composição ilustrativa da fatura: energia consumida, desconto Bulbe, taxas e parte que você deixou de pagar">
-      <span class="hu01-barra-energia"></span>
-      <span class="hu01-barra-desconto"></span>
-      <span class="hu01-barra-taxas"></span>
-      <span class="hu01-barra-restante"></span>
-    </div>
-
-    <p>Barra: consumo, desconto, taxas e a parte que você deixou de pagar.</p>
+  <!-- Título com voltar (mesmo padrão das telas internas da HU04) -->
+  <div class="hu01-calculo-titulo">
+    <a class="hu01-voltar" href="index.html?hu=01&tela=resumo" data-hu01-destino="resumo" aria-label="Voltar para o resumo da fatura">
+      <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+    </a>
+    <h1>Como chegamos no valor</h1>
   </div>
 
-  <div class="hu01-calculo-detalhamento">
+  <div class="hu01-calculo-pilha">
 
-    <div class="hu01-calculo-item">
-      <span class="hu01-calculo-marcador marcador-laranja"></span>
+    <!-- Valor final e composição -->
+    <section class="hu01-cartao">
 
-      <div class="hu01-calculo-descricao">
-        <strong>Energia que você usou</strong>
-        <span>Cemig 50 kWh + Bulbe 342 kWh</span>
+      <header class="hu01-calculo-cabecalho">
+        <span class="hu01-calculo-rotulo">Fatura de janeiro/26 · 392 kWh</span>
+        <strong class="hu01-calculo-total-topo">R$ 420,14</strong>
+      </header>
+
+      <div class="hu01-calculo-grafico">
+        <div class="hu01-calculo-barra" role="img" aria-label="Composição ilustrativa da fatura: energia consumida, desconto Bulbe, taxas e parte que você deixou de pagar">
+          <span class="hu01-barra-energia"></span>
+          <span class="hu01-barra-desconto"></span>
+          <span class="hu01-barra-taxas"></span>
+          <span class="hu01-barra-restante"></span>
+        </div>
+
+        <p>Consumo, desconto, taxas e a parte que você deixou de pagar.</p>
       </div>
 
-      <strong class="hu01-calculo-valor">R$ 428,13</strong>
-    </div>
+      <div class="hu01-calculo-detalhamento">
 
-    <div class="hu01-calculo-item">
-      <span class="hu01-calculo-marcador marcador-azul"></span>
+        <div class="hu01-calculo-item">
+          <span class="hu01-calculo-marcador marcador-laranja"></span>
 
-      <div class="hu01-calculo-descricao">
-        <strong>Desconto Bulbe</strong>
-        <span>Automático, sobre a energia Bulbe</span>
+          <div class="hu01-calculo-descricao">
+            <strong>Energia que você usou</strong>
+            <span>Cemig 50 kWh + Bulbe 342 kWh</span>
+          </div>
+
+          <strong class="hu01-calculo-valor">R$ 428,13</strong>
+        </div>
+
+        <div class="hu01-calculo-item">
+          <span class="hu01-calculo-marcador marcador-azul"></span>
+
+          <div class="hu01-calculo-descricao">
+            <strong>Desconto Bulbe</strong>
+            <span>Automático, sobre a energia Bulbe</span>
+          </div>
+
+          <strong class="hu01-calculo-valor valor-desconto">−R$ 55,83</strong>
+        </div>
+
+        <div class="hu01-calculo-item">
+          <span class="hu01-calculo-marcador marcador-verde"></span>
+
+          <div class="hu01-calculo-descricao">
+            <strong>Taxas obrigatórias</strong>
+            <span>Impostos por lei, como PIS/COFINS</span>
+          </div>
+
+          <strong class="hu01-calculo-valor">R$ 47,84</strong>
+        </div>
+
       </div>
 
-      <strong class="hu01-calculo-valor valor-azul">R$ 55,83</strong>
-    </div>
-
-    <div class="hu01-calculo-item">
-      <span class="hu01-calculo-marcador marcador-verde"></span>
-
-      <div class="hu01-calculo-descricao">
-        <strong>Taxas obrigatórias</strong>
-        <span>Impostos por lei, como PIS/COFINS</span>
+      <!-- Total em destaque (bloco lavanda, como na HU04) -->
+      <div class="hu01-calculo-total">
+        <span>Você paga</span>
+        <strong>R$ 420,14</strong>
       </div>
 
-      <strong class="hu01-calculo-valor">R$ 47,84</strong>
-    </div>
+    </section>
 
-    <div class="hu01-calculo-item hu01-calculo-total">
-      <span class="hu01-calculo-marcador marcador-total">=</span>
-
-      <div class="hu01-calculo-descricao">
-        <strong>Você paga</strong>
-      </div>
-
-      <strong class="hu01-calculo-valor valor-total">R$ 420,14</strong>
-    </div>
+    <a class="hu01-calculo-duvidas" href="index.html?hu=01&tela=duvidas" data-hu01-destino="duvidas">
+      Dúvidas sobre esta fatura
+    </a>
 
   </div>
-
-  <a class="hu01-calculo-duvidas" href="#" data-hu01-destino="duvidas">
-    Dúvidas sobre esta fatura
-  </a>
 
 </section>

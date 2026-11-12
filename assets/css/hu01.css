@@ -1,27 +1,74 @@
-
 /* =========================================
    HU01 — TELA A: RESUMO DA FATURA
+   Visual alinhado ao design system do app (base: HU04).
+   O style.css global não é alterado: os tokens ficam aqui,
+   no escopo da tela.
    ========================================= */
 
-/* CONFIGURAÇÃO GERAL */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 .pagina-hu01 {
+  /* Tokens do design system (mesmos valores da HU04) */
+  --azul: #0b078c;
+  --azul-escuro: #08046e;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --lavanda-selo: #ECECFA;
+  --divisor: #E3E3F0;
+  --verde: #0B5A37;
+  --verde-escuro: #0B3D27;
+  --verde-claro: #D9F6E8;
+  --laranja: #F5A133;
+
   width: 100%;
   min-height: 100%;
-  padding: 14px 14px 26px;
-  background-color: #ffffff;
-  color: #171b38;
-  font-family: Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0 18px 18px;
+  background-color: var(--azul);
+  color: var(--texto);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
+}
+
+/* Rola sem a barra roubando largura (igual à HU04) */
+.conteudo { scrollbar-width: none; }
+.conteudo::-webkit-scrollbar { display: none; }
+
+/* TÍTULO DA TELA (branco sobre o azul) */
+
+.pagina-hu01 .titulo-hu01 {
+  padding: 12px 0 2px;
+  color: white;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+/* CARDS: base comum */
+
+.pagina-hu01 .cartao-fatura,
+.pagina-hu01 .economia-fatura,
+.pagina-hu01 .detalhes-fatura,
+.pagina-hu01 .resumo-final {
+  border-radius: 16px;
+  background-color: white;
 }
 
 /* CARTÃO PRINCIPAL */
 
 .pagina-hu01 .cartao-fatura {
-  background: #ffffff;
-  border: 1px solid #e5eee9;
-  border-radius: 15px;
-  padding: 15px 15px 0;
-  overflow: hidden;
+  padding: 18px 18px 0;
 }
 
 .pagina-hu01 .linha-fatura {
@@ -32,95 +79,98 @@
 }
 
 .pagina-hu01 .topo-fatura strong {
-  color: #10069f;
-  font-size: 15px;
+  color: var(--azul);
+  font-size: 17px;
   font-weight: 700;
 }
 
 .pagina-hu01 .status-pagamento {
-  background: #e8f8ef;
-  color: #008a57;
-  font-size: 11px;
-  padding: 5px 10px;
-  border-radius: 6px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background-color: var(--verde-claro);
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 600;
 }
 
 .pagina-hu01 .data-pagamento {
-  margin-top: 5px;
-  font-size: 11px;
-  color: #737b8b;
+  margin-top: 4px;
+  font-size: 13px;
+  color: var(--texto-suave);
+}
+
+.pagina-hu01 .data-pagamento strong {
+  color: var(--texto);
+  font-weight: 600;
 }
 
 .pagina-hu01 .valor-anterior {
-  margin-top: 13px;
-  font-size: 11px;
-  color: #737b8b;
-}
-
-.pagina-hu01 .valor-anterior del {
-  color: #8c91a0;
+  margin-top: 14px;
+  font-size: 13px;
+  color: var(--texto-suave);
 }
 
 .pagina-hu01 .linha-valor {
-  margin: 3px 0 12px;
+  margin: 2px 0 16px;
 }
 
 .pagina-hu01 .linha-valor h1 {
-  font-size: 29px;
-  font-weight: 800;
-  letter-spacing: -1px;
-  color: #10069f;
+  font-size: 36px;
+  font-weight: 700;
   line-height: 1.2;
+  color: var(--azul);
 }
 
 .pagina-hu01 .consumo-fatura {
-  font-size: 11px;
-  color: #626b7a;
+  padding: 4px 10px;
+  border-radius: 99px;
+  background-color: var(--lavanda-selo);
+  color: var(--azul);
+  font-size: 12px;
+  font-weight: 500;
   white-space: nowrap;
 }
 
-.pagina-hu01 .raio {
-  color: #f5a623;
-  font-size: 14px;
-}
-
-/* FAIXA AZUL */
-
+/* Faixa do desconto: bloco lavanda (como os blocos da HU04).
+   Azul aqui se misturaria com o fundo azul da tela. */
 .pagina-hu01 .faixa-desconto {
-  margin: 0 -15px;
-  padding: 13px 8px;
+  margin-bottom: 18px;
+  padding: 12px;
+  border-radius: 10px;
   text-align: center;
-  background: #10069f;
-  color: #ffffff;
-  font-size: 12px;
+  background-color: var(--lavanda);
+  color: var(--azul);
+  font-size: 14px;
 }
 
 .pagina-hu01 .faixa-desconto strong {
   font-weight: 700;
 }
 
-/* CARTÃO VERDE DE ECONOMIA */
+/* CARD VERDE DE ECONOMIA (mesmo realce da HU04) */
 
 .pagina-hu01 .economia-fatura {
-  margin-top: 14px;
-  padding: 13px 12px;
   display: flex;
   align-items: center;
-  gap: 10px;
-  background: #effaf5;
-  border: 1px solid #b9d8c8;
-  border-radius: 10px;
+  gap: 12px;
+  padding: 16px;
+  background-color: var(--verde-claro);
+  color: var(--verde-escuro);
 }
 
 .pagina-hu01 .icone-economia {
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   flex-shrink: 0;
-  border-radius: 50%;
-  background: #d8f7e8;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+}
+
+.pagina-hu01 .icone-economia svg {
+  stroke: var(--verde);
 }
 
 .pagina-hu01 .texto-economia {
@@ -129,28 +179,31 @@
 }
 
 .pagina-hu01 .economia-fatura h2 {
-  color: #008553;
-  font-size: 14px;
+  margin-bottom: 2px;
+  font-size: 16px;
   font-weight: 700;
-  margin-bottom: 5px;
   line-height: 1.3;
 }
 
 .pagina-hu01 .economia-fatura p {
-  font-size: 11px;
-  color: #596c77;
-  line-height: 1.4;
+  font-size: 13px;
+  line-height: 1.45;
 }
 
 /* DETALHAMENTO */
 
 .pagina-hu01 .detalhes-fatura {
-  margin-top: 13px;
+  padding: 4px 18px;
 }
 
-.pagina-hu01 .detalhes-fatura details {
-  padding: 12px 2px;
-  border-bottom: 1px solid #e8e9ed;
+.pagina-hu01 .detalhes-fatura details,
+.pagina-hu01 .bloco-desconto {
+  padding: 14px 0;
+  border-bottom: 1px solid var(--divisor);
+}
+
+.pagina-hu01 .detalhes-fatura > :last-child {
+  border-bottom: none;
 }
 
 .pagina-hu01 .detalhes-fatura summary {
@@ -165,38 +218,50 @@
   display: none;
 }
 
+/* Seta desenhada com borda (fica igual em qualquer fonte) */
 .pagina-hu01 .detalhes-fatura summary::after {
-  content: "⌄";
-  color: #10069f;
-  font-size: 20px;
-  line-height: 1;
-  margin-left: 10px;
+  content: "";
+  width: 8px;
+  height: 8px;
+  margin: 0 4px 4px 10px;
+  border-right: 2px solid var(--azul);
+  border-bottom: 2px solid var(--azul);
+  transform: rotate(45deg);
+  transition: transform 0.2s;
 }
 
 .pagina-hu01 .detalhes-fatura details[open] summary::after {
-  content: "⌃";
+  margin-bottom: -4px;
+  transform: rotate(225deg);
 }
 
 .pagina-hu01 .titulo-detalhe {
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 2px;
 }
 
-.pagina-hu01 .titulo-detalhe strong {
-  color: #10069f;
-  font-size: 13px;
+.pagina-hu01 .titulo-detalhe strong,
+.pagina-hu01 .bloco-desconto strong {
+  color: var(--azul);
+  font-size: 15px;
   font-weight: 700;
 }
 
 .pagina-hu01 .titulo-detalhe b {
-  color: #10069f;
-  font-size: 13px;
-  font-weight: 700;
+  color: var(--texto);
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .pagina-hu01 .conteudo-detalhe {
-  padding-top: 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: var(--lavanda);
 }
 
 .pagina-hu01 .linha-detalhe {
@@ -204,21 +269,19 @@
   justify-content: space-between;
   align-items: flex-start;
   gap: 8px;
-  margin: 8px 0;
-  font-size: 10px;
-  color: #7b8290;
+  font-size: 12px;
+  color: var(--texto-suave);
 }
 
-.pagina-hu01 .linha-detalhe span:last-child {
+.pagina-hu01 .linha-detalhe span:last-child,
+.pagina-hu01 .linha-detalhe strong {
   text-align: right;
   white-space: nowrap;
 }
 
 .pagina-hu01 .linha-detalhe strong {
-  color: #10069f;
-  text-align: right;
-  white-space: nowrap;
-  font-size: 10px;
+  color: var(--azul);
+  font-weight: 600;
 }
 
 /* DESCONTO */
@@ -228,24 +291,20 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  padding: 14px 2px;
-  border-bottom: 1px solid #e8e9ed;
-}
-
-.pagina-hu01 .bloco-desconto strong {
-  font-size: 13px;
-  color: #10069f;
 }
 
 .pagina-hu01 .bloco-desconto p {
-  margin-top: 6px;
-  color: #818794;
-  font-size: 10px;
+  margin-top: 2px;
+  color: var(--texto-suave);
+  font-size: 12px;
 }
 
 .pagina-hu01 .bloco-desconto .valor-desconto {
-  color: #10069f;
-  font-size: 13px;
+  padding: 3px 8px;
+  border-radius: 99px;
+  background-color: var(--verde-claro);
+  color: var(--verde);
+  font-size: 14px;
   white-space: nowrap;
 }
 
@@ -255,96 +314,94 @@
   display: flex;
   align-items: flex-start;
   gap: 6px;
-  color: #7c8391;
-  font-size: 10px;
+  color: var(--texto-suave);
+  font-size: 12px;
   line-height: 1.5;
 }
 
 .pagina-hu01 .icone-info {
-  color: #10069f;
-  font-size: 14px;
   flex-shrink: 0;
-  line-height: 1;
+  color: var(--azul);
+  font-size: 14px;
+  line-height: 1.2;
 }
 
 /* RESUMO FINAL */
 
 .pagina-hu01 .resumo-final {
-  margin-top: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 18px;
 }
 
 .pagina-hu01 .texto-resumo {
-  padding: 12px 2px;
-  border-bottom: 1px solid #e8e9ed;
-  font-size: 11px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--divisor);
+  font-size: 13px;
   line-height: 1.5;
-  color: #78808d;
+  color: var(--texto-suave);
 }
 
 .pagina-hu01 .texto-resumo strong {
-  color: #5b6574;
-}
-
-.pagina-hu01 .total-fatura {
-  margin-top: 18px;
-  padding: 2px;
+  color: var(--texto);
 }
 
 .pagina-hu01 .total-fatura > strong {
-  font-size: 14px;
-  color: #10069f;
+  font-size: 15px;
+  color: var(--texto);
 }
 
 .pagina-hu01 .valores-total {
   display: flex;
-  align-items: center;
-  gap: 5px;
+  align-items: baseline;
+  gap: 6px;
   white-space: nowrap;
 }
 
 .pagina-hu01 .valores-total del {
-  color: #999daa;
-  font-size: 10px;
+  color: var(--texto-suave);
+  font-size: 12px;
 }
 
 .pagina-hu01 .valores-total strong {
-  color: #10069f;
-  font-size: 18px;
-  font-weight: 800;
+  color: var(--azul);
+  font-size: 22px;
+  font-weight: 700;
 }
 
-/* BOTÃO DE NAVEGAÇÃO PARA A TELA B */
+/* BOTÃO PARA A TELA B (mesmo botão principal da HU04) */
 
 .pagina-hu01 .botao-calculo {
   width: 100%;
-  min-height: 46px;
-  margin-top: 22px;
-  padding: 12px 10px;
-  border: none;
-  border-radius: 10px;
-  background: #10069f;
-  color: #ffffff;
-  font-family: inherit;
-  font-size: 12px;
-  font-weight: 700;
-  cursor: pointer;
-
+  min-height: 48px;
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8px;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--azul);
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
 }
 
 .pagina-hu01 .botao-calculo span {
-  font-size: 19px;
+  font-size: 18px;
   line-height: 1;
 }
 
 .pagina-hu01 .botao-calculo:hover {
-  background: #08046e;
+  background-color: var(--azul-escuro);
 }
 
-.pagina-hu01 .botao-calculo:focus-visible {
-  outline: 3px solid #57b8ff;
-  outline-offset: 3px;
+.pagina-hu01 .botao-calculo:focus-visible,
+.pagina-hu01 summary:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+  border-radius: 8px;
 }
