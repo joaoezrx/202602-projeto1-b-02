@@ -1,0 +1,325 @@
+/* =========================================
+   BULBE — SQUAD B-02
+   NAVEGAÇÃO DO CABEÇALHO (todas as telas)
+   Montado por assets/js/navegacao.js:
+   - menu ☰ -> barra lateral com as funcionalidades do app
+   - sino   -> liga/desliga notificações
+   - aviso rápido (toast) compartilhado
+   Visual no design system da HU04.
+   ========================================= */
+
+/* ── Áreas clicáveis sobre o header.svg (posições em % do desenho) ── */
+
+.menu-lateral,
+.sino-notificacoes {
+  position: absolute;
+  top: 15%;
+  height: 70%;
+  padding: 0;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* ☰ ocupa de 6,3% a 11,9% da largura do desenho */
+.menu-lateral {
+  left: 2%;
+  width: 14%;
+}
+
+/* 🔔 ocupa de 73,5% a 77,7% da largura do desenho */
+.sino-notificacoes {
+  left: 71.4%;
+  width: 8.4%;
+}
+
+.menu-lateral:focus-visible,
+.sino-notificacoes:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+/* Sino DESLIGADO: escurece o sino original e passa um traço por cima.
+   Ligado, aparece exatamente o desenho original do header.svg. */
+.sino-notificacoes[aria-pressed="false"]::before {
+  content: "";
+  position: absolute;
+  inset: 8% 14%;
+  border-radius: 8px;
+  background-color: rgba(11, 7, 140, 0.55);
+}
+
+.sino-notificacoes[aria-pressed="false"]::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 26px;
+  height: 2.5px;
+  border-radius: 2px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 1.5px #0b078c;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* ── Aviso rápido (toast) ── */
+
+.aviso-app {
+  position: absolute;
+  left: 50%;
+  bottom: 86px;
+  z-index: 300;
+  width: max-content;
+  max-width: calc(100% - 36px);
+  padding: 12px 18px;
+  border-radius: 16px;
+  background-color: #14133f;
+  color: #ffffff;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translate(-50%, 12px);
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+.aviso-app.visivel {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* ── Barra lateral ── */
+
+.lateral-fundo {
+  position: absolute;
+  inset: 0;
+  z-index: 200;
+  background-color: rgba(20, 19, 63, 0.55);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.lateral {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 201;
+  width: 84%;
+  max-width: 320px;
+  display: flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  color: #14133f;
+  font-family: "Poppins", Arial, sans-serif;
+  box-shadow: 8px 0 32px rgba(20, 19, 63, 0.3);
+  transform: translateX(-100%);
+  transition: transform 0.25s ease;
+}
+
+.lateral-fundo[hidden],
+.lateral[hidden] {
+  display: none;
+}
+
+.app.lateral-aberta .lateral-fundo { opacity: 1; }
+.app.lateral-aberta .lateral { transform: translateX(0); }
+
+/* Topo azul com o usuário */
+.lateral-topo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 20px 12px 18px 18px;
+  background-color: #0b078c;
+  color: #ffffff;
+}
+
+.lateral-avatar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: #ffffff;
+  color: #0b078c;
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.lateral-usuario {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.lateral-nome {
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.lateral-email {
+  overflow: hidden;
+  font-size: 12px;
+  color: #d6d5f5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.lateral-fechar {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.lateral-fechar:hover { background-color: rgba(255, 255, 255, 0.12); }
+
+.lateral-fechar:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+/* Lista */
+.lateral-corpo {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 8px 10px 12px;
+  scrollbar-width: thin;
+}
+
+.lateral-corpo ul {
+  list-style: none;
+}
+
+.lateral-secao {
+  padding: 14px 10px 6px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #8a89ab;
+}
+
+.lateral-item {
+  width: 100%;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 10px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: #14133f;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.lateral-item svg {
+  flex-shrink: 0;
+  color: #0b078c;
+}
+
+.lateral-item:hover { background-color: #f3f3fb; }
+
+.lateral-item:focus-visible {
+  outline: 2px solid #0b078c;
+  outline-offset: -2px;
+}
+
+.lateral-item.atual {
+  background-color: #ecebfa;
+  color: #0b078c;
+  font-weight: 600;
+}
+
+.lateral-rotulo { flex: 1; }
+
+.lateral-etiqueta,
+.lateral-embreve {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 99px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.lateral-etiqueta {
+  background-color: #d9f6e8;
+  color: #0b5a37;
+}
+
+.lateral-embreve {
+  background-color: #f3f3fb;
+  color: #8a89ab;
+}
+
+/* Chave liga/desliga das notificações */
+.chave {
+  position: relative;
+  width: 42px;
+  height: 26px;
+  flex-shrink: 0;
+  margin: 0;
+  border-radius: 99px;
+  background-color: #c9c8ee;
+  appearance: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.chave::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  box-shadow: 0 1px 3px rgba(20, 19, 63, 0.3);
+  transition: transform 0.2s ease;
+}
+
+.chave:checked { background-color: #0b078c; }
+.chave:checked::before { transform: translateX(16px); }
+
+.lateral-sair,
+.lateral-sair svg {
+  color: #b42318;
+}
+
+.lateral-rodape {
+  padding: 12px 18px 16px;
+  border-top: 1px solid #e3e3f0;
+  font-size: 11px;
+  color: #8a89ab;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lateral,
+  .lateral-fundo,
+  .aviso-app {
+    transition: none;
+  }
+}
