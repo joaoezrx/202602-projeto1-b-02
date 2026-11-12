@@ -21,6 +21,11 @@ export async function buscarCliente(clienteId) {
   return clientes.find((cliente) => cliente.id === clienteId);
 }
 
+// Contas de acesso (fictícias). A senha fica só como hash SHA-256.
+export function buscarUsuarios() {
+  return lerJSON('usuarios.json');
+}
+
 export function buscarFaturas() {
   return lerJSON('faturas.json');
 }

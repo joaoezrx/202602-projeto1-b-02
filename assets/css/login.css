@@ -1,0 +1,339 @@
+/* login.css — Tela de login
+   Visual alinhado ao design system do app (base: HU04).
+   Usa o frame do style.css global sem alterá-lo; os tokens ficam aqui. */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+:root {
+  --azul: #0b078c;
+  --azul-escuro: #08046e;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --lavanda-borda: #D4D3EC;
+  --erro: #B42318;
+  --erro-claro: #FDECEA;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
+}
+
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
+}
+
+.conteudo {
+  background-color: var(--azul);
+  scrollbar-width: none;
+}
+.conteudo::-webkit-scrollbar { display: none; }
+
+.login {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  padding: 28px 18px;
+}
+
+/* MARCA */
+
+.login-marca {
+  color: white;
+  text-align: center;
+}
+
+/* LOGO (mesmos caminhos de header.svg, inline para animar) */
+.logo {
+  display: flex;
+  justify-content: center;
+  will-change: transform;
+  cursor: pointer;
+}
+
+.logo-svg {
+  display: block;
+  width: 170px;
+  height: auto;
+  overflow: visible;
+}
+
+/* =========================================
+   ANIMAÇÃO DE ENTRADA (assets/js/login-animacao.js)
+   1. letras b-u-l-b-e surgem uma a uma;
+   2. os 3 traços "se desenham" da esquerda para a direita;
+   3. a logo sobe do centro do app para o lugar dela (FLIP, no JS);
+   4. o resto da tela entra em cascata.
+   Os estados escondidos só valem com .animando (posto pelo JS):
+   se o script não rodar, a tela aparece inteira normalmente.
+   ========================================= */
+
+.animando .logo-svg .letter {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  transform: translateY(6px) scale(0.7);
+}
+
+.animando .logo-svg .ray {
+  transform-box: fill-box;
+  transform-origin: left center;
+  transform: scaleX(0);
+}
+
+.animando .reveal {
+  opacity: 0;
+}
+
+.animando.play .logo-svg .letter {
+  animation: letraEntra 0.5s cubic-bezier(0.2, 0.9, 0.3, 1.35) forwards;
+  animation-delay: calc(0.3s + var(--i) * 0.13s);
+}
+
+.animando.play .logo-svg .ray {
+  animation: tracoEntra 0.35s cubic-bezier(0.3, 0.8, 0.4, 1) forwards;
+  animation-delay: calc(1.4s + var(--i) * 0.25s);
+}
+
+.animando.play .reveal {
+  animation: sobeAparece 0.6s cubic-bezier(0.2, 0.8, 0.3, 1) forwards;
+  animation-delay: var(--d);
+}
+
+@keyframes letraEntra { to { opacity: 1; transform: none; } }
+@keyframes tracoEntra { to { transform: scaleX(1); } }
+@keyframes sobeAparece {
+  from { opacity: 0; transform: translateY(18px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Sem animação para quem pediu menos movimento no sistema */
+@media (prefers-reduced-motion: reduce) {
+  .animando .logo-svg .letter,
+  .animando .logo-svg .ray,
+  .animando .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+    animation: none !important;
+  }
+}
+
+.login-marca p {
+  margin-top: 8px;
+  font-size: 14px;
+  color: var(--claro-sobre-azul);
+}
+
+/* CARD DO FORMULÁRIO */
+
+.login-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 20px 18px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.login-card h1 {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.campo label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.campo input {
+  width: 100%;
+  height: 48px;
+  padding: 0 14px;
+  border: 1.5px solid var(--lavanda-borda);
+  border-radius: 12px;
+  background-color: var(--lavanda);
+  color: var(--texto);
+  font-family: inherit;
+  font-size: 15px;
+}
+
+.campo input::placeholder {
+  color: #9A99B8;
+}
+
+.campo input:focus {
+  outline: none;
+  border-color: var(--azul);
+  background-color: white;
+}
+
+.campo input[aria-invalid="true"] {
+  border-color: var(--erro);
+}
+
+.campo-senha {
+  position: relative;
+}
+
+.campo-senha input {
+  padding-right: 52px;
+}
+
+.mostrar-senha {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--texto-suave);
+  cursor: pointer;
+}
+
+.mostrar-senha[aria-pressed="true"] {
+  color: var(--azul);
+}
+
+.mostrar-senha:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: -2px;
+}
+
+.manter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 32px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.manter input {
+  width: 20px;
+  height: 20px;
+  accent-color: var(--azul);
+  cursor: pointer;
+}
+
+.login-erro {
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: var(--erro-claro);
+  color: var(--erro);
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.botao-entrar {
+  min-height: 48px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--azul);
+  color: white;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-entrar:hover { background-color: var(--azul-escuro); }
+
+.botao-entrar:disabled {
+  opacity: 0.7;
+  cursor: wait;
+}
+
+.botao-entrar:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+}
+
+.login-aviso {
+  font-size: 12px;
+  line-height: 1.5;
+  color: var(--claro-sobre-azul);
+  text-align: center;
+}
+
+/* JÁ CONECTADO: continuar ou trocar de conta */
+
+.ja-conectado {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ja-conectado[hidden] {
+  display: none;
+}
+
+.ja-conectado p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--texto-suave);
+}
+
+.ja-conectado strong {
+  color: var(--texto);
+}
+
+/* Com sessão, o formulário some e fica só a escolha */
+.login-card.conectado .campo,
+.login-card.conectado .manter,
+.login-card.conectado > .botao-entrar {
+  display: none;
+}
+
+.botao-continuar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.botao-outra-conta {
+  min-height: 48px;
+  border: 1.5px solid var(--lavanda-borda);
+  border-radius: 12px;
+  background-color: white;
+  color: var(--azul);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-outra-conta:hover { background-color: var(--lavanda); }
+
+.botao-outra-conta:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+}
+
+.login-aviso .destaque {
+  color: #9FB4FF;
+}
+
+.login-card {
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.25);
+}
