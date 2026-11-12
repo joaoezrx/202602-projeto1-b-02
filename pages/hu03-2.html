@@ -1,148 +1,149 @@
-
 <!doctype html>
 <html lang="pt-BR">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Acompanhe sua primeira fatura — Bulbe</title>
+
+  <!-- Login: sem sessão, vai para pages/login.html (assets/js/sessao.js) -->
+  <script src="../assets/js/sessao.js"></script>
+
+  <!-- Shell do app (mesmo do index.html) + estilo próprio da tela -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/rodape.css">
+  <link rel="stylesheet" href="../assets/css/navegacao.css">
   <link rel="stylesheet" href="../assets/css/hu03-2.css">
-  <link rel="stylesheet" href="../assets/css/hu03-template.css">
 </head>
 <body>
-  <div class="hf-screen hf-screen--light">
+  <div class="app">
 
-    <header class="hf-header-padronizado">
-      <img src="../assets/img/header.svg"
-           alt="Bulbe - Menu, notificações e perfil"
-           class="hf-header-imagem">
+    <!-- Cabeçalho padrão do projeto -->
+    <header class="cabecalho">
+      <img class="imagem-cabecalho" src="../assets/img/header.svg" alt="Bulbe - Menu, notificações e perfil">
     </header>
 
-    <nav class="hf-navegacao-voltar">
-      <a href="hu03-1.html" class="hf-back-btn"
-         aria-label="Voltar à primeira tela" title="Voltar">
-        <svg width="22" height="22" viewBox="0 0 24 24"
-             fill="none" stroke="currentColor" stroke-width="2.5"
-             aria-hidden="true">
-          <path d="M15 6l-6 6 6 6"/>
-        </svg>
-      </a>
-    </nav>
+    <main class="conteudo">
+      <div class="hf-pilha">
 
-    <main class="hf-content--stack">
+        <!-- Título com voltar (mesmo padrão das telas internas da HU04) -->
+        <div class="titulo-pagina">
+          <a href="hu03-1.html" class="hbtn" aria-label="Voltar">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg>
+          </a>
+          <h1>Primeira fatura</h1>
+        </div>
 
-      <div class="hf-card hf-card--col hf-card--gap18">
-        <div>
-          <div class="hf-card-title hf-card-title--lg">
-            Acompanhe sua primeira fatura
+        <div class="hf-card hf-card--gap18">
+
+          <div>
+            <div class="hf-card-title">Acompanhe sua primeira fatura</div>
+            <div class="hf-card-desc">Vamos te avisar a cada etapa — você não precisa fazer nada até o pagamento.</div>
           </div>
-          <div class="hf-card-desc">
-            Vamos te avisar a cada etapa — você não precisa fazer nada até o pagamento.
+
+          <div>
+
+            <div class="hf-timeline-step">
+              <div class="hf-timeline-indicator">
+                <div class="hf-timeline-dot hf-timeline-dot--active"></div>
+                <div class="hf-timeline-line"></div>
+              </div>
+              <div class="hf-timeline-content">
+                <div class="hf-timeline-title">Em preparação</div>
+                <div class="hf-timeline-desc">Sua fatura está sendo calculada com base no seu consumo.</div>
+              </div>
+            </div>
+
+            <div class="hf-timeline-step">
+              <div class="hf-timeline-indicator">
+                <div class="hf-timeline-dot"></div>
+                <div class="hf-timeline-line"></div>
+              </div>
+              <div class="hf-timeline-content">
+                <div class="hf-timeline-title hf-timeline-title--pending">Emitida</div>
+                <div class="hf-timeline-desc">Fatura gerada e pronta para envio. Previsão: 18 nov.</div>
+              </div>
+            </div>
+
+            <div class="hf-timeline-step">
+              <div class="hf-timeline-indicator">
+                <div class="hf-timeline-dot"></div>
+                <div class="hf-timeline-line"></div>
+              </div>
+              <div class="hf-timeline-content">
+                <div class="hf-timeline-title hf-timeline-title--pending">Enviada</div>
+                <div class="hf-timeline-desc">Enviada por e-mail e notificação no app.</div>
+              </div>
+            </div>
+
+            <div class="hf-timeline-step">
+              <div class="hf-timeline-indicator">
+                <div class="hf-timeline-dot"></div>
+              </div>
+              <div class="hf-timeline-content hf-timeline-content--last">
+                <div class="hf-timeline-title hf-timeline-title--pending">Disponível para pagamento</div>
+                <div class="hf-timeline-desc">Você poderá visualizar, baixar e pagar a fatura.</div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="hf-card">
+          <div class="hf-row-baseline">
+            <span class="hf-label">Emissão prevista</span>
+            <span class="hf-value">18 nov</span>
+          </div>
+          <div class="hf-row-baseline">
+            <span class="hf-label">Vencimento estimado</span>
+            <span class="hf-value">28 nov</span>
+          </div>
+          <div class="hf-row-baseline">
+            <span class="hf-label">Valor estimado</span>
+            <span class="hf-value-muted">calculado no fechamento</span>
           </div>
         </div>
 
-        <div>
-          <div class="hf-timeline-step">
-            <div class="hf-timeline-indicator">
-              <div class="hf-timeline-dot hf-timeline-dot--active"></div>
-              <div class="hf-timeline-line"></div>
-            </div>
-            <div class="hf-timeline-content">
-              <div class="hf-timeline-title">Em preparação</div>
-              <div class="hf-timeline-desc">
-                Sua fatura está sendo calculada com base no seu consumo.
-              </div>
-            </div>
+        <div class="hf-card hf-card--row">
+          <div class="hf-field-group">
+            <span class="hf-label">Você vai receber por</span>
+            <span class="hf-value" id="canais-texto">E-mail e notificação no app</span>
           </div>
-
-          <div class="hf-timeline-step">
-            <div class="hf-timeline-indicator">
-              <div class="hf-timeline-dot hf-timeline-dot--pending"></div>
-              <div class="hf-timeline-line"></div>
-            </div>
-            <div class="hf-timeline-content">
-              <div class="hf-timeline-title hf-timeline-title--pending">Emitida</div>
-              <div class="hf-timeline-desc hf-timeline-desc--pending">
-                Fatura gerada e pronta para envio. Previsão: 18 nov.
-              </div>
-            </div>
-          </div>
-
-          <div class="hf-timeline-step">
-            <div class="hf-timeline-indicator">
-              <div class="hf-timeline-dot hf-timeline-dot--pending"></div>
-              <div class="hf-timeline-line"></div>
-            </div>
-            <div class="hf-timeline-content">
-              <div class="hf-timeline-title hf-timeline-title--pending">Enviada</div>
-              <div class="hf-timeline-desc hf-timeline-desc--pending">
-                Enviada por e-mail e notificação no app.
-              </div>
-            </div>
-          </div>
-
-          <div class="hf-timeline-step">
-            <div class="hf-timeline-indicator">
-              <div class="hf-timeline-dot hf-timeline-dot--pending"></div>
-            </div>
-            <div class="hf-timeline-content hf-timeline-content--last">
-              <div class="hf-timeline-title hf-timeline-title--pending">
-                Disponível para pagamento
-              </div>
-              <div class="hf-timeline-desc hf-timeline-desc--pending">
-                Você poderá visualizar, baixar e pagar a fatura.
-              </div>
-            </div>
-          </div>
+          <button type="button" class="hf-link" id="alterar-canais" aria-haspopup="dialog" aria-controls="folha-canais">Alterar</button>
         </div>
+
       </div>
-
-      <div class="hf-card hf-card--col hf-card--gap14">
-        <div class="hf-row-baseline">
-          <span class="hf-label">Emissão prevista</span>
-          <span class="hf-value">18 nov</span>
-        </div>
-        <div class="hf-row-baseline">
-          <span class="hf-label">Vencimento estimado</span>
-          <span class="hf-value">28 nov</span>
-        </div>
-        <div class="hf-row-baseline">
-          <span class="hf-label">Valor estimado</span>
-          <span class="hf-value-muted">calculado no fechamento</span>
-        </div>
-      </div>
-
-      <div class="hf-card hf-card--row">
-        <div class="hf-field-group">
-          <span class="hf-label">Você vai receber por</span>
-          <span class="hf-value">E-mail e notificação no app</span>
-        </div>
-        <span class="hf-link">Alterar</span>
-      </div>
-
-      <a href="hu03-3.html" class="hf-card hf-card--row"
-         aria-label="Ver fatura disponível">
-        <div class="hf-field-group">
-          <span class="hf-label">Fatura disponível</span>
-          <span class="hf-value">Ver detalhes da fatura</span>
-        </div>
-        <span class="hf-link">Ver →</span>
-      </a>
-
     </main>
 
-    <nav class="hf-tabbar" aria-label="Navegação inferior">
-      <div class="hf-tab hf-tab--active">
-        <img src="../assets/img/conexao.svg" alt="" class="hf-tab-icon">
-        <span>Conexão</span>
-      </div>
-      <div class="hf-tab hf-tab--inactive">
-        <img src="../assets/img/indicacoes.svg" alt="" class="hf-tab-icon">
-        <span>Indicações</span>
-      </div>
-    </nav>
+    <!-- Folha "Como quer receber sua fatura?" (aberta pelo botão Alterar) -->
+    <div class="folha-fundo" id="folha-fundo" hidden></div>
+    <form class="folha" id="folha-canais" role="dialog" aria-modal="true" aria-labelledby="folha-titulo" hidden>
+      <span class="folha-alca" aria-hidden="true"></span>
+      <h2 id="folha-titulo">Como quer receber sua fatura?</h2>
+      <p class="folha-desc">Escolha um ou mais canais. Vamos avisar quando a fatura for emitida e antes do vencimento.</p>
 
+      <fieldset class="folha-opcoes">
+        <legend class="sr-only">Canais de recebimento</legend>
+        <label class="folha-opcao"><input type="checkbox" name="canal" value="email"><span><strong>E-mail</strong><small>Fatura em PDF no seu e-mail</small></span></label>
+        <label class="folha-opcao"><input type="checkbox" name="canal" value="app"><span><strong>Notificação no app</strong><small>Aviso no celular</small></span></label>
+        <label class="folha-opcao"><input type="checkbox" name="canal" value="whatsapp"><span><strong>WhatsApp</strong><small>Fatura e código Pix pelo WhatsApp</small></span></label>
+        <label class="folha-opcao"><input type="checkbox" name="canal" value="sms"><span><strong>SMS</strong><small>Lembrete curto por mensagem</small></span></label>
+      </fieldset>
+
+      <p class="folha-erro" id="folha-erro" role="alert" hidden>Escolha pelo menos um canal.</p>
+
+      <div class="folha-acoes">
+        <button type="button" class="folha-btn folha-btn--claro" id="folha-cancelar">Cancelar</button>
+        <button type="submit" class="folha-btn">Salvar</button>
+      </div>
+    </form>
+
+    <!-- Navegação inferior: mesmo rodapé de todas as telas -->
+    <nav class="rodape" aria-label="Navegação principal"></nav>
   </div>
 
-  <script src="../assets/js/hu03-2.js" defer></script>
+  <script src="../assets/js/rodape.js"></script>
+  <script src="../assets/js/navegacao.js"></script>
+  <script src="../assets/js/hu03-2.js"></script>
 </body>
 </html>

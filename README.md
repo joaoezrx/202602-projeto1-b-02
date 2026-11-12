@@ -53,6 +53,22 @@ O squad propõe quatro funcionalidades para melhorar a experiência dos clientes
 
 > Abrir o `index.html` diretamente no navegador pode impedir a leitura dos arquivos JSON pelo `fetch`. Utilize o Live Server.
 
+### Conta de demonstração
+
+Ao abrir o app, aparece a tela de login. Há duas contas fictícias (a senha é a mesma):
+
+| Conta | E-mail | Senha | Para que serve |
+| --- | --- | --- | --- |
+| Cliente antiga | `ana.martins@bulbe.test` | `Bulbe@2026` | Faturas pagas e economia acumulada (todas as telas com dados) |
+| Cliente nova | `lucas.andrade@bulbe.test` | `Bulbe@2026` | Acabou de aderir: primeira fatura em preparação, sem economia ainda e **tutorial do Continha** no primeiro acesso |
+
+- **Ana Paula Martins** é o `clienteId` 4 em `data/clientes.json`. **Lucas Andrade** é o `clienteId` 5.
+- O tutorial do Continha aparece uma vez por conta neste navegador. Para rever, abra o menu ☰ e escolha **Tutorial com o Continha**.
+- Para **recomeçar do zero** (por exemplo, antes de uma apresentação), abra `pages/login.html?reiniciar=1`. Isso apaga a sessão, o "tutorial visto" e as preferências salvas pelo app neste navegador.
+- Em `data/usuarios.json` a senha fica guardada só como hash SHA-256.
+- Para sair, toque no avatar no canto superior direito e escolha **Sair da conta**.
+- É um protótipo: o login acontece todo no navegador e **não é autenticação de verdade**.
+
 ## 6. Estrutura do repositório
 
 ```text

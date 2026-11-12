@@ -46,5 +46,17 @@
     "emailConfirmado": true,
     "consumoMedioKwh": 290,
     "descontoPercentual": 20
+  },
+  {
+    "id": 5,
+    "nome": "Lucas Andrade",
+    "cidade": "Belo Horizonte",
+    "dataAdesao": "2026-11-05",
+    "status": "em_conexao",
+    "canalPreferido": "app",
+    "whatsappConfirmado": true,
+    "emailConfirmado": true,
+    "consumoMedioKwh": 240,
+    "descontoPercentual": 15
   }
 ]

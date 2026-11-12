@@ -57,5 +57,15 @@
     "economia": 53.65,
     "status": "paga",
     "pixCopiaECola": null
+  },
+  {
+    "id": 106,
+    "clienteId": 5,
+    "referencia": "2026-11",
+    "vencimento": "2026-11-28",
+    "valor": null,
+    "economia": null,
+    "status": "prevista",
+    "pixCopiaECola": null
   }
 ]

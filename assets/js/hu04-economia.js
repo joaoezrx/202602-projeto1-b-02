@@ -3,10 +3,11 @@ import { resumirEconomia, formatarMoeda, formatarMes, formatarData, linkTela } f
 
 // Cliente exibido quando a URL não informa ?cliente=ID.
 // Ana Paula (4) tem faturas pagas; Marina (1) mostra o estado sem economia.
-const CLIENTE_PADRAO = 4;
+// Cliente da conta logada (assets/js/sessao.js); 4 = Ana Paula, se não houver sessão.
+const CLIENTE_PADRAO = window.BulbeSessao?.usuario()?.clienteId ?? 4;
 
-// O index.html abre a fatura da HU01.
-const LINK_PRIMEIRA_FATURA = 'index.html';
+// A fatura da HU01 abre por index.html?hu=01.
+const LINK_PRIMEIRA_FATURA = 'index.html?hu=01';
 
 // Altura da maior barra do gráfico, em px (mockup: R$ 61,90 → 98px).
 const ALTURA_MAXIMA_BARRA = 98;

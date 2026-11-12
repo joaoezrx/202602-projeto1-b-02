@@ -2,7 +2,8 @@ import { buscarCliente, buscarFaturasDoCliente } from './api.js';
 import { resumirEconomia, formatarMoeda, formatarMes, formatarData, nomeMes, linkTela } from './hu04-util.js';
 
 // Cliente exibido quando a URL não informa ?cliente=ID (ver hu04-economia.js).
-const CLIENTE_PADRAO = 4;
+// Cliente da conta logada (assets/js/sessao.js); 4 = Ana Paula, se não houver sessão.
+const CLIENTE_PADRAO = window.BulbeSessao?.usuario()?.clienteId ?? 4;
 
 const clienteId = Number(new URLSearchParams(location.search).get('cliente')) || CLIENTE_PADRAO;
 const linkDetalhes = linkTela('economia', clienteId);

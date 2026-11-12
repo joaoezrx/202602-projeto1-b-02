@@ -1,7 +1,8 @@
 import { buscarCliente, buscarFaturasDoCliente } from './api.js';
 import { resumirEconomia, formatarMoeda, nomeMes, linkTela } from './hu04-util.js';
 
-const CLIENTE_PADRAO = 4;
+// Cliente da conta logada (assets/js/sessao.js); 4 = Ana Paula, se não houver sessão.
+const CLIENTE_PADRAO = window.BulbeSessao?.usuario()?.clienteId ?? 4;
 
 const clienteId = Number(new URLSearchParams(location.search).get('cliente')) || CLIENTE_PADRAO;
 

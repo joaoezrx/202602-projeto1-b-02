@@ -1,283 +1,135 @@
+/* hu03-1.css — Acompanhar (HU03: Acompanhamento da primeira fatura)
+   Visual alinhado ao design system do app (base: HU04).
+   A página usa o shell do style.css global (.app, .cabecalho,
+   .conteudo) sem alterá-lo; os tokens ficam aqui. */
 
-/* HU03 - Tela 1: Início */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  min-height: 100%;
+:root {
+  /* Tokens do design system (mesmos valores da HU04) */
+  --azul: #0b078c;
+  --azul-escuro: #08046e;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --lavanda-selo: #ECECFA;
+  --cinza-marcador: #A9A8C9;
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: #e9edf3;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-  padding: 0;
+/* Fundo azul e rolagem sem barra (igual à HU04) */
+.conteudo {
+  background-color: var(--azul);
+  scrollbar-width: none;
 }
+.conteudo::-webkit-scrollbar { display: none; }
 
-img, svg {
-  display: block;
-}
+a { color: inherit; text-decoration: none; }
 
-:root {
-  --hf-navy: #15178C;
-  --hf-navy-bg: #E8E9FB;
-  --hf-text: #18181B;
-  --hf-text-secondary: #71717A;
-  --hf-shadow-float: 0 8px 24px rgba(0, 0, 0, 0.12);
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-}
+/* PILHA DE CONTEÚDO */
 
-/* Estrutura da tela */
-
-.hf-screen {
-  width: 375px;
-  max-width: 100%;
-  height: 667px;
-  min-height: 667px;
-  margin: 0 auto;
-  font-family: var(--font-body);
-  color: var(--hf-text);
+.hf-pilha {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: relative;
+  gap: 12px;
+  padding: 0 18px 18px;
 }
 
-.hf-screen--navy {
-  background: var(--hf-navy);
+/* TÍTULO DA ABA (branco sobre o azul) */
+
+.titulo-pagina {
+  color: white;
 }
 
-/* Cabeçalho original */
-
-.hf-header-root {
-  padding: 20px 20px 16px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
+.titulo-pagina.raiz {
+  padding-top: 12px;
 }
 
-.hf-header-actions {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+.titulo-pagina h1 {
+  font-size: 20px;
+  font-weight: 600;
 }
 
-.hf-avatar {
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background: #FFFFFF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  overflow: hidden;
-}
-
-.hf-icon-menu {
-  width: 22px;
-  height: 16px;
-}
-
-.hf-logo-img {
-  height: 18px;
-  width: auto;
-}
-
-.hf-logo-img--lg {
-  height: 22px;
-}
-
-.hf-avatar-img {
-  width: 18px;
-  height: 18px;
-  object-fit: contain;
-}
-
-/* Cabeçalho padronizado com header.svg */
-
-.hf-header-padronizado {
-  width: 100%;
-  background: var(--hf-navy);
-  overflow: hidden;
-  flex-shrink: 0;
-}
-
-.hf-header-imagem {
-  display: block;
-  width: 100%;
-  height: auto;
-}
-
-/* Conteúdo */
-
-.hf-content {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 4px 20px 20px;
-}
-
-/* Cards */
+/* CARD */
 
 .hf-card {
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.hf-card--float {
-  box-shadow: var(--hf-shadow-float);
-}
-
-.hf-card--col {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: white;
 }
 
-.hf-card--gap10 {
-  gap: 10px;
+.hf-card--link {
+  transition: transform 0.15s ease;
+}
+
+.hf-card--link:hover {
+  transform: translateY(-2px);
+}
+
+.hf-card--link:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
 }
 
 .hf-row-top {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  align-items: flex-start;
-}
-
-.hf-card-title {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.hf-card-desc {
-  font-size: 13px;
-  color: var(--hf-text-secondary);
-  line-height: 1.5;
-  margin-top: 4px;
+  color: var(--cinza-marcador);
 }
 
 .hf-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
   padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--hf-navy-bg);
-  color: var(--hf-navy);
+  border-radius: 99px;
+  background-color: var(--lavanda-selo);
+  color: var(--azul);
   font-size: 12px;
-  font-weight: 600;
+  font-weight: 500;
 }
 
-.hf-link {
+.hf-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.hf-card-desc {
+  margin-top: 4px;
   font-size: 13px;
-  font-weight: 600;
-  color: var(--hf-navy);
-  text-decoration: underline;
+  line-height: 1.5;
+  color: var(--texto-suave);
 }
 
-/* Barra inferior */
-
-.hf-tabbar {
-  width: 100%;
-  min-height: 68px;
-  background: #FFFFFF;
-  border-top: 1px solid #ECECEF;
-  display: flex;
-  flex-shrink: 0;
-  align-items: center;
-  justify-content: space-around;
-}
-
-.hf-tab {
-  flex: 1;
-  min-width: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 4px;
-  padding: 6px 0;
-}
-
-.hf-tab-icon {
-  display: block;
-  width: 56px;
-  height: 28px;
-  object-fit: contain;
-}
-
-.hf-tab span {
-  font-size: 11px;
-  font-weight: 600;
-}
-
-.hf-tab--active span {
-  color: var(--hf-navy);
-}
-
-.hf-tab--inactive span {
-  color: #A1A1AA;
-}
-
-/* Botão de voltar */
-
-.hf-voltar-menu {
+/* Botão principal (mesmo da HU04) */
+.hf-botao {
+  min-height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
-  margin-bottom: 8px;
-  color: #FFFFFF;
-  text-decoration: none;
-  font-size: 32px;
-  line-height: 1;
-  border-radius: 50%;
+  border-radius: 12px;
+  background-color: var(--azul);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-.hf-voltar-menu:hover {
-  background: rgba(255, 255, 255, 0.15);
-}
-
-/* Responsividade */
-
-@media (max-width: 375px) {
-  body {
-    background: #FFFFFF;
-  }
-
-  .hf-screen {
-    width: 100%;
-  }
+.hf-card--link:hover .hf-botao {
+  background-color: var(--azul-escuro);
 }

@@ -1,304 +1,270 @@
+/* hu03-3.css — Fatura disponível (HU03: Acompanhamento da primeira fatura)
+   Visual alinhado ao design system do app (base: HU04).
+   A página usa o shell do style.css global (.app, .cabecalho,
+   .conteudo) sem alterá-lo; os tokens ficam aqui. */
 
-/* HU03 - Tela 3: Fatura disponível */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  min-height: 100%;
+:root {
+  /* Tokens do design system (mesmos valores da HU04) */
+  --azul: #0b078c;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --lavanda-selo: #ECECFA;
+  --lavanda-borda: #D4D3EC;
+  --verde-vivo: #1FA45F;
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: #e9edf3;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
 }
 
-button {
-  font-family: inherit;
-  cursor: pointer;
-  border: none;
-  background: none;
-  padding: 0;
+/* Fundo azul e rolagem sem barra (igual à HU04) */
+.conteudo {
+  background-color: var(--azul);
+  scrollbar-width: none;
 }
+.conteudo::-webkit-scrollbar { display: none; }
 
-img, svg {
-  display: block;
-}
+a { color: inherit; text-decoration: none; }
 
-:root {
-  --hf-navy: #15178C;
-  --hf-navy-bg: #E8E9FB;
-  --hf-green: #16A34A;
-  --hf-text: #18181B;
-  --hf-text-secondary: #71717A;
-  --hf-text-muted: #A1A1AA;
-  --hf-border: #D4D4D8;
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-}
+/* PILHA DE CONTEÚDO */
 
-/* Estrutura */
-
-.hf-screen {
-  width: 375px;
-  max-width: 100%;
-  height: 667px;
-  min-height: 667px;
-  margin: 0 auto;
-  font-family: var(--font-body);
-  color: var(--hf-text);
+.hf-pilha {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: relative;
+  gap: 12px;
+  padding: 0 18px 18px;
 }
 
-.hf-screen--light {
-  background: #F4F4F5;
-}
+/* TÍTULO COM VOLTAR (branco sobre o azul) */
 
-/* Cabeçalho */
-
-.hf-header-sub {
-  padding: 20px 20px 8px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
-}
-
-.hf-back-btn {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hf-logo {
+.titulo-pagina {
   display: flex;
   align-items: center;
   gap: 4px;
+  margin: 0 -8px;
+  color: white;
 }
 
-.hf-logo-img {
-  height: 18px;
-  width: auto;
+.titulo-pagina h1 {
+  font-size: 18px;
+  font-weight: 600;
 }
 
-/* Conteúdo */
-
-.hf-content--stack {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 12px 20px 20px;
+.hbtn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
   display: flex;
-  flex-direction: column;
-  gap: 16px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
 }
 
-/* Mensagem de sucesso */
+.hbtn:focus-visible,
+.hf-btn:focus-visible,
+.hf-link-center:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* AVISO DE SUCESSO (como o estado vazio da HU04: branco sobre o azul) */
 
 .hf-success-banner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 6px;
-  padding: 4px 0 2px;
-}
-
-.hf-success-icon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: var(--hf-green);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Textos */
-
-.hf-card-title {
-  font-family: var(--font-display);
-  font-size: 16px;
-  font-weight: 600;
-}
-
-.hf-card-title--lg {
-  font-size: 17px;
-}
-
-.hf-card-desc {
-  font-size: 13px;
-  color: var(--hf-text-secondary);
-  line-height: 1.5;
-  margin-top: 4px;
-}
-
-.hf-card-desc--tight {
-  margin-top: 0;
-}
-
-.hf-card-desc--center {
+  padding: 4px 8px 6px;
+  color: white;
   text-align: center;
 }
 
-/* Cards */
+.hf-success-icon {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--verde-vivo);
+}
+
+.hf-success-banner h2 {
+  margin-top: 4px;
+  font-size: 19px;
+  font-weight: 700;
+}
+
+.hf-success-banner p {
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--claro-sobre-azul);
+}
+
+/* CARD DA FATURA */
 
 .hf-card {
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.hf-card--col {
   display: flex;
   flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: white;
 }
 
-.hf-card--gap14 {
-  gap: 14px;
+.hf-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--azul);
 }
 
 .hf-row-baseline {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: flex-start;
+  gap: 8px;
 }
 
 .hf-row-end {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
+  align-items: center;
+  gap: 8px;
 }
 
 .hf-label {
   font-size: 13px;
-  color: var(--hf-text-secondary);
+  color: var(--texto-suave);
 }
 
 .hf-text-strong {
-  color: var(--hf-text);
+  color: var(--texto);
+  font-weight: 600;
 }
 
 .hf-pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 5px;
+  flex-shrink: 0;
   padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--hf-navy-bg);
-  color: var(--hf-navy);
+  border-radius: 99px;
+  background-color: var(--lavanda-selo);
+  color: var(--azul);
   font-size: 12px;
   font-weight: 600;
 }
 
+.hf-pill--neutro {
+  font-weight: 500;
+}
+
+.hf-preco {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+}
+
 .hf-price {
-  font-family: var(--font-display);
-  font-size: 28px;
+  font-size: 34px;
   font-weight: 700;
-  color: var(--hf-navy);
-  margin-left: 2px;
+  line-height: 1.2;
+  color: var(--azul);
 }
 
+/* Desconto: bloco lavanda (azul se misturaria com o fundo da tela) */
 .hf-discount-bar {
-  background: var(--hf-navy);
-  border-radius: 12px;
-  padding: 12px 16px;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--lavanda);
+  color: var(--azul);
+  font-size: 14px;
   text-align: center;
-}
-
-.hf-discount-bar span {
-  font-size: 13px;
-  color: #FFFFFF;
 }
 
 .hf-barcode {
   height: 52px;
-  border-radius: 10px;
-  background: repeating-linear-gradient(
-    90deg,
-    var(--hf-border) 0 2px,
-    transparent 2px 6px
-  );
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 10px;
+  background: repeating-linear-gradient(90deg, var(--lavanda-borda) 0 2px, transparent 2px 6px);
 }
 
 .hf-barcode-label {
-  font-size: 11px;
-  font-weight: 700;
-  color: var(--hf-text-muted);
-  background: #FFFFFF;
-  padding: 0 6px;
+  padding: 0 8px;
+  background-color: white;
+  color: var(--texto-suave);
+  font-size: 12px;
 }
 
-/* Botões */
+/* AÇÕES (sobre o azul: principal branca, secundárias com contorno) */
+
+.hf-acoes {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
 
 .hf-btn-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
 }
 
 .hf-btn {
-  padding: 13px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 6px;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
   border-radius: 12px;
-  border: 1.5px solid var(--hf-navy);
-  background: #FFFFFF;
+  background: transparent;
+  color: white;
+  font-family: inherit;
   font-size: 13px;
   font-weight: 600;
-  color: var(--hf-navy);
   text-align: center;
+  cursor: pointer;
+}
+
+.hf-btn:hover {
+  background-color: rgba(255, 255, 255, 0.1);
 }
 
 .hf-btn--primary {
-  background: var(--hf-navy);
-  border-color: var(--hf-navy);
-  color: #FFFFFF;
-  font-weight: 700;
+  min-height: 48px;
+  border: none;
+  background-color: white;
+  color: var(--azul);
+  font-size: 15px;
+}
+
+.hf-btn--primary:hover {
+  background-color: var(--lavanda);
 }
 
 .hf-link-center {
-  font-size: 13px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 14px;
   font-weight: 600;
-  color: var(--hf-navy);
   text-decoration: underline;
-  text-align: center;
-  display: block;
-}
-
-/* Responsividade */
-
-@media (max-width: 375px) {
-  body {
-    background: #FFFFFF;
-  }
-
-  .hf-screen {
-    width: 100%;
-  }
+  text-underline-offset: 3px;
 }

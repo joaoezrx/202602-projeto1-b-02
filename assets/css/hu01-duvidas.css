@@ -1,40 +1,78 @@
+/* =========================================
+   HU01 — TELA C: DÚVIDAS SOBRE A FATURA
+   Visual alinhado ao design system do app (base: HU04).
+   O style.css global não é alterado: os tokens ficam aqui.
+   ========================================= */
 
-/* HU01 - Tela C */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
 .hu01-duvidas {
-  display: flex;
-  flex-direction: column;
+  /* Tokens do design system (mesmos valores da HU04) */
+  --azul: #0b078c;
+  --azul-escuro: #08046e;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --divisor: #E3E3F0;
+
+  width: 100%;
   min-height: 100%;
-  background: #f5faf7;
-  color: #30343b;
-  font-family: Arial, sans-serif;
+  padding-bottom: 18px;
+  background-color: var(--azul);
+  color: var(--texto);
+  font-family: "Poppins", sans-serif;
 }
 
-.hu01-duvidas * {
-  box-sizing: border-box;
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
 }
 
-/* CABEÇALHO */
+/* Rola sem a barra roubando largura (igual à HU04) */
+.conteudo { scrollbar-width: none; }
+.conteudo::-webkit-scrollbar { display: none; }
+
+/* TÍTULO COM VOLTAR */
 
 .hu01-duvidas-titulo {
-  background: #ffffff;
-  padding: 18px 20px 14px;
-  border-bottom: 1px solid #e6ece8;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px 0;
+  color: white;
 }
 
 .hu01-duvidas-titulo h1 {
-  margin: 0 0 8px;
-  color: #30343b;
   font-size: 18px;
-  font-weight: 700;
-  line-height: 1.3;
+  font-weight: 600;
 }
 
-.hu01-duvidas-titulo p {
-  margin: 0 0 4px;
-  color: #858d99;
-  font-size: 12px;
+.hu01-voltar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hu01-voltar:focus-visible,
+.hu01-duvidas-whatsapp:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: 12px;
+}
+
+.hu01-duvidas-sub {
+  padding: 0 18px 4px 58px;
+  font-size: 13px;
   line-height: 1.4;
+  color: var(--claro-sobre-azul);
 }
 
 /* CONTEÚDO */
@@ -42,48 +80,42 @@
 .hu01-duvidas-conteudo {
   display: flex;
   flex-direction: column;
-  flex: 1;
-  padding: 22px 18px 18px;
+  gap: 12px;
+  padding: 4px 18px 0;
 }
 
 .hu01-perguntas {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-/* TÍTULOS DAS CATEGORIAS */
+/* CATEGORIAS: título branco sobre o azul */
 
 .hu01-categoria {
   display: flex;
   align-items: center;
-  gap: 12px;
-  margin: 10px 0 12px;
-  padding-left: 4px;
+  gap: 10px;
+  margin-top: 8px;
 }
 
-.hu01-categoria img {
-  display: block;
-  width: 20px;
-  height: 20px;
-  object-fit: contain;
+/* Ícones de linha, no mesmo traço dos ícones do rodapé */
+.hu01-categoria svg {
   flex-shrink: 0;
+  color: var(--claro-sobre-azul);
 }
 
 .hu01-categoria h2 {
-  margin: 0;
-  color: #222222;
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.4;
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
 }
 
-/* CARTÕES */
+/* PERGUNTAS: cards brancos */
 
 .hu01-perguntas details {
-  margin-bottom: 14px;
-  border: 1px solid #d8e4f5;
-  border-radius: 13px;
-  background: #ffffff;
-  overflow: hidden;
+  border-radius: 16px;
+  background-color: white;
 }
 
 .hu01-perguntas summary {
@@ -91,11 +123,10 @@
   align-items: center;
   justify-content: space-between;
   gap: 12px;
-  padding: 17px 15px;
-  color: #383b43;
+  padding: 16px;
   font-size: 14px;
+  font-weight: 600;
   line-height: 1.4;
-  font-weight: 700;
   cursor: pointer;
   list-style: none;
 }
@@ -104,106 +135,95 @@
   display: none;
 }
 
-/* SETAS */
+.hu01-perguntas summary:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: 16px;
+}
 
+/* Seta desenhada com borda */
 .hu01-perguntas summary::after {
   content: "";
-  display: block;
   width: 8px;
   height: 8px;
-  border-right: 2px solid #5d6d7d;
-  border-bottom: 2px solid #5d6d7d;
-  transform: rotate(45deg);
   flex-shrink: 0;
-  margin-right: 4px;
+  margin: 0 4px 4px 0;
+  border-right: 2px solid var(--azul);
+  border-bottom: 2px solid var(--azul);
+  transform: rotate(45deg);
   transition: transform 0.2s;
 }
 
+.hu01-perguntas details[open] summary {
+  padding-bottom: 8px;
+  color: var(--azul);
+}
+
 .hu01-perguntas details[open] summary::after {
+  margin-bottom: -4px;
   transform: rotate(225deg);
 }
 
-.hu01-perguntas details[open] summary {
-  color: #10069f;
-  padding-bottom: 6px;
-}
-
-/* RESPOSTAS */
-
 .hu01-perguntas details p {
-  margin: 0;
-  padding: 0 15px 17px;
-  color: #657386;
-  font-size: 12px;
+  margin: 0 16px 16px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background-color: var(--lavanda);
+  color: var(--texto-suave);
+  font-size: 13px;
   line-height: 1.5;
 }
 
 .hu01-perguntas details p strong {
-  font-weight: 700;
+  color: var(--texto);
+  font-weight: 600;
 }
 
-/* RODAPÉ */
+/* AJUDA: card branco com botão */
 
 .hu01-duvidas-rodape {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 10px;
-  margin-top: auto;
-  padding: 45px 4px 4px;
+  gap: 12px;
+  margin-top: 8px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: white;
 }
 
-.hu01-duvidas-rodape > span {
-  color: #a5b6c9;
-  font-size: 11px;
-  font-weight: 600;
+.hu01-duvidas-rodape div {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
-/* BOTÃO WHATSAPP */
+.hu01-duvidas-rodape strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.hu01-duvidas-rodape span {
+  font-size: 12px;
+  color: var(--texto-suave);
+}
 
 .hu01-duvidas-whatsapp {
+  min-height: 44px;
   display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  text-decoration: none;
   flex-shrink: 0;
-  cursor: pointer;
-}
-
-.hu01-duvidas-whatsapp img {
-  display: block;
-  width: 150px;
-  max-width: 100%;
-  height: auto;
-  object-fit: contain;
+  align-items: center;
+  gap: 6px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background-color: var(--azul);
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-decoration: none;
 }
 
 .hu01-duvidas-whatsapp:hover {
-  opacity: 0.85;
-}
-
-/* RESPONSIVIDADE */
-
-@media (max-width: 360px) {
-  .hu01-duvidas-titulo {
-    padding-left: 16px;
-    padding-right: 16px;
-  }
-
-  .hu01-duvidas-conteudo {
-    padding-left: 12px;
-    padding-right: 12px;
-  }
-
-  .hu01-perguntas summary {
-    font-size: 12px;
-  }
-
-  .hu01-perguntas details p {
-    font-size: 11px;
-  }
-
-  .hu01-duvidas-whatsapp img {
-    width: 130px;
-  }
+  background-color: var(--azul-escuro);
 }

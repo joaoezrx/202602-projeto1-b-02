@@ -1,186 +1,145 @@
+/* hu03-4.css — Pagamento (HU03: Acompanhamento da primeira fatura)
+   Visual alinhado ao design system do app (base: HU04).
+   A página usa o shell do style.css global (.app, .cabecalho,
+   .conteudo) sem alterá-lo; os tokens ficam aqui. */
 
-/* HU03 - Tela 4: Pagamento */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
 
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600;700&display=swap');
-
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-html, body {
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  min-height: 100%;
+:root {
+  /* Tokens do design system (mesmos valores da HU04) */
+  --azul: #0b078c;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --lavanda-selo: #ECECFA;
+  --lavanda-barra: #C9C8EE;
+  --cinza-marcador: #A9A8C9;
 }
 
 body {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  background: #e9edf3;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  font-family: "Poppins", sans-serif;
+  color: var(--texto);
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
 }
 
-img, svg {
-  display: block;
+/* Fundo azul e rolagem sem barra (igual à HU04) */
+.conteudo {
+  background-color: var(--azul);
+  scrollbar-width: none;
 }
+.conteudo::-webkit-scrollbar { display: none; }
 
-input[type="checkbox"] {
-  margin: 0;
-}
+a { color: inherit; text-decoration: none; }
 
-:root {
-  --hf-navy: #15178C;
-  --hf-text: #18181B;
-  --hf-text-secondary: #71717A;
-  --hf-text-muted: #A1A1AA;
-  --hf-text-pending: #52525B;
-  --hf-border: #D4D4D8;
-  --font-display: 'Poppins', sans-serif;
-  --font-body: 'Inter', system-ui, sans-serif;
-}
+/* PILHA DE CONTEÚDO */
 
-/* Estrutura */
-
-.hf-screen {
-  width: 375px;
-  max-width: 100%;
-  height: 667px;
-  min-height: 667px;
-  margin: 0 auto;
-  font-family: var(--font-body);
-  color: var(--hf-text);
+.hf-pilha {
   display: flex;
   flex-direction: column;
-  overflow: hidden;
-  position: relative;
+  gap: 12px;
+  padding: 0 18px 18px;
 }
 
-.hf-screen--light {
-  background: #F4F4F5;
-}
-
-/* Cabeçalho */
-
-.hf-header-sub {
-  padding: 20px 20px 8px;
+.hf-grupo {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-shrink: 0;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.hf-back-btn {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+/* TÍTULO COM VOLTAR (branco sobre o azul) */
 
-.hf-logo {
+.titulo-pagina {
   display: flex;
   align-items: center;
   gap: 4px;
+  margin: 0 -8px;
+  color: white;
 }
 
-.hf-logo-img {
-  height: 18px;
-  width: auto;
-}
-
-/* Conteúdo */
-
-.hf-content--stack {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  padding: 12px 20px 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-}
-
-/* Cards */
-
-.hf-card {
-  background: #FFFFFF;
-  border-radius: 20px;
-  padding: 20px;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
-}
-
-.hf-card--col {
-  display: flex;
-  flex-direction: column;
-}
-
-.hf-card--row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.hf-card--gap4 {
-  gap: 4px;
-}
-
-.hf-card--gap14 {
-  gap: 14px;
-}
-
-.hf-card-title {
-  font-family: var(--font-display);
-  font-size: 16px;
+.titulo-pagina h1 {
+  font-size: 18px;
   font-weight: 600;
 }
 
-.hf-card-title--tight {
-  margin-top: 0;
+.hbtn {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.hbtn:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+/* CARD */
+
+.hf-card {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.hf-card--gap4 { gap: 4px; }
+
+.hf-card--row {
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.hf-card-title {
+  font-size: 17px;
+  font-weight: 700;
+  line-height: 1.35;
+  color: var(--azul);
 }
 
 .hf-label {
   font-size: 13px;
-  color: var(--hf-text-secondary);
+  color: var(--texto-suave);
 }
 
-/* Status */
+/* STATUS DO PAGAMENTO */
 
 .hf-status-row {
   display: flex;
-  gap: 12px;
   align-items: flex-start;
-}
-
-.hf-status-row--pending {
-  opacity: 0.45;
+  gap: 12px;
 }
 
 .hf-status-icon {
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  background: var(--hf-navy);
+  width: 24px;
+  height: 24px;
   flex-shrink: 0;
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 50%;
+  background-color: var(--azul);
+  box-shadow: 0 0 0 4px var(--lavanda-selo);
 }
 
 .hf-status-icon--pending {
-  border: 2px solid var(--hf-border);
-  background: none;
+  border: 2px solid var(--cinza-marcador);
+  background-color: white;
+  box-shadow: none;
 }
 
 .hf-timeline-title {
@@ -188,42 +147,54 @@ input[type="checkbox"] {
   font-weight: 600;
 }
 
-.hf-timeline-title--pending {
-  color: var(--hf-text-pending);
+.hf-timeline-title--atual {
+  color: var(--azul);
 }
 
 .hf-timeline-desc {
-  font-size: 12px;
-  color: var(--hf-text-secondary);
   margin-top: 2px;
-  line-height: 1.4;
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--texto-suave);
 }
 
-.hf-timeline-desc--pending {
-  color: var(--hf-text-muted);
-}
-
-/* Seletores */
+/* INTERRUPTOR (checkbox com cara de switch) */
 
 .hf-toggle {
-  width: 20px;
-  height: 20px;
-  accent-color: var(--hf-navy);
+  position: relative;
+  width: 46px;
+  height: 28px;
   flex-shrink: 0;
+  margin: 0;
+  border-radius: 99px;
+  background-color: var(--lavanda-barra);
+  appearance: none;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.hf-toggle--off {
-  accent-color: var(--hf-text-muted);
+.hf-toggle::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 1px 3px rgba(20, 19, 63, 0.3);
+  transition: transform 0.2s ease;
 }
 
-/* Responsividade */
+.hf-toggle:checked {
+  background-color: var(--azul);
+}
 
-@media (max-width: 375px) {
-  body {
-    background: #FFFFFF;
-  }
+.hf-toggle:checked::before {
+  transform: translateX(18px);
+}
 
-  .hf-screen {
-    width: 100%;
-  }
+.hf-toggle:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
 }

@@ -1,0 +1,209 @@
+/* =========================================
+   BULBE — SQUAD B-02
+   TUTORIAL DO CONTINHA (assets/js/tutorial.js)
+   O Continha tem corpo e braços brancos: ele fica SOBRE o fundo
+   escurecido (onde aparece bem), e o balão branco fica embaixo dele.
+   Visual no design system da HU04.
+   ========================================= */
+
+.tutorial {
+  position: absolute;
+  inset: 0;
+  z-index: 400;
+  font-family: "Poppins", Arial, sans-serif;
+  animation: tutorialEntra 0.25s ease;
+}
+
+.tutorial:focus {
+  outline: none;
+}
+
+/* Despedida: some o rodapé do balão (pontos e botões); só a fala fica */
+.tutorial.despedindo .tutorial-rodape {
+  display: none;
+}
+
+.tutorial.despedindo .tutorial-balao {
+  text-align: center;
+}
+
+.tutorial.saindo {
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+@keyframes tutorialEntra {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+/* Escurece a tela inteira nos passos sem alvo */
+.tutorial-escuro {
+  position: absolute;
+  inset: 0;
+  background-color: rgba(9, 6, 60, 0.82);
+  transition: opacity 0.25s ease;
+}
+
+.tutorial.com-alvo .tutorial-escuro {
+  opacity: 0;
+}
+
+/* Recorte iluminado: a sombra gigante escurece tudo em volta do alvo */
+.tutorial-foco {
+  position: absolute;
+  display: none;
+  border-radius: 14px;
+  box-shadow: 0 0 0 9999px rgba(9, 6, 60, 0.82);
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+  transition: left 0.3s ease, top 0.3s ease, width 0.3s ease, height 0.3s ease;
+}
+
+.tutorial.com-alvo .tutorial-foco {
+  display: block;
+}
+
+/* Continha + balão */
+.tutorial-caixa {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  top: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transform: translateY(-50%);
+}
+
+/* Com alvo no rodapé, a caixa sobe e fica logo acima dele */
+.tutorial.com-alvo .tutorial-caixa {
+  top: auto;
+  bottom: 92px;
+  transform: none;
+}
+
+.tutorial-continha {
+  position: relative;
+  z-index: 1;
+  width: 118px;
+  height: auto;
+  margin-bottom: -10px;   /* os pés "pisam" no balão */
+}
+
+.tutorial-continha.pula {
+  animation: continhaPula 0.55s cubic-bezier(0.3, 1.6, 0.5, 1);
+}
+
+@keyframes continhaPula {
+  0% { transform: translateY(0) rotate(0); }
+  40% { transform: translateY(-12px) rotate(-4deg); }
+  70% { transform: translateY(0) rotate(2deg); }
+  100% { transform: translateY(0) rotate(0); }
+}
+
+.tutorial-balao {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 20px 16px 14px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+}
+
+.tutorial-titulo {
+  font-size: 17px;
+  font-weight: 700;
+  color: #0b078c;
+}
+
+.tutorial-texto {
+  font-size: 14px;
+  line-height: 1.5;
+  color: #55547a;
+}
+
+.tutorial-rodape {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tutorial-pontos {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.tutorial-pontos span {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background-color: #d4d3ec;
+  transition: width 0.25s ease, background-color 0.25s ease;
+}
+
+.tutorial-pontos span.ativo {
+  width: 20px;
+  background-color: #0b078c;
+}
+
+.tutorial-pular,
+.tutorial-proximo {
+  min-height: 44px;
+  padding: 0 16px;
+  border: none;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.tutorial-pular {
+  background: transparent;
+  color: #55547a;
+}
+
+.tutorial-pular:hover { background-color: #f3f3fb; }
+.tutorial-pular[hidden] { display: none; }
+
+.tutorial-proximo {
+  min-width: 112px;
+  background-color: #0b078c;
+  color: #ffffff;
+}
+
+.tutorial-proximo:hover { background-color: #08046e; }
+
+.tutorial-pular:focus-visible,
+.tutorial-proximo:focus-visible {
+  outline: 2px solid #0b078c;
+  outline-offset: 2px;
+}
+
+.tutorial .sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tutorial,
+  .tutorial-continha.pula {
+    animation: none;
+  }
+
+  .tutorial-foco,
+  .tutorial-escuro,
+  .tutorial-pontos span {
+    transition: none;
+  }
+}

@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrar — Bulbe</title>
+
+  <!-- Se já houver sessão, o login.js segue direto para o app -->
+  <script src="../assets/js/sessao.js"></script>
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/rodape.css">
+  <link rel="stylesheet" href="../assets/css/login.css">
+</head>
+<body>
+  <div class="app">
+    <main class="conteudo">
+      <div class="login" id="login">
+
+        <!-- Marca. A logo é a mesma do cabeçalho (caminhos de header.svg),
+             inline para cada letra e cada traço animar separado.
+             Clicar na logo repete a animação (útil para apresentar). -->
+        <div class="login-marca">
+          <div class="logo" id="logo" title="Repetir animação">
+            <svg class="logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="137 9 101 29.6" fill="none" role="img" aria-label="Bulbe">
+              <!-- letras, na ordem b-u-l-b-e -->
+              <path class="letter" style="--i:0" d="M146.854 15.0795H143.13V18.7818H146.854V18.7989C149.955 18.7989 152.467 21.2972 152.467 24.3783C152.467 27.4595 149.954 29.9578 146.854 29.9578C143.755 29.9578 141.242 27.4602 141.242 24.3783H141.224V9.5H137.5V24.3783C137.5 29.5138 141.688 33.6772 146.854 33.6772C152.021 33.6772 156.209 29.5138 156.209 24.3783C156.209 19.2429 152.021 15.0795 146.854 15.0795Z" fill="white"/>
+              <path class="letter" style="--i:1" d="M171.38 25.1205C171.38 27.8017 169.193 29.9749 166.496 29.9749C163.799 29.9749 161.613 27.8017 161.613 25.1205V15.0795H157.888V25.1205C157.888 29.8468 161.742 33.6779 166.497 33.6779C171.251 33.6779 175.105 29.8468 175.105 25.1205V15.0795H171.38V25.1205H171.38Z" fill="white"/>
+              <path class="letter" style="--i:2" d="M181.169 9.5H177.445V32.9436H181.169V9.5Z" fill="white"/>
+              <path class="letter" style="--i:3" d="M192.864 15.0795H189.14V18.7818H192.864V18.7989C195.964 18.7989 198.477 21.2972 198.477 24.3783C198.477 27.4595 195.965 29.9578 192.864 29.9578C189.764 29.9578 187.252 27.4602 187.252 24.3783H187.234V9.5H183.51V24.3783C183.51 29.5138 187.698 33.6772 192.864 33.6772C198.031 33.6772 202.219 29.5138 202.219 24.3783C202.219 19.2429 198.031 15.0795 192.864 15.0795" fill="white"/>
+              <path class="letter" style="--i:4" d="M211.307 26.2299H222.347C222.468 25.6314 222.533 25.0124 222.533 24.3783C222.533 19.2429 218.344 15.0795 213.178 15.0795C208.012 15.0795 203.824 19.2429 203.824 24.3783C203.824 29.5138 208.012 33.6779 213.178 33.6779H216.903V29.9756H213.178V29.9585C210.079 29.9585 207.565 27.4602 207.565 24.3791C207.565 21.2979 210.078 18.7996 213.178 18.7996C215.624 18.7996 217.699 20.3579 218.468 22.5275H211.308V26.2299H211.307Z" fill="white"/>
+              <!-- traços, de cima para baixo: verde, azul, laranja -->
+              <path class="ray" style="--i:0" d="M233.31 10.6852L223.588 16.2646L225.45 19.471L235.172 13.8915L233.31 10.6852Z" fill="#26D07C"/>
+              <path class="ray" style="--i:1" d="M237.5 22.5275H226.274V26.2298H237.5V22.5275Z" fill="#0762C7"/>
+              <path class="ray" style="--i:2" d="M225.452 29.2856L223.589 32.4919L233.311 38.0714L235.173 34.8651L225.452 29.2856Z" fill="#FF9E1B"/>
+            </svg>
+          </div>
+          <p class="reveal" style="--d:3.2s">Sua energia solar, sem complicação.</p>
+        </div>
+
+        <!-- Formulário -->
+        <form class="login-card reveal" style="--d:3.4s" id="form-login" novalidate>
+          <h1 class="reveal" style="--d:3.6s">Entrar na sua conta</h1>
+
+          <!-- Já existe uma sessão: deixa continuar OU trocar de conta (login.js) -->
+          <div class="ja-conectado" id="ja-conectado" hidden>
+            <p>Você já está conectado como <strong id="conectado-nome"></strong>.</p>
+            <a class="botao-entrar botao-continuar" id="continuar-como" href="../index.html">Continuar</a>
+            <button type="button" class="botao-outra-conta" id="outra-conta">Entrar com outra conta</button>
+          </div>
+
+          <div class="campo reveal" style="--d:3.72s">
+            <label for="email">E-mail</label>
+            <input id="email" name="email" type="email" autocomplete="username" inputmode="email" placeholder="voce@email.com" required>
+          </div>
+
+          <div class="campo reveal" style="--d:3.84s">
+            <label for="senha">Senha</label>
+            <div class="campo-senha">
+              <input id="senha" name="senha" type="password" autocomplete="current-password" placeholder="Sua senha" required>
+              <button type="button" class="mostrar-senha" id="mostrar-senha" aria-label="Mostrar senha" aria-pressed="false">
+                <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <label class="manter reveal" style="--d:3.96s">
+            <input type="checkbox" id="manter" name="manter">
+            <span>Manter conectado</span>
+          </label>
+
+          <p class="login-erro" id="login-erro" role="alert" hidden></p>
+
+          <button type="submit" class="botao-entrar reveal" style="--d:4.08s" id="botao-entrar">Entrar</button>
+        </form>
+
+        <p class="login-aviso reveal" style="--d:4.3s">
+          Protótipo acadêmico · <span class="destaque">dados fictícios.</span><br>
+          Conta de demonstração no README do projeto.
+        </p>
+
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="../assets/js/login.js"></script>
+  <script src="../assets/js/login-animacao.js"></script>
+</body>
+</html>

@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "clienteId": 4,
+    "nome": "Ana Paula Martins",
+    "email": "ana.martins@bulbe.test",
+    "senhaSha256": "a2eb0087dca38aea5c95d4738e05960c98dba40c586881e84368fd62e158db44",
+    "criadoEm": "2026-06-18",
+    "primeiroAcesso": false
+  },
+  {
+    "id": 2,
+    "clienteId": 5,
+    "nome": "Lucas Andrade",
+    "email": "lucas.andrade@bulbe.test",
+    "senhaSha256": "a2eb0087dca38aea5c95d4738e05960c98dba40c586881e84368fd62e158db44",
+    "criadoEm": "2026-11-05",
+    "primeiroAcesso": true
+  }
+]
