@@ -75,3 +75,127 @@ body {
     height: 100dvh;
   }
 }
+
+
+/* MENU INICIAL DAS HISTÓRIAS DE USUÁRIO */
+
+.menu-hus {
+  padding: 28px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.menu-hus h1 {
+  font-size: 24px;
+  color: #0b078c;
+  margin-bottom: 10px;
+}
+
+.menu-hus p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin-bottom: 24px;
+}
+
+.lista-hus {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.lista-hus button {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  width: 100%;
+  padding: 18px;
+  background: #f5f6ff;
+  border: 1px solid #dedff5;
+  border-radius: 12px;
+  cursor: pointer;
+  text-align: left;
+  transition: background 0.2s;
+}
+
+.lista-hus button:hover {
+  background: #e8eaff;
+}
+
+.lista-hus strong {
+  font-size: 16px;
+  color: #0b078c;
+}
+
+.lista-hus span {
+  font-size: 13px;
+  color: #444;
+}
+
+
+/* Botão de voltar das histórias de usuário */
+
+.botao-voltar-hu {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 20px 8px;
+  padding: 10px 14px;
+  background: #f5f6ff;
+  color: #0b078c;
+  border: 1px solid #dedff5;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-voltar-hu:hover {
+  background: #e8eaff;
+}
+
+
+/* Botão de voltar das histórias de usuário */
+
+.botao-voltar-hu {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin: 16px 20px 8px;
+  padding: 10px 14px;
+  background: #f5f6ff;
+  color: #0b078c;
+  border: 1px solid #dedff5;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-voltar-hu:hover {
+  background: #e8eaff;
+}
+
+
+/* Botão de voltar compacto */
+
+.botao-voltar-hu {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  margin: 6px 0 4px 12px;
+  background: transparent;
+  border: none;
+  border-radius: 50%;
+  color: #18181b;
+  cursor: pointer;
+  font-size: 32px;
+  line-height: 1;
+}
+
+.botao-voltar-hu:hover {
+  background: #eeeeF5;
+}
