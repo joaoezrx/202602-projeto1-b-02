@@ -1,0 +1,192 @@
+/* =========================================
+   BULBE — SQUAD B-02
+   RODAPÉ DE NAVEGAÇÃO (todas as telas)
+   Montado por assets/js/rodape.js
+   ========================================= */
+
+/* O APP CABE NA JANELA
+   O style.css fixa o frame em 667px de altura. Em telas de notebook
+   (ex.: 1366x768) a janela útil é menor que isso e o rodapé ficava
+   cortado. Aqui o frame encolhe até caber; o conteúdo rola por dentro. */
+@media (min-width: 601px) {
+  .app {
+    height: min(667px, calc(100dvh - 40px));
+  }
+}
+
+/* Com mouse/touchpad, mostra uma barra de rolagem fina para arrastar.
+   No celular (toque) ela continua escondida, como no design da HU04. */
+@media (pointer: fine) {
+  .app .conteudo {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.45) transparent;
+  }
+
+  .app .conteudo::-webkit-scrollbar {
+    display: block;
+    width: 6px;
+  }
+
+  .app .conteudo::-webkit-scrollbar-thumb {
+    border-radius: 3px;
+    background-color: rgba(255, 255, 255, 0.45);
+  }
+}
+
+/* LOGO CLICÁVEL NO CABEÇALHO
+   Área invisível sobre a logo do header.svg (a imagem estica na largura
+   do cabeçalho, então a posição é em porcentagem). */
+.cabecalho {
+  position: relative;
+}
+
+.logo-inicio {
+  position: absolute;
+  top: 10%;
+  left: 34%;
+  width: 32%;
+  height: 80%;
+  border-radius: 12px;
+}
+
+.logo-inicio:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+/* MENU DA CONTA (avatar do cabeçalho) — montado por assets/js/sessao.js
+   Botão invisível sobre o avatar do header.svg + cartão com nome,
+   e-mail e "Sair da conta". */
+.app {
+  position: relative;
+}
+
+.avatar-conta {
+  position: absolute;
+  top: 12%;
+  right: 2%;
+  width: 14%;
+  height: 76%;
+  padding: 0;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+.avatar-conta:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -2px;
+}
+
+.menu-conta {
+  position: absolute;
+  top: 66px;
+  right: 12px;
+  z-index: 100;
+  width: 230px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 16px;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 12px 32px rgba(20, 19, 63, 0.28);
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+.menu-conta[hidden] {
+  display: none;
+}
+
+.menu-conta strong {
+  font-size: 15px;
+  font-weight: 700;
+  color: #0b078c;
+}
+
+.menu-conta span {
+  overflow: hidden;
+  font-size: 12px;
+  color: #55547a;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.menu-conta-sair {
+  min-height: 44px;
+  margin-top: 12px;
+  border: 1.5px solid #d4d3ec;
+  border-radius: 12px;
+  background-color: #ffffff;
+  color: #0b078c;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.menu-conta-sair:hover {
+  background-color: #f3f3fb;
+}
+
+.menu-conta-sair:focus-visible {
+  outline: 2px solid #0b078c;
+  outline-offset: 2px;
+}
+
+.rodape {
+  height: 70px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  background-color: #ffffff;
+  border-top: 1px solid #f0f0f0;
+  font-family: "Inter", Arial, sans-serif;
+}
+
+.rodape a {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #a1a1aa;
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.rodape a:hover {
+  color: #55547a;
+}
+
+.rodape a.ativo {
+  color: #0b078c;
+}
+
+.rodape svg {
+  display: block;
+}
+
+/* Marcador em cima do ícone da aba ativa */
+.rodape a::before {
+  content: "";
+  width: 24px;
+  height: 3px;
+  margin-bottom: 2px;
+  border-radius: 0 0 3px 3px;
+  background-color: transparent;
+}
+
+.rodape a.ativo::before {
+  background-color: #0b078c;
+}
+
+.rodape a:focus-visible {
+  outline: 2px solid #0b078c;
+  outline-offset: -4px;
+  border-radius: 8px;
+}

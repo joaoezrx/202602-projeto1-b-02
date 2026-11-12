@@ -7,8 +7,14 @@
 
   <title>Bulbe | Squad B-02</title>
 
+  <!-- Login: sem sessão, vai para pages/login.html (assets/js/sessao.js) -->
+  <script src="assets/js/sessao.js"></script>
+
   <!-- CSS global compartilhado -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/rodape.css">
+  <link rel="stylesheet" href="assets/css/navegacao.css">
+  <link rel="stylesheet" href="assets/css/tutorial.css">
 </head>
 
 <body>
@@ -26,19 +32,14 @@
     <!-- Área central das telas -->
     <main class="conteudo" id="conteudo-principal"></main>
 
-    <!-- Navegação inferior -->
-    <nav class="navegacao" aria-label="Navegação principal">
-      <a href="index.html" class="ativo" aria-label="Conexão">
-        <img src="assets/img/conexao.svg" alt="Conexão">
-      </a>
-
-      <a href="#" aria-label="Indicações">
-        <img src="assets/img/indicacoes.svg" alt="Indicações">
-      </a>
-    </nav>
+    <!-- Navegação inferior: mesmo rodapé de todas as telas (assets/js/rodape.js) -->
+    <nav class="rodape" aria-label="Navegação principal"></nav>
 
   </div>
 
+  <script src="assets/js/rodape.js"></script>
+  <script src="assets/js/navegacao.js"></script>
+  <script src="assets/js/tutorial.js"></script>
   <script type="module" src="assets/js/main.js"></script>
   <script type="module" src="assets/js/carregar-tela.js"></script>
 </body>

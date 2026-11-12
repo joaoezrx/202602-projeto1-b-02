@@ -1,10 +1,8 @@
-
 /*
   Carregamento inicial das telas
   Projeto Bulbe — Squad B-02
 */
 
-import { abrirHome } from "./home.js";
 import { abrirTelaHU01 } from "./hu01.js";
 import { abrirTelaHU04 } from "./hu04.js";
 
@@ -18,6 +16,6 @@ if (hu === "01") {
   // index.html?hu=04&tela=inicio|economia|calculo&cliente=ID
   abrirTelaHU04(parametros.get("tela") ?? "inicio");
 } else {
-  // Sem ?hu=, abre a home, que leva para as telas de cada HU
-  abrirHome();
+  // Sem ?hu=, a tela inicial do app é o início da HU04 (Minha economia)
+  abrirTelaHU04("inicio");
 }
