@@ -17,7 +17,7 @@ const botaoMostrar = document.querySelector('#mostrar-senha');
 // Só aceita voltar para telas do próprio app (evita redirecionar para fora)
 function destinoDepoisDoLogin() {
   const voltar = new URLSearchParams(location.search).get('voltar') ?? '';
-  const valido = /^(index\.html|pages\/hu[\w-]+\.html)(\?[\w=&%.-]*)?$/.test(voltar);
+  const valido = /^(index\.html|pages\/(hu[\w-]+|indique|historico|perfil)\.html)(\?[\w=&%.-]*)?$/.test(voltar);
   return `../${valido ? voltar : 'index.html'}`;
 }
 

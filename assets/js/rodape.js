@@ -34,6 +34,8 @@
 
   // Descobre qual aba corresponde à tela aberta.
   function abaAtual() {
+    if (caminho.includes('indique') || caminho.includes('perfil')) return null; // aberta pelo menu lateral: nenhuma aba do rodapé
+    if (caminho.includes('historico')) return 'fatura'; // histórico de faturas fica sob a aba Fatura
     if (caminho.includes('hu02')) return 'raio-x';
     if (caminho.includes('hu03')) return 'acompanhar';
     if (new URLSearchParams(location.search).get('hu') === '01') return 'fatura';
