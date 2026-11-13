@@ -69,6 +69,14 @@ Ao abrir o app, aparece a tela de login. Há duas contas fictícias (a senha é 
 - Para sair, toque no avatar no canto superior direito e escolha **Sair da conta**.
 - É um protótipo: o login acontece todo no navegador e **não é autenticação de verdade**.
 
+### Apresentação
+
+A apresentação do projeto fica em `apresentacao/index.html`. Com o servidor ligado, abra `apresentacao/index.html` pelo mesmo endereço do app (ex.: `http://127.0.0.1:5500/apresentacao/`).
+
+- Os celulares dos slides mostram **o app de verdade**, e dá para clicar neles. Antes de apresentar, entre uma vez no app com **Manter conectado**; sem isso, os celulares mostram a tela de login.
+- Para passar os slides, use as **setas** ou o **espaço**. A tecla **F** liga a tela cheia. Para abrir num slide específico, use `#n` no fim do endereço (ex.: `#5`).
+- Tudo fica em um arquivo só (HTML, CSS e JS). Os textos de cada slide estão nas `<section class="slide">`.
+
 ## 6. Estrutura do repositório
 
 ```text

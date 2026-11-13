@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bulbe Energia · Squad B-02</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap">
+<style>
+:root{
+  --azul:#0b078c; --azul-escuro:#06044f; --noite:#04033a;
+  --lavanda:#F3F3FB; --claro:#D6D5F5; --suave:#A9A8D9;
+  --verde:#26D07C; --azul-raio:#0762C7; --laranja:#FF9E1B;
+  --texto:#14133F; --texto-suave:#55547A;
+  --s:1;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%;overflow:hidden}
+body{
+  font-family:Poppins,system-ui,sans-serif;color:#fff;
+  background:radial-gradient(1200px 800px at 85% 10%,#1a15b8 0%,transparent 60%),
+             radial-gradient(900px 700px at 0% 100%,#0a0870 0%,transparent 60%),var(--azul-escuro);
+}
+/* raios decorativos ao fundo (motivo da logo) */
+.fundo{position:fixed;inset:0;pointer-events:none;overflow:hidden}
+.fundo i{position:absolute;right:-8vw;height:2.2vh;border-radius:99px;opacity:.13;transform-origin:right center}
+.fundo i:nth-child(1){top:18%;width:42vw;background:var(--verde);transform:rotate(-28deg)}
+.fundo i:nth-child(2){top:46%;width:36vw;background:var(--azul-raio)}
+.fundo i:nth-child(3){top:74%;width:42vw;background:var(--laranja);transform:rotate(28deg)}
+
+/* ---------- slides ---------- */
+.deck{position:relative;height:100%}
+.slide{
+  position:absolute;inset:0;padding:6vh 6vw 11vh;
+  display:grid;align-items:center;gap:4vw;
+  opacity:0;visibility:hidden;transform:translateX(40px) scale(.985);
+  transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1),visibility 0s .7s;
+}
+.slide.ativo{opacity:1;visibility:visible;transform:none;transition:opacity .6s ease,transform .7s cubic-bezier(.2,.8,.2,1)}
+.slide.saiu{transform:translateX(-40px) scale(.985)}
+.dois{grid-template-columns:1.15fr auto}
+.dois.inv{grid-template-columns:auto 1.15fr}
+
+.r{opacity:0}
+.ativo .r{animation:subir .8s cubic-bezier(.2,.8,.2,1) var(--d,0s) both}
+@keyframes subir{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+.ativo .r-esq{animation-name:daEsq}
+@keyframes daEsq{from{opacity:0;transform:translateX(-30px)}to{opacity:1;transform:none}}
+
+.kicker{font-size:clamp(11px,1.05vw,15px);font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--verde);margin-bottom:1.6vh;display:flex;align-items:center;gap:.8em}
+.kicker b{display:inline-grid;place-items:center;min-width:2.2em;height:2.2em;border-radius:99px;background:rgba(38,208,124,.15);color:var(--verde)}
+h1{font-size:clamp(30px,4.2vw,64px);line-height:1.08;font-weight:700;letter-spacing:-.02em}
+h2{font-size:clamp(26px,3.3vw,50px);line-height:1.1;font-weight:700;letter-spacing:-.02em}
+.sub{font-size:clamp(14px,1.35vw,20px);color:var(--claro);margin-top:2vh;max-width:40em;line-height:1.55}
+.destaque{color:var(--verde)}
+.l{color:var(--laranja)}
+
+/* ---------- celular com o app ao vivo ---------- */
+.aparelho{display:flex;flex-direction:column;align-items:center;gap:1.6vh}
+.celular-box{width:calc(399px * var(--s));height:calc(804px * var(--s));position:relative}
+.celular{
+  position:absolute;top:0;left:0;width:399px;height:804px;transform:scale(var(--s));transform-origin:top left;
+  border-radius:54px;padding:12px;background:linear-gradient(145deg,#2a2a3a,#0d0d16);
+  box-shadow:0 0 0 2px #3b3b52 inset,0 40px 80px -20px rgba(0,0,0,.6),0 0 120px -30px rgba(38,208,124,.35);
+}
+.tela{width:375px;height:780px;border-radius:42px;overflow:hidden;background:var(--azul);position:relative}
+.tela iframe{width:375px;height:780px;border:0;display:block;background:var(--azul)}
+.tela .carregando{position:absolute;inset:0;display:grid;place-items:center;color:var(--claro);font-size:14px;pointer-events:none;transition:opacity .4s}
+.tela.ok .carregando{opacity:0}
+.ativo .aparelho{animation:flutuar .9s cubic-bezier(.2,.8,.2,1) .25s both}
+@keyframes flutuar{from{opacity:0;transform:translateY(60px) rotate(-3deg)}to{opacity:1;transform:none}}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.chips button{
+  font:500 clamp(11px,.9vw,13px) Poppins;color:var(--claro);background:rgba(255,255,255,.07);
+  border:1px solid rgba(255,255,255,.14);padding:.55em 1.1em;border-radius:99px;cursor:pointer;transition:.2s
+}
+.chips button:hover{background:rgba(255,255,255,.14);color:#fff}
+.chips button[aria-pressed="true"]{background:#fff;color:var(--azul);border-color:#fff}
+.dica{font-size:12px;color:var(--suave);display:flex;align-items:center;gap:6px}
+.dica::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--verde);box-shadow:0 0 0 0 rgba(38,208,124,.6);animation:pulso 1.8s infinite}
+@keyframes pulso{70%{box-shadow:0 0 0 10px rgba(38,208,124,0)}100%{box-shadow:0 0 0 0 rgba(38,208,124,0)}}
+
+/* ---------- listas e cards ---------- */
+.itens{list-style:none;margin-top:4vh;display:grid;gap:2.4vh}
+.itens li{display:grid;grid-template-columns:auto 1fr;gap:1.1vw;align-items:start}
+.ico{width:clamp(36px,3vw,48px);height:clamp(36px,3vw,48px);border-radius:14px;display:grid;place-items:center;background:rgba(255,255,255,.08)}
+.ico svg{width:55%;height:55%}
+.itens strong{display:block;font-size:clamp(15px,1.35vw,20px);font-weight:600}
+.itens span{display:block;font-size:clamp(12px,1.05vw,16px);color:var(--claro);margin-top:.3em;line-height:1.5}
+.persona{
+  margin-top:3vh;padding:1.6vh 1.4vw;border-radius:16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);
+  font-size:clamp(13px,1.1vw,17px);color:var(--claro);line-height:1.5;max-width:36em
+}
+.persona em{font-style:normal;color:#fff;font-weight:600}
+.dono{display:inline-flex;align-items:center;gap:.5em;margin-top:2.4vh;font-size:clamp(11px,.95vw,14px);color:var(--suave)}
+.dono::before{content:"";width:22px;height:2px;background:var(--suave)}
+
+/* capa */
+.capa{grid-template-columns:1.2fr auto}
+.logo-anim{width:clamp(180px,20vw,320px);margin:3vh 0 4vh}
+.logo-anim .letra{opacity:0}
+.ativo .logo-anim .letra{animation:letra .6s cubic-bezier(.2,.8,.2,1) calc(.3s + var(--i)*.12s) both}
+@keyframes letra{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.logo-anim .raio{transform-box:fill-box;transform-origin:left center;opacity:0}
+.ativo .logo-anim .raio{animation:raio .55s cubic-bezier(.2,.8,.2,1) calc(1s + var(--i)*.14s) both}
+@keyframes raio{from{opacity:0;transform:scaleX(0)}to{opacity:1;transform:none}}
+.equipe{display:flex;flex-wrap:wrap;gap:8px;margin-top:4vh}
+.equipe span{font-size:clamp(12px,1vw,15px);padding:.5em 1em;border-radius:99px;background:rgba(255,255,255,.08)}
+.rodape-capa{margin-top:3vh;font-size:clamp(11px,.95vw,14px);color:var(--suave)}
+
+/* números */
+.numeros{display:grid;grid-template-columns:repeat(3,1fr);gap:2vw;margin-top:6vh}
+.num{padding:3.5vh 2vw;border-radius:24px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.num b{display:block;font-size:clamp(44px,6vw,96px);font-weight:800;line-height:1;letter-spacing:-.03em}
+.num:nth-child(1) b{color:var(--laranja)} .num:nth-child(2) b{color:var(--verde)} .num:nth-child(3) b{color:#7FB6FF}
+.num span{display:block;margin-top:1.5vh;font-size:clamp(13px,1.15vw,18px);color:var(--claro);line-height:1.45}
+.alvo{margin-top:4vh;display:inline-flex;align-items:center;gap:1em;padding:1.2vh 1.4vw;border-radius:99px;background:#fff;color:var(--azul);font-weight:600;font-size:clamp(12px,1.1vw,17px)}
+.alvo i{font-style:normal;background:var(--verde);color:var(--azul-escuro);border-radius:99px;padding:.2em .8em;font-size:.85em}
+
+/* personas */
+.cartoes{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4vw;margin-top:5vh}
+.cartao{background:#fff;color:var(--texto);border-radius:20px;padding:2.6vh 1.4vw;display:flex;flex-direction:column;gap:1.2vh;min-height:40vh;transition:transform .3s}
+.cartao:hover{transform:translateY(-6px)}
+.cartao .hu{font-size:clamp(11px,.9vw,13px);font-weight:700;color:var(--azul);background:var(--lavanda);border-radius:99px;padding:.35em .9em;align-self:flex-start}
+.cartao h3{font-size:clamp(15px,1.35vw,21px);font-weight:700;line-height:1.2}
+.cartao .ctx{font-size:clamp(11px,.85vw,13px);color:var(--texto-suave)}
+.cartao p{font-size:clamp(12px,1vw,15px);line-height:1.5;color:var(--texto)}
+.cartao .resp{margin-top:auto;padding-top:1.4vh;border-top:1px solid #E6E6F2;font-size:clamp(12px,.95vw,14px);font-weight:600;color:var(--azul)}
+.nota{margin-top:3vh;font-size:clamp(11px,.85vw,13px);color:var(--suave)}
+
+/* continha */
+.continha-palco{position:relative;display:flex;align-items:flex-end;gap:2vw;margin-top:4vh}
+.continha-palco img{width:clamp(110px,11vw,180px);filter:drop-shadow(0 20px 30px rgba(0,0,0,.35));animation:pular 2.6s ease-in-out infinite}
+@keyframes pular{50%{transform:translateY(-12px)}}
+.balao{background:#fff;color:var(--texto);border-radius:20px 20px 20px 4px;padding:1.8vh 1.4vw;max-width:22em;font-size:clamp(13px,1.1vw,17px);line-height:1.5;margin-bottom:6vh;transition:opacity .3s}
+.balao b{display:block;color:var(--azul);margin-bottom:.3em}
+.poses{display:flex;gap:8px;margin-top:3vh}
+.poses img{width:42px;height:42px;padding:4px;border-radius:12px;background:rgba(255,255,255,.08);cursor:pointer;transition:.2s}
+.poses img:hover,.poses img.on{background:rgba(255,255,255,.22);transform:translateY(-3px)}
+
+/* integração */
+.fluxo{display:grid;grid-template-columns:auto 60px auto 60px 1fr;align-items:center;margin-top:5vh}
+.no{background:#fff;color:var(--azul);font-weight:700;border-radius:16px;padding:2vh 1.4vw;text-align:center;font-size:clamp(13px,1.15vw,18px)}
+.no small{display:block;font-weight:500;color:var(--texto-suave);font-size:.72em;margin-top:.2em}
+.seta{height:3px;background:linear-gradient(90deg,var(--verde),var(--azul-raio));transform-origin:left;transform:scaleX(0)}
+.ativo .seta{animation:linha .6s ease var(--d) both}
+@keyframes linha{to{transform:scaleX(1)}}
+.hus{display:grid;gap:1.2vh}
+.hus div{display:flex;gap:1em;align-items:center;padding:1.3vh 1.2vw;border-radius:14px;background:rgba(255,255,255,.07);font-size:clamp(12px,1.05vw,16px)}
+.hus b{color:var(--verde);font-weight:700}
+.tres{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4vw;margin-top:5vh}
+.bloco{padding:2.4vh 1.4vw;border-radius:20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1)}
+.bloco h3{font-size:clamp(14px,1.2vw,19px);margin-bottom:1vh}
+.bloco p{font-size:clamp(12px,.98vw,15px);color:var(--claro);line-height:1.5}
+.cores{display:flex;gap:6px;margin-top:1.4vh}
+.cores i{width:26px;height:26px;border-radius:8px;border:1px solid rgba(255,255,255,.25)}
+.commits{display:flex;gap:5px;margin-top:1.4vh;align-items:center}
+.commits i{width:14px;height:14px;border-radius:50%;background:var(--verde)}
+.commits i:last-child{background:var(--laranja);width:18px;height:18px}
+
+/* final */
+.final{text-align:center;justify-items:center;align-content:center;gap:2.4vh}
+.slide:not(.dois):not(.capa):not(.final) > div{width:100%}
+.itens .ico{display:grid;margin:0;font-weight:700;color:var(--verde);font-size:clamp(14px,1.2vw,18px)}
+.final img{width:clamp(130px,13vw,200px);animation:pular 2.4s ease-in-out infinite}
+
+/* ---------- controles ---------- */
+.barra{position:fixed;left:0;right:0;bottom:0;height:8vh;min-height:52px;display:flex;align-items:center;gap:1.4vw;padding:0 6vw;z-index:10}
+.marca{font-size:12px;color:var(--suave);letter-spacing:.12em;text-transform:uppercase;white-space:nowrap}
+.progresso{flex:1;display:flex;gap:5px}
+.progresso button{flex:1;height:4px;border:0;border-radius:99px;background:rgba(255,255,255,.15);cursor:pointer;position:relative;overflow:hidden}
+.progresso button.feito{background:rgba(255,255,255,.45)}
+.progresso button.atual::after{content:"";position:absolute;inset:0;background:var(--verde);animation:enche .6s ease both;transform-origin:left}
+@keyframes enche{from{transform:scaleX(0)}}
+.contador{font-size:13px;font-variant-numeric:tabular-nums;color:var(--claro);min-width:4.5em;text-align:center}
+.nav{width:40px;height:40px;border-radius:50%;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.06);color:#fff;cursor:pointer;display:grid;place-items:center;transition:.2s}
+.nav:hover{background:rgba(255,255,255,.18)}
+.nav svg{width:18px;height:18px}
+
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-delay:0s!important;transition-duration:.01ms!important}
+}
+</style>
+</head>
+<body>
+<div class="fundo" aria-hidden="true"><i></i><i></i><i></i></div>
+
+<main class="deck" id="deck">
+
+  <!-- 1. CAPA -->
+  <section class="slide capa" data-titulo="Capa">
+    <div>
+      <p class="kicker r">Ibmec · Projeto em Ciência de Dados I</p>
+      <svg class="logo-anim" viewBox="137 9 101 29.6" role="img" aria-label="Bulbe">
+        <path class="letra" style="--i:0" fill="#fff" d="M146.854 15.0795H143.13V18.7818H146.854V18.7989C149.955 18.7989 152.467 21.2972 152.467 24.3783C152.467 27.4595 149.954 29.9578 146.854 29.9578C143.755 29.9578 141.242 27.4602 141.242 24.3783H141.224V9.5H137.5V24.3783C137.5 29.5138 141.688 33.6772 146.854 33.6772C152.021 33.6772 156.209 29.5138 156.209 24.3783C156.209 19.2429 152.021 15.0795 146.854 15.0795Z"/>
+        <path class="letra" style="--i:1" fill="#fff" d="M171.38 25.1205C171.38 27.8017 169.193 29.9749 166.496 29.9749C163.799 29.9749 161.613 27.8017 161.613 25.1205V15.0795H157.888V25.1205C157.888 29.8468 161.742 33.6779 166.497 33.6779C171.251 33.6779 175.105 29.8468 175.105 25.1205V15.0795H171.38V25.1205H171.38Z"/>
+        <path class="letra" style="--i:2" fill="#fff" d="M181.169 9.5H177.445V32.9436H181.169V9.5Z"/>
+        <path class="letra" style="--i:3" fill="#fff" d="M192.864 15.0795H189.14V18.7818H192.864V18.7989C195.964 18.7989 198.477 21.2972 198.477 24.3783C198.477 27.4595 195.965 29.9578 192.864 29.9578C189.764 29.9578 187.252 27.4602 187.252 24.3783H187.234V9.5H183.51V24.3783C183.51 29.5138 187.698 33.6772 192.864 33.6772C198.031 33.6772 202.219 29.5138 202.219 24.3783C202.219 19.2429 198.031 15.0795 192.864 15.0795"/>
+        <path class="letra" style="--i:4" fill="#fff" d="M211.307 26.2299H222.347C222.468 25.6314 222.533 25.0124 222.533 24.3783C222.533 19.2429 218.344 15.0795 213.178 15.0795C208.012 15.0795 203.824 19.2429 203.824 24.3783C203.824 29.5138 208.012 33.6779 213.178 33.6779H216.903V29.9756H213.178V29.9585C210.079 29.9585 207.565 27.4602 207.565 24.3791C207.565 21.2979 210.078 18.7996 213.178 18.7996C215.624 18.7996 217.699 20.3579 218.468 22.5275H211.308V26.2299H211.307Z"/>
+        <path class="raio" style="--i:0" fill="#26D07C" d="M233.31 10.6852L223.588 16.2646L225.45 19.471L235.172 13.8915L233.31 10.6852Z"/>
+        <path class="raio" style="--i:1" fill="#0762C7" d="M237.5 22.5275H226.274V26.2298H237.5V22.5275Z"/>
+        <path class="raio" style="--i:2" fill="#FF9E1B" d="M225.452 29.2856L223.589 32.4919L233.311 38.0714L235.173 34.8651L225.452 29.2856Z"/>
+      </svg>
+      <h1 class="r" style="--d:1.4s">Sua conta de luz,<br><span class="destaque">finalmente explicada.</span></h1>
+      <p class="sub r" style="--d:1.6s">Protótipo do app da Bulbe Energia para o cliente entender, acompanhar e pagar a primeira fatura.</p>
+      <div class="equipe r" style="--d:1.8s"><span>João Vitor Oliveira</span><span>Felipe Pratti</span><span>Enrico Pesso Cota</span><span>Gabriel Muniz</span></div>
+      <p class="rodape-capa r" style="--d:1.95s">Squad B-02 · Sprint II · Novembro de 2026</p>
+    </div>
+    <div class="aparelho">
+      <div class="celular-box"><div class="celular"><div class="tela"><iframe data-src="pages/login.html" title="App Bulbe: login"></iframe><div class="carregando">Carregando o app…</div></div></div></div>
+      <p class="dica">App funcionando: dá para entrar com a conta de demonstração</p>
+    </div>
+  </section>
+
+  <!-- 2. PROBLEMA -->
+  <section class="slide" data-titulo="O problema">
+    <div>
+      <p class="kicker r"><b>!</b> O problema</p>
+      <h2 class="r" style="--d:.1s">O cliente não entende a própria conta de luz</h2>
+      <p class="sub r" style="--d:.2s">Ele recebe duas cobranças, não sabe quanto economizou e muitas vezes nem vê o aviso da primeira fatura.</p>
+      <div class="numeros">
+        <div class="num r" style="--d:.35s"><b data-contar="32.4" data-dec="1" data-suf="%">0</b><span>dos clientes não pagam a <strong>primeira fatura</strong></span></div>
+        <div class="num r" style="--d:.5s"><b data-contar="20" data-pre="~" data-suf="%">0</b><span>das mensagens de WhatsApp <strong>não chegam</strong> ao cliente</span></div>
+        <div class="num r" style="--d:.65s"><b data-contar="2">0</b><span>contas por mês, da Cemig e da Bulbe, que <strong>confundem</strong></span></div>
+      </div>
+      <p class="alvo r" style="--d:.85s"><i>Meta</i> Aumentar o pagamento da primeira fatura</p>
+    </div>
+  </section>
+
+  <!-- 3. PERSONAS -->
+  <section class="slide" data-titulo="Personas e HUs">
+    <div>
+      <p class="kicker r">Personas · Histórias de usuário</p>
+      <h2 class="r" style="--d:.1s">Quatro dores, quatro funcionalidades</h2>
+      <div class="cartoes">
+        <article class="cartao r" style="--d:.25s"><span class="hu">HU01 · Fatura</span><h3>Mariana Costa</h3><span class="ctx">Primeira fatura · João Vitor</span><p>Quer entender os valores, os descontos e por que existem cobranças diferentes.</p><span class="resp">Resumo, cálculo e dúvidas</span></article>
+        <article class="cartao r" style="--d:.4s"><span class="hu">HU02 · Raio-X</span><h3>Consumidor com dúvida</h3><span class="ctx">Conferência · Gabriel</span><p>Quer verificar se o desconto reduziu o que pagou à Cemig e à Bulbe.</p><span class="resp">As duas contas lado a lado</span></article>
+        <article class="cartao r" style="--d:.55s"><span class="hu">HU03 · Acompanhar</span><h3>Cliente recém-contratado</h3><span class="ctx">Onboarding · Felipe</span><p>Quer saber quando a primeira fatura chega e como acompanhar o pagamento.</p><span class="resp">Status, prazos e pagamento</span></article>
+        <article class="cartao r" style="--d:.7s"><span class="hu">HU04 · Economia</span><h3>Roberto Almeida</h3><span class="ctx">Pós-adesão · Enrico</span><p>Quer acompanhar quanto já economizou e entender como isso é calculado.</p><span class="resp">Economia mensal e cálculo</span></article>
+      </div>
+      <p class="nota r" style="--d:.9s">Personas hipotéticas da Sprint I, a partir das jornadas do squad e de fontes da Bulbe e do Reclame Aqui.</p>
+    </div>
+  </section>
+
+  <!-- 4. NAVEGAÇÃO -->
+  <section class="slide dois inv" data-titulo="Navegação">
+    <div class="aparelho">
+      <div class="celular-box"><div class="celular"><div class="tela"><iframe data-src="index.html" title="App Bulbe: início"></iframe><div class="carregando">Carregando o app…</div></div></div></div>
+      <p class="dica">Clique no ☰, no sino ou nas abas de baixo</p>
+    </div>
+    <div>
+      <p class="kicker r">Integração</p>
+      <h2 class="r" style="--d:.1s">De telas soltas a <span class="destaque">um app só</span></h2>
+      <p class="sub r" style="--d:.2s">Tudo o que o cliente precisa fica a um toque, em qualquer tela.</p>
+      <ul class="itens">
+        <li class="r r-esq" style="--d:.35s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#26D07C" stroke-width="2" stroke-linecap="round"><rect x="3" y="14" width="18" height="7" rx="2"/><path d="M7 17.5h.01M12 17.5h.01M17 17.5h.01"/></svg></span><div><strong>Rodapé com quatro abas</strong><span>Economia, Fatura, Raio-X e Acompanhar, sem códigos de HU para o usuário.</span></div></li>
+        <li class="r r-esq" style="--d:.5s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7FB6FF" stroke-width="2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h10"/></svg></span><div><strong>Menu lateral e cabeçalho</strong><span>Funções do app real da Bulbe, sino que liga e desliga os avisos e logo que volta ao início.</span></div></li>
+        <li class="r r-esq" style="--d:.65s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#FF9E1B" stroke-width="2" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></span><div><strong>Voltar sempre no mesmo lugar</strong><span>Título com seta de voltar em todas as telas internas.</span></div></li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 5. HU01 -->
+  <section class="slide dois" data-titulo="HU01">
+    <div>
+      <p class="kicker r"><b>01</b> Fatura</p>
+      <h2 class="r" style="--d:.1s">Entender o valor da fatura</h2>
+      <p class="persona r" style="--d:.2s"><em>“Por que ainda aparece a Cemig? Onde está meu desconto?”</em><br>A fatura explicada em três passos, em linguagem simples.</p>
+      <ul class="itens">
+        <li class="r r-esq" style="--d:.35s"><span class="ico">1</span><div><strong>Resumo</strong><span>Valor, desconto e quanto você economizou logo no topo.</span></div></li>
+        <li class="r r-esq" style="--d:.5s"><span class="ico">2</span><div><strong>Como chegamos no valor</strong><span>Barra com consumo, desconto e taxas, item por item.</span></div></li>
+        <li class="r r-esq" style="--d:.65s"><span class="ico">3</span><div><strong>Dúvidas frequentes</strong><span>Respostas com os valores da própria fatura e atalho para o WhatsApp.</span></div></li>
+      </ul>
+      <p class="dono r" style="--d:.8s">João Vitor</p>
+    </div>
+    <div class="aparelho">
+      <div class="celular-box"><div class="celular"><div class="tela"><iframe data-src="index.html?hu=01&tela=resumo" title="App Bulbe: HU01"></iframe><div class="carregando">Carregando o app…</div></div></div></div>
+      <div class="chips"><button aria-pressed="true" data-ir="index.html?hu=01&tela=resumo">Resumo</button><button data-ir="index.html?hu=01&tela=calculo">Cálculo</button><button data-ir="index.html?hu=01&tela=duvidas">Dúvidas</button></div>
+    </div>
+  </section>
+
+  <!-- 6. HU02 -->
+  <section class="slide dois inv" data-titulo="HU02">
+    <div class="aparelho">
+      <div class="celular-box"><div class="celular"><div class="tela"><iframe data-src="pages/hu02.html" title="App Bulbe: HU02"></iframe><div class="carregando">Carregando o app…</div></div></div></div>
+      <p class="dica">Role a tela e toque nos detalhes</p>
+    </div>
+    <div>
+      <p class="kicker r"><b>02</b> Raio-X</p>
+      <h2 class="r" style="--d:.1s">As duas contas, <span class="destaque">lado a lado</span></h2>
+      <p class="persona r" style="--d:.2s"><em>“O desconto reduziu mesmo o que eu paguei?”</em><br>A cobrança da Cemig e a da Bulbe na mesma tela, com a economia em destaque.</p>
+      <ul class="itens">
+        <li class="r r-esq" style="--d:.35s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#26D07C" stroke-width="2" stroke-linecap="round"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg></span><div><strong>Com e sem a Bulbe</strong><span>Quanto você pagaria e quanto pagou de verdade.</span></div></li>
+        <li class="r r-esq" style="--d:.5s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#FF9E1B" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5L19 19M5 19l1.5-1.5M17.5 6.5L19 5"/></svg></span><div><strong>Crédito solar em destaque</strong><span>O crédito abatido da conta da Cemig aparece marcado.</span></div></li>
+        <li class="r r-esq" style="--d:.65s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7FB6FF" stroke-width="2" stroke-linecap="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/></svg></span><div><strong>Dúvida? WhatsApp</strong><span>Atalho direto para o atendimento.</span></div></li>
+      </ul>
+      <p class="dono r" style="--d:.8s">Gabriel Muniz</p>
+    </div>
+  </section>
+
+  <!-- 7. HU03 -->
+  <section class="slide dois" data-titulo="HU03">
+    <div>
+      <p class="kicker r"><b>03</b> Acompanhar</p>
+      <h2 class="r" style="--d:.1s">A primeira fatura, <span class="destaque">passo a passo</span></h2>
+      <p class="persona r" style="--d:.2s"><em>“Quando chega minha primeira conta?”</em><br>O cliente acompanha cada etapa, sem depender de mensagem que pode não chegar.</p>
+      <ul class="itens">
+        <li class="r r-esq" style="--d:.35s"><span class="ico">1</span><div><strong>Em preparação → Disponível</strong><span>Linha do tempo com datas previstas.</span></div></li>
+        <li class="r r-esq" style="--d:.5s"><span class="ico">2</span><div><strong>Fatura chegou</strong><span>Pagar, ver a fatura, baixar o PDF ou copiar o código.</span></div></li>
+        <li class="r r-esq" style="--d:.65s"><span class="ico">3</span><div><strong>Lembretes e canais</strong><span>O cliente escolhe por onde quer receber: e-mail, app, WhatsApp ou SMS.</span></div></li>
+      </ul>
+      <p class="dono r" style="--d:.8s">Felipe Pratti</p>
+    </div>
+    <div class="aparelho">
+      <div class="celular-box"><div class="celular"><div class="tela"><iframe data-src="pages/hu03-1.html" title="App Bulbe: HU03"></iframe><div class="carregando">Carregando o app…</div></div></div></div>
+      <div class="chips"><button aria-pressed="true" data-ir="pages/hu03-1.html">Início</button><button data-ir="pages/hu03-2.html">Etapas</button><button data-ir="pages/hu03-3.html">Fatura</button><button data-ir="pages/hu03-4.html">Pagamento</button></div>
+    </div>
+  </section>
+
+  <!-- 8. HU04 -->
+  <section class="slide dois inv" data-titulo="HU04">
+    <div class="aparelho">
+      <div class="celular-box"><div class="celular"><div class="tela"><iframe data-src="index.html" title="App Bulbe: HU04"></iframe><div class="carregando">Carregando o app…</div></div></div></div>
+      <div class="chips"><button aria-pressed="true" data-ir="index.html">Início</button><button data-ir="index.html?hu=04&tela=economia">Minha economia</button><button data-ir="index.html?hu=04&tela=calculo">Cálculo</button></div>
+    </div>
+    <div>
+      <p class="kicker r"><b>04</b> Economia</p>
+      <h2 class="r" style="--d:.1s">Quanto você <span class="destaque">já economizou</span></h2>
+      <p class="persona r" style="--d:.2s"><em>“Vale a pena ser cliente Bulbe?”</em><br>A economia aparece logo na tela inicial, mês a mês e no total.</p>
+      <ul class="itens">
+        <li class="r r-esq" style="--d:.35s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#26D07C" stroke-width="2" stroke-linecap="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg></span><div><strong>Economia do mês e acumulada</strong><span>Só conta faturas pagas, para o número ser real.</span></div></li>
+        <li class="r r-esq" style="--d:.5s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#7FB6FF" stroke-width="2" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h8M8 11h8M8 15h5"/></svg></span><div><strong>Cálculo explicado</strong><span>Quatro passos e um exemplo com os números do cliente.</span></div></li>
+        <li class="r r-esq" style="--d:.65s"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="#FF9E1B" stroke-width="2" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><strong>Estado vazio</strong><span>Para o cliente novo, a tela explica quando a economia vai aparecer.</span></div></li>
+      </ul>
+      <p class="dono r" style="--d:.8s">Enrico Pesso Cota</p>
+    </div>
+  </section>
+
+  <!-- 9. CONTINHA -->
+  <section class="slide dois" data-titulo="Continha">
+    <div>
+      <p class="kicker r"><b>05</b> Primeiro acesso</p>
+      <h2 class="r" style="--d:.1s">Conheça o <span class="l">Continha</span></h2>
+      <p class="sub r" style="--d:.2s">Um dos motivos do problema é não entender o que a Bulbe faz. Para quem acabou de aderir, o Continha apresenta o app em cinco passos rápidos.</p>
+      <div class="continha-palco r" style="--d:.35s">
+        <img id="continha-img" data-asset="assets/img/continha/continha-feliz.svg" alt="Continha, o mascote">
+        <p class="balao" id="continha-balao"><b>Oi! Eu sou o Continha 👋</b>Vou te mostrar o app da Bulbe em 1 minutinho.</p>
+      </div>
+      <div class="poses r" style="--d:.5s" id="poses" aria-label="Reações do Continha"></div>
+    </div>
+    <div class="aparelho">
+      <div class="celular-box"><div class="celular"><div class="tela"><iframe data-src="index.html?tutorial=1" title="App Bulbe: tutorial"></iframe><div class="carregando">Carregando o app…</div></div></div></div>
+      <div class="chips"><button data-ir="index.html?tutorial=1" data-sempre>Rever o tutorial</button></div>
+    </div>
+  </section>
+
+  <!-- 10. INTEGRAÇÃO -->
+  <section class="slide" data-titulo="Integração">
+    <div>
+      <p class="kicker r">Integração na prática</p>
+      <h2 class="r" style="--d:.1s">Um ponto de entrada, quatro fluxos</h2>
+      <div class="fluxo">
+        <div class="no r" style="--d:.25s">Login<small>contas fictícias</small></div>
+        <div class="seta" style="--d:.5s"></div>
+        <div class="no r" style="--d:.6s">Início<small>Minha economia</small></div>
+        <div class="seta" style="--d:.85s"></div>
+        <div class="hus">
+          <div class="r r-esq" style="--d:.95s"><b>HU01</b> Resumo, cálculo e dúvidas</div>
+          <div class="r r-esq" style="--d:1.05s"><b>HU02</b> Raio-X das duas contas</div>
+          <div class="r r-esq" style="--d:1.15s"><b>HU03</b> Etapas da primeira fatura</div>
+          <div class="r r-esq" style="--d:1.25s"><b>HU04</b> Economia mensal e acumulada</div>
+        </div>
+      </div>
+      <div class="tres">
+        <div class="bloco r" style="--d:1.4s"><h3>Design system único</h3><p>O visual da HU04 em todas as telas: Poppins, azul Bulbe e cards de 16px.</p><div class="cores"><i style="background:#0b078c"></i><i style="background:#F3F3FB"></i><i style="background:#26D07C"></i><i style="background:#0762C7"></i><i style="background:#FF9E1B"></i></div></div>
+        <div class="bloco r" style="--d:1.55s"><h3>Login, sessão e tutorial</h3><p>Duas contas de demonstração, menu da conta e o Continha no primeiro acesso.</p></div>
+        <div class="bloco r" style="--d:1.7s"><h3>Tudo no GitHub</h3><p>Oito commits por tema e um merge na main, revisados no PR #29.</p><div class="commits"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 11. ENTREGA -->
+  <section class="slide" data-titulo="Entrega">
+    <div>
+      <p class="kicker r">Entrega</p>
+      <h2 class="r" style="--d:.1s">O que ficou pronto na Sprint II</h2>
+      <div class="numeros">
+        <div class="num r" style="--d:.3s"><b data-contar="4">0</b><span>histórias de usuário<br>integradas em um app</span></div>
+        <div class="num r" style="--d:.45s"><b data-contar="12">0</b><span>telas de funcionalidades,<br>mais login e tutorial</span></div>
+        <div class="num r" style="--d:.6s"><b data-contar="0">0</b><span>frameworks: só HTML,<br>CSS e JavaScript</span></div>
+      </div>
+      <p class="sub r" style="--d:.8s">HTML · CSS · JavaScript · Git e GitHub · dados fictícios em JSON · merge final <span class="destaque">c45035b</span></p>
+    </div>
+  </section>
+
+  <!-- 12. FINAL -->
+  <section class="slide final" data-titulo="Obrigado">
+    <img class="r" data-asset="assets/img/continha/continha-apaixonada.svg" alt="Continha agradecendo">
+    <h1 class="r" style="--d:.2s">Obrigado!</h1>
+    <p class="sub r" style="--d:.35s">Perguntas? O Continha responde. Bom, quase.</p>
+    <p class="rodape-capa r" style="--d:.5s">Squad B-02 · Bulbe Energia · Ibmec 2026</p>
+  </section>
+
+</main>
+
+<nav class="barra" aria-label="Navegação da apresentação">
+  <span class="marca">Bulbe · Squad B-02</span>
+  <div class="progresso" id="progresso"></div>
+  <button class="nav" id="ant" aria-label="Slide anterior"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M15 5l-7 7 7 7"/></svg></button>
+  <span class="contador" id="contador">1 / 12</span>
+  <button class="nav" id="prox" aria-label="Próximo slide"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M9 5l7 7-7 7"/></svg></button>
+</nav>
+
+<script>
+// Endereço do app: a apresentação fica em /apresentacao, então o app está uma pasta acima.
+// As telas dos celulares são o app de verdade, em iframe (mesmo servidor, mesma sessão de login).
+const APP = new URL('../', location.href).href;
+
+const slides = [...document.querySelectorAll('.slide')];
+const prog = document.getElementById('progresso');
+const contador = document.getElementById('contador');
+let atual = -1;
+
+// imagens do Continha vêm do próprio app
+document.querySelectorAll('img[data-asset]').forEach(img => img.src = APP + img.dataset.asset);
+
+slides.forEach((s, i) => {
+  const b = document.createElement('button');
+  b.setAttribute('aria-label', `Ir para: ${s.dataset.titulo}`);
+  b.onclick = () => ir(i);
+  prog.appendChild(b);
+});
+
+function carregarApps(slide) {
+  slide.querySelectorAll('iframe[data-src]').forEach(f => {
+    if (f.src) return;
+    f.addEventListener('load', () => f.parentElement.classList.add('ok'), { once: true });
+    f.src = APP + f.dataset.src;
+  });
+}
+
+function contar(slide) {
+  slide.querySelectorAll('[data-contar]').forEach(el => {
+    const alvo = parseFloat(el.dataset.contar), dec = +el.dataset.dec || 0;
+    const pre = el.dataset.pre || '', suf = el.dataset.suf || '';
+    const t0 = performance.now(), dur = 1400, atraso = 450;
+    const passo = t => {
+      const p = Math.min(1, Math.max(0, (t - t0 - atraso) / dur));
+      const v = alvo * (1 - Math.pow(1 - p, 3));
+      el.textContent = pre + v.toFixed(dec).replace('.', ',') + suf;
+      if (p < 1) requestAnimationFrame(passo);
+    };
+    requestAnimationFrame(passo);
+  });
+}
+
+function ir(i) {
+  i = Math.max(0, Math.min(slides.length - 1, i));
+  if (i === atual) return;
+  slides.forEach((s, k) => {
+    s.classList.toggle('ativo', k === i);
+    s.classList.toggle('saiu', k < i);
+  });
+  [...prog.children].forEach((b, k) => { b.classList.toggle('feito', k < i); b.classList.toggle('atual', k === i); });
+  contador.textContent = `${i + 1} / ${slides.length}`;
+  atual = i;
+  carregarApps(slides[i]);
+  if (slides[i + 1] && slides[i + 1].dataset.titulo !== 'Continha') carregarApps(slides[i + 1]); // pré-carrega o próximo
+  contar(slides[i]);
+  if (typeof aoEntrar === 'function') aoEntrar(slides[i]);
+  history.replaceState(null, '', '#' + (i + 1));
+}
+
+document.getElementById('ant').onclick = () => ir(atual - 1);
+document.getElementById('prox').onclick = () => ir(atual + 1);
+document.addEventListener('keydown', e => {
+  if (['ArrowRight', 'PageDown', ' '].includes(e.key)) { e.preventDefault(); ir(atual + 1); }
+  if (['ArrowLeft', 'PageUp'].includes(e.key)) { e.preventDefault(); ir(atual - 1); }
+  if (e.key === 'Home') ir(0);
+  if (e.key === 'End') ir(slides.length - 1);
+  if (e.key.toLowerCase() === 'f') document.fullscreenElement ? document.exitFullscreen() : document.documentElement.requestFullscreen();
+});
+// O app dentro do iframe pode puxar o foco sozinho (ex.: o tutorial foca o próprio balão).
+// Se o mouse não está sobre o celular, devolve o foco à apresentação para as setas funcionarem.
+let sobreCelular = false;
+document.querySelectorAll('.celular').forEach(c => {
+  c.addEventListener('mouseenter', () => sobreCelular = true);
+  c.addEventListener('mouseleave', () => sobreCelular = false);
+});
+addEventListener('blur', () => setTimeout(() => {
+  if (!sobreCelular && document.activeElement?.tagName === 'IFRAME') { document.activeElement.blur(); window.focus(); }
+}, 0));
+// quando o mouse sai do celular, as setas do teclado voltam a passar os slides
+document.querySelectorAll('.celular').forEach(c => c.addEventListener('mouseleave', () => {
+  if (document.activeElement?.tagName === 'IFRAME') { document.activeElement.blur(); window.focus(); }
+}));
+
+// botões que trocam a tela mostrada no celular
+document.querySelectorAll('.chips button').forEach(b => b.addEventListener('click', () => {
+  const f = b.closest('.aparelho').querySelector('iframe');
+  f.src = APP + b.dataset.ir;
+  if (!b.hasAttribute('data-sempre')) b.parentElement.querySelectorAll('button').forEach(x => x.setAttribute('aria-pressed', x === b));
+}));
+
+// tamanho do celular acompanha a altura da tela
+function escala() {
+  const s = Math.min(1, (innerHeight * 0.80 - 50) / 804, innerWidth * 0.32 / 399);
+  document.documentElement.style.setProperty('--s', Math.max(.45, s).toFixed(3));
+}
+addEventListener('resize', escala); escala();
+
+// Continha: troca de reação
+const POSES = [
+  ['feliz', 'Oi! Eu sou o Continha 👋', 'Vou te mostrar o app da Bulbe em 1 minutinho.'],
+  ['pensando', 'O que a Bulbe faz?', 'Gera energia solar e manda pra rede da Cemig. Você paga menos, sem instalar nada.'],
+  ['piscando', 'Acompanhe sua fatura', 'Sua primeira fatura está sendo preparada. Aqui você vê cada etapa.'],
+  ['surpresa', 'Duas contas? Calma!', 'O Raio-X mostra a da Cemig e a da Bulbe lado a lado.'],
+  ['comemorando', 'Sua economia mora aqui', 'Depois de pagar a primeira fatura, aparece quanto você economizou.'],
+  ['apaixonada', 'Valeu! 💙', 'Agora é com você.'],
+];
+const imgC = document.getElementById('continha-img'), balao = document.getElementById('continha-balao'), poses = document.getElementById('poses');
+let pose = 0, timerPose;
+function mostrarPose(k) {
+  pose = k; const [nome, tit, txt] = POSES[k];
+  imgC.src = `${APP}assets/img/continha/continha-${nome}.svg`;
+  balao.innerHTML = `<b>${tit}</b>${txt}`;
+  [...poses.children].forEach((p, j) => p.classList.toggle('on', j === k));
+}
+POSES.forEach(([nome], k) => {
+  const p = document.createElement('img');
+  p.src = `${APP}assets/img/continha/continha-${nome}.svg`; p.alt = nome; p.title = nome;
+  p.onclick = () => { clearInterval(timerPose); mostrarPose(k); };
+  poses.appendChild(p);
+});
+mostrarPose(0);
+function aoEntrar(slide) {
+  clearInterval(timerPose);
+  if (slide.dataset.titulo === 'Continha') { mostrarPose(0); timerPose = setInterval(() => mostrarPose((pose + 1) % POSES.length), 3200); }
+}
+
+ir((parseInt(location.hash.slice(1)) || 1) - 1);
+</script>
+</body>
+</html>
