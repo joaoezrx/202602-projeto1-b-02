@@ -1,0 +1,167 @@
+/* perfil.css — Meu perfil (aberta pelo menu lateral)
+   Visual no design system do app (base: HU04).
+   Usa o shell do style.css global sem alterá-lo; os tokens ficam aqui. */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.perfil {
+  --azul: #0b078c;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --divisor: #E3E3F0;
+  --vermelho-sair: #b42318;
+
+  min-height: 100%;
+  padding-bottom: 18px;
+  background-color: var(--azul);
+  color: var(--texto);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
+}
+
+.conteudo {
+  background-color: #0b078c;
+  scrollbar-width: none;
+}
+.conteudo::-webkit-scrollbar { display: none; }
+
+/* TÍTULO COM VOLTAR */
+
+.perfil-titulo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px 0;
+  color: white;
+}
+
+.perfil-titulo h1 { font-size: 18px; font-weight: 600; }
+
+.perfil-voltar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.perfil-voltar:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -2px;
+}
+
+/* CONTEÚDO */
+
+.perfil-pilha {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 18px 0;
+}
+
+#perfil-secoes { display: contents; }
+
+.perfil-topo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0 4px;
+  color: white;
+  text-align: center;
+}
+
+/* Mesmo avatar de iniciais do topo do menu lateral */
+.perfil-avatar {
+  width: 72px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: white;
+  color: var(--azul);
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.perfil-nome { font-size: 20px; font-weight: 600; }
+
+.perfil-card {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 16px 18px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.perfil-card h2 {
+  margin-bottom: 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--azul);
+}
+
+.perfil-card dl { margin: 0; }
+
+.perfil-linha {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 10px 0;
+}
+
+.perfil-linha + .perfil-linha { border-top: 1px solid var(--divisor); }
+
+.perfil-linha dt { font-size: 12px; color: var(--texto-suave); }
+
+.perfil-linha dd {
+  margin: 0;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Sair: mesmo vermelho do "Sair da conta" do menu lateral */
+.perfil-sair {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  border: none;
+  border-radius: 12px;
+  background-color: white;
+  color: var(--vermelho-sair);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.perfil-sair:hover { background-color: #fdeceb; }
+
+.perfil-sair:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.perfil-nota {
+  color: var(--claro-sobre-azul);
+  font-size: 12px;
+  text-align: center;
+}

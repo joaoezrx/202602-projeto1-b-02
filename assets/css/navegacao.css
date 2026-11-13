@@ -207,6 +207,12 @@
   list-style: none;
 }
 
+/* Grupos separados por um traço fino, sem cards (como no app oficial) */
+.lateral-corpo ul + .lateral-secao {
+  margin-top: 8px;
+  border-top: 1px solid #e3e3f0;
+}
+
 .lateral-secao {
   padding: 14px 10px 6px;
   font-size: 11px;
@@ -253,23 +259,28 @@
   font-weight: 600;
 }
 
-.lateral-rotulo { flex: 1; }
+.lateral-rotulo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  padding: 6px 0;
+  line-height: 1.3;
+}
 
-.lateral-etiqueta,
+/* Linha de apoio abaixo do rótulo (ex.: "Tutorial com o Continha") */
+.lateral-sub {
+  font-size: 12px;
+  font-weight: 400;
+  color: #55547a;
+}
+
 .lateral-embreve {
   flex-shrink: 0;
   padding: 2px 8px;
   border-radius: 99px;
   font-size: 11px;
   font-weight: 600;
-}
-
-.lateral-etiqueta {
-  background-color: #d9f6e8;
-  color: #0b5a37;
-}
-
-.lateral-embreve {
   background-color: #f3f3fb;
   color: #8a89ab;
 }

@@ -26,6 +26,18 @@ export function buscarUsuarios() {
   return lerJSON('usuarios.json');
 }
 
+// Acompanhamento da adesão (dados demonstrativos), usado na home.
+export async function buscarAdesaoDoCliente(clienteId) {
+  const adesoes = await lerJSON('adesao.json');
+  return adesoes.find((adesao) => adesao.clienteId === clienteId);
+}
+
+// Programa Indique e ganhe (código e histórico fictícios, valores demonstrativos).
+export async function buscarIndicacoesDoCliente(clienteId) {
+  const registros = await lerJSON('indicacoes.json');
+  return registros.find((registro) => registro.clienteId === clienteId);
+}
+
 export function buscarFaturas() {
   return lerJSON('faturas.json');
 }

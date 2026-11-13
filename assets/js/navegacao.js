@@ -84,6 +84,8 @@
   /* ───────────── Barra lateral ───────────── */
 
   const ICONE = {
+    inicio: '<path d="M3 10.5L12 3l9 7.5"/><path d="M5 9v11h14V9"/><path d="M10 20v-6h4v6"/>',
+    perfil: '<circle cx="12" cy="8" r="4"/><path d="M4 21c0-4.4 3.6-8 8-8s8 3.6 8 8"/>',
     economia: '<path d="M4 20h16"/><path d="M7 16v-4M12 16V8M17 16v-7"/>',
     fatura: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/>',
     raiox: '<path d="M7 4v16M17 4v16"/><path d="M3 8h8M13 14h8"/>',
@@ -91,7 +93,6 @@
     historico: '<path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/><path d="M12 7v5l3 2"/>',
     instalacao: '<path d="M13 2L4 14h7l-1 8 9-12h-7z"/>',
     indique: '<circle cx="9" cy="8" r="4"/><path d="M2 21c0-3.9 3.1-7 7-7s7 3.1 7 7"/><path d="M19 8v6M16 11h6"/>',
-    parceiros: '<path d="M20 12v9H4v-9"/><rect x="2" y="7" width="20" height="5" rx="1"/><path d="M12 21V7"/><path d="M12 7c-2-4-6-4-6-1.5S10 7 12 7zM12 7c2-4 6-4 6-1.5S14 7 12 7z"/>',
     tutorial: '<path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><circle cx="10" cy="12" r="1"/><circle cx="14" cy="12" r="1"/><path d="M9.5 15.5c1.4 1 3.6 1 5 0"/>',
     duvidas: '<circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.5 2.5 0 1 1 3.5 2.3c-.6.3-1 .9-1 1.6V14"/><path d="M12 17.5v.01"/>',
     whatsapp: '<path d="M21 11.5a8.4 8.4 0 0 1-12.4 7.4L3 21l2.1-5.4A8.4 8.4 0 1 1 21 11.5z"/>',
@@ -100,35 +101,37 @@
     sair: '<path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/>'
   };
 
-  // Cada item: destino (tela do protótipo) OU aviso (recurso ainda sem tela)
+  // Cada item: destino (tela do protótipo) OU aviso (recurso ainda sem tela).
+  // emBreve = sem implementação: mostra o selo "Em breve".
+  // sub = linha de apoio curta, abaixo do rótulo.
+  // Todos os itens e rotas anteriores continuam aqui; só mudaram de grupo.
   const SECOES = [
     {
-      titulo: 'Minha conta de luz',
+      titulo: 'Minha conta',
       itens: [
-        { id: 'economia', rotulo: 'Minha economia', destino: 'index.html' },
-        { id: 'fatura', rotulo: 'Minha fatura', destino: 'index.html?hu=01' },
+        { id: 'inicio', rotulo: 'Início', destino: 'index.html' },
+        { id: 'perfil', rotulo: 'Meu perfil', destino: 'pages/perfil.html' },
+        { id: 'fatura', rotulo: 'Minhas faturas', destino: 'index.html?hu=01' },
+        { id: 'historico', rotulo: 'Histórico e 2ª via', destino: 'pages/historico.html' }
+      ]
+    },
+    {
+      titulo: 'Energia',
+      itens: [
+        { id: 'economia', rotulo: 'Minha economia', destino: 'index.html?hu=04&tela=economia' },
         { id: 'raiox', rotulo: 'Raio-X da fatura', destino: 'pages/hu02.html' },
-        { id: 'acompanhar', rotulo: 'Acompanhar fatura', destino: 'pages/hu03-1.html' },
-        { id: 'historico', rotulo: 'Histórico e 2ª via', destino: 'pages/hu03-3.html' },
-        { id: 'instalacao', rotulo: 'Status da instalação', emBreve: true,
-          aviso: 'Em breve: acompanhe aqui cada etapa da sua conexão com a Bulbe.' }
+        { id: 'acompanhar', rotulo: 'Acompanhar primeira fatura', destino: 'pages/hu03-1.html' },
+        // Abre o card "Sua adesão" da home já expandido (assets/js/hu04-inicio.js)
+        { id: 'instalacao', rotulo: 'Status da instalação', destino: 'index.html#adesao' }
       ]
     },
     {
-      titulo: 'Benefícios',
+      titulo: 'Ajuda e benefícios',
       itens: [
-        { id: 'indique', rotulo: 'Indique e ganhe', etiqueta: 'R$ 50', emBreve: true,
-          aviso: 'Em breve: indique amigos e ganhe R$ 50 de desconto por indicação aprovada.' },
-        { id: 'parceiros', rotulo: 'Promoções', emBreve: true,
-          aviso: 'Em breve: promoções exclusivas e pontos Livelo para clientes Bulbe.' }
-      ]
-    },
-    {
-      titulo: 'Ajuda',
-      itens: [
-        { id: 'tutorial', rotulo: 'Tutorial com o Continha', destino: 'index.html?tutorial=1' },
-        { id: 'duvidas', rotulo: 'Dúvidas frequentes', destino: 'index.html?hu=01&tela=duvidas' },
-        { id: 'whatsapp', rotulo: 'Falar no WhatsApp', aviso: 'Abrindo o WhatsApp da Bulbe… (protótipo)' },
+        { id: 'tutorial', rotulo: 'Como funciona', sub: 'Tutorial com o Continha', destino: 'index.html?tutorial=1' },
+        { id: 'duvidas', rotulo: 'Perguntas frequentes', destino: 'index.html?hu=01&tela=duvidas' },
+        { id: 'indique', rotulo: 'Indique e ganhe', sub: 'R$ 50 por indicação', destino: 'pages/indique.html' },
+        { id: 'whatsapp', rotulo: 'Atendimento', sub: 'WhatsApp', aviso: 'Abrindo o WhatsApp da Bulbe… (protótipo)' },
         { id: 'ouvidoria', rotulo: 'Ouvidoria', aviso: 'Ouvidoria Bulbe: atendimento para reclamações e sugestões. (protótipo)' }
       ]
     }
@@ -138,11 +141,15 @@
   function itemAtual() {
     const caminho = location.pathname;
     const params = new URLSearchParams(location.search);
+    if (caminho.includes('indique')) return 'indique';
+    if (caminho.includes('historico')) return 'historico';
+    if (caminho.includes('perfil')) return 'perfil';
     if (caminho.includes('hu02')) return 'raiox';
-    if (caminho.includes('hu03-3') || caminho.includes('hu03-4')) return 'historico';
     if (caminho.includes('hu03')) return 'acompanhar';
     if (params.get('hu') === '01') return params.get('tela') === 'duvidas' ? 'duvidas' : 'fatura';
-    return 'economia';
+    if (params.get('hu') === '04' && params.get('tela') && params.get('tela') !== 'inicio') return 'economia';
+    if (location.hash === '#adesao') return 'instalacao';
+    return 'inicio';
   }
 
   function svg(nome) {
@@ -183,9 +190,11 @@
         <p class="lateral-secao">${secao.titulo}</p>
         <ul>
           ${secao.itens.map((item) => {
-            const conteudo = `${svg(item.id)}<span class="lateral-rotulo">${item.rotulo}</span>
-              ${item.etiqueta ? `<span class="lateral-etiqueta">${item.etiqueta}</span>` : ''}
-              ${item.emBreve && !item.etiqueta ? '<span class="lateral-embreve">Em breve</span>' : ''}`;
+            const rotulo = item.sub
+              ? `<span class="lateral-rotulo">${item.rotulo}<small class="lateral-sub">${item.sub}</small></span>`
+              : `<span class="lateral-rotulo">${item.rotulo}</span>`;
+            const conteudo = `${svg(item.id)}${rotulo}
+              ${item.emBreve ? '<span class="lateral-embreve">Em breve</span>' : ''}`;
             return item.destino
               ? `<li><a class="lateral-item${item.id === atual ? ' atual' : ''}" href="${raiz}${item.destino}"${item.id === atual ? ' aria-current="page"' : ''}>${conteudo}</a></li>`
               : `<li><button type="button" class="lateral-item" data-aviso="${item.id}">${conteudo}</button></li>`;
@@ -241,6 +250,14 @@
   }
 
   botaoMenu.addEventListener('click', abrir);
+
+  // Link para a própria página (ex.: index.html#adesao estando na home) não recarrega:
+  // fecha a barra para o conteúdo aparecer.
+  lateral.querySelectorAll('a.lateral-item').forEach((link) => {
+    link.addEventListener('click', () => {
+      if (link.pathname === location.pathname && link.search === location.search) fechar();
+    });
+  });
   fundo.addEventListener('click', fechar);
   lateral.querySelector('.lateral-fechar').addEventListener('click', fechar);
 

@@ -1,0 +1,18 @@
+[
+  {
+    "clienteId": 4,
+    "codigo": "ANAPAULA-B4X7",
+    "valorPorIndicacao": 50,
+    "indicacoes": [
+      { "nome": "Marcos R.", "data": "2026-10-28", "status": "pendente" },
+      { "nome": "Juliana T.", "data": "2026-09-15", "status": "concluida" },
+      { "nome": "Carlos M.", "data": "2026-08-02", "status": "concluida" }
+    ]
+  },
+  {
+    "clienteId": 5,
+    "codigo": "LUCAS-K9P2",
+    "valorPorIndicacao": 50,
+    "indicacoes": []
+  }
+]

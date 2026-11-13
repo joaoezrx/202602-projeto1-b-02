@@ -1,0 +1,310 @@
+/* indique.css — Indique e ganhe (aberta pelo menu lateral)
+   Visual no design system do app (base: HU04).
+   Usa o shell do style.css global sem alterá-lo; os tokens ficam aqui. */
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
+
+.indique {
+  --azul: #0b078c;
+  --azul-escuro: #08046e;
+  --texto: #14133F;
+  --texto-suave: #55547A;
+  --claro-sobre-azul: #D6D5F5;
+  --lavanda: #F3F3FB;
+  --lavanda-selo: #ECECFA;
+  --lavanda-borda: #D4D3EC;
+  --divisor: #E3E3F0;
+  --verde: #0B5A37;
+  --verde-claro: #D9F6E8;
+  --amarelo: #7A4B00;
+  --amarelo-claro: #FFF1D6;
+
+  min-height: 100%;
+  padding-bottom: 18px;
+  background-color: var(--azul);
+  color: var(--texto);
+  font-family: "Poppins", sans-serif;
+}
+
+/* Em telefones, o app ocupa a tela inteira (igual à HU04) */
+@media (max-width: 600px) {
+  .app {
+    width: 100%;
+    height: 100dvh;
+    margin: 0;
+  }
+}
+
+.conteudo {
+  background-color: #0b078c;
+  scrollbar-width: none;
+}
+.conteudo::-webkit-scrollbar { display: none; }
+
+/* TÍTULO COM VOLTAR */
+
+.indique-titulo {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px 0;
+  color: white;
+}
+
+.indique-titulo h1 { font-size: 18px; font-weight: 600; }
+
+.indique-voltar {
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.indique-voltar:focus-visible {
+  outline: 2px solid white;
+  outline-offset: -2px;
+}
+
+/* PILHA DE CARDS */
+
+.indique-pilha {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 4px 18px 0;
+}
+
+.indique .card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 18px;
+  border-radius: 16px;
+  background-color: white;
+}
+
+.indique .card h2 { font-size: 15px; font-weight: 700; color: var(--azul); }
+.indique .suave { font-size: 13px; line-height: 1.5; color: var(--texto-suave); }
+.indique .linha { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+
+/* 1. Benefício */
+
+.indique-beneficio { gap: 10px; }
+.indique-beneficio h2 { font-size: 20px; line-height: 1.3; }
+.indique-beneficio h2 strong { color: var(--verde); }
+
+.selo-demo {
+  align-self: flex-start;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background-color: var(--lavanda-selo);
+  color: var(--azul);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.indique-passos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 2px 0 0;
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--lavanda);
+  list-style: none;
+}
+
+.indique-passos li {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.indique-passos li span {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--azul);
+  color: white;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+/* 2. Código */
+
+.codigo-caixa {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 8px 8px 8px 14px;
+  border: 1.5px dashed var(--lavanda-borda);
+  border-radius: 12px;
+  background-color: var(--lavanda);
+}
+
+.codigo {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--azul);
+}
+
+.botao-copiar {
+  min-height: 44px;
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 0 14px;
+  border: 1.5px solid var(--lavanda-borda);
+  border-radius: 12px;
+  background-color: white;
+  color: var(--azul);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-copiar.copiado {
+  border-color: var(--verde-claro);
+  background-color: var(--verde-claro);
+  color: var(--verde);
+}
+
+.indique .botao {
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: none;
+  border-radius: 12px;
+  background-color: var(--azul);
+  color: white;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.indique .botao:hover { background-color: var(--azul-escuro); }
+
+.botao-texto {
+  min-height: 44px;
+  border: none;
+  border-radius: 12px;
+  background: transparent;
+  color: var(--azul);
+  font: inherit;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.botao-texto:hover { background-color: var(--lavanda); }
+
+.botao-copiar:focus-visible,
+.indique .botao:focus-visible,
+.botao-texto:focus-visible {
+  outline: 2px solid var(--azul);
+  outline-offset: 2px;
+}
+
+/* 4. Histórico */
+
+.total-ganho {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background-color: var(--verde-claro);
+  color: var(--verde);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lista-indicacoes {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.indicacao {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.indicacao + .indicacao { border-top: 1px solid var(--divisor); }
+
+.indicacao-avatar {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--lavanda-selo);
+  color: var(--azul);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.indicacao-texto {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.indicacao-nome { font-size: 14px; font-weight: 600; }
+.indicacao-detalhe { font-size: 12px; color: var(--texto-suave); }
+
+.selo-status {
+  flex-shrink: 0;
+  padding: 3px 10px;
+  border-radius: 99px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.selo-status.concluida { background-color: var(--verde-claro); color: var(--verde); }
+.selo-status.pendente { background-color: var(--amarelo-claro); color: var(--amarelo); }
+
+.lista-indicacoes .vazio {
+  padding: 12px;
+  border-radius: 10px;
+  background-color: var(--lavanda);
+  color: var(--texto-suave);
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+/* Nota e erro, sobre o azul */
+
+.indique-nota,
+.indique-erro {
+  padding: 0 4px;
+  color: var(--claro-sobre-azul);
+  font-size: 12px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.indique-erro { font-size: 14px; color: white; }

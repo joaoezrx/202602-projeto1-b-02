@@ -191,5 +191,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // A navegação inferior é o rodapé comum do app (assets/js/rodape.js).
 
-    renderInvoiceMonth("out");
+    // ?mes=ago|set|out abre direto aquele mês (usado pelo Histórico e 2ª via); sem ele, outubro.
+    const mesDaUrl = new URLSearchParams(location.search).get("mes");
+    const mesInicial = invoicesData[mesDaUrl] ? mesDaUrl : "out";
+    selectMobile.value = mesInicial;
+    renderInvoiceMonth(mesInicial);
 });

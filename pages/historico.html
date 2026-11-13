@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Histórico e 2ª via — Bulbe</title>
+
+  <!-- Login: sem sessão, vai para pages/login.html (assets/js/sessao.js) -->
+  <script src="../assets/js/sessao.js"></script>
+
+  <!-- Shell do app (mesmo do index.html) + estilo próprio da tela -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/rodape.css">
+  <link rel="stylesheet" href="../assets/css/navegacao.css">
+  <link rel="stylesheet" href="../assets/css/historico.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Cabeçalho padrão do projeto -->
+    <header class="cabecalho">
+      <img class="imagem-cabecalho" src="../assets/img/header.svg" alt="Bulbe - Menu, notificações e perfil">
+    </header>
+
+    <main class="conteudo">
+      <div class="historico">
+
+        <!-- Título com voltar (mesmo padrão das telas internas) -->
+        <div class="historico-titulo">
+          <a class="historico-voltar" href="../index.html" aria-label="Voltar">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+          </a>
+          <h1>Histórico e 2ª via</h1>
+        </div>
+        <p class="historico-sub">Toque numa fatura para ver os detalhes.</p>
+
+        <!-- Montado por assets/js/historico.js a partir de data/faturas.json -->
+        <ul class="historico-lista" id="historico-lista" aria-label="Faturas, da mais recente para a mais antiga"></ul>
+
+        <p class="historico-nota">Protótipo: nenhum pagamento real é feito e não há PDF de fatura.</p>
+      </div>
+    </main>
+
+    <!-- Navegação inferior: mesmo rodapé de todas as telas -->
+    <nav class="rodape" aria-label="Navegação principal"></nav>
+  </div>
+
+  <script src="../assets/js/rodape.js"></script>
+  <script src="../assets/js/navegacao.js"></script>
+  <script type="module" src="../assets/js/historico.js"></script>
+</body>
+</html>

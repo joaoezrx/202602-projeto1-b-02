@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Meu perfil — Bulbe</title>
+
+  <!-- Login: sem sessão, vai para pages/login.html (assets/js/sessao.js) -->
+  <script src="../assets/js/sessao.js"></script>
+
+  <!-- Shell do app (mesmo do index.html) + estilo próprio da tela -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/rodape.css">
+  <link rel="stylesheet" href="../assets/css/navegacao.css">
+  <link rel="stylesheet" href="../assets/css/perfil.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Cabeçalho padrão do projeto -->
+    <header class="cabecalho">
+      <img class="imagem-cabecalho" src="../assets/img/header.svg" alt="Bulbe - Menu, notificações e perfil">
+    </header>
+
+    <main class="conteudo">
+      <div class="perfil">
+
+        <!-- Título com voltar (mesmo padrão das telas internas) -->
+        <div class="perfil-titulo">
+          <a class="perfil-voltar" href="../index.html" aria-label="Voltar">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+          </a>
+          <h1>Meu perfil</h1>
+        </div>
+
+        <div class="perfil-pilha">
+          <!-- Identificação -->
+          <div class="perfil-topo">
+            <span class="perfil-avatar" id="perfil-avatar" aria-hidden="true"></span>
+            <strong class="perfil-nome" id="perfil-nome"></strong>
+          </div>
+
+          <!-- Seções montadas por assets/js/perfil.js (só campos que existem nos dados) -->
+          <div id="perfil-secoes"></div>
+
+          <button type="button" class="perfil-sair" id="perfil-sair">
+            <svg aria-hidden="true" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><path d="M16 17l5-5-5-5M21 12H9"/></svg>
+            Sair da conta
+          </button>
+
+          <p class="perfil-nota">Dados fictícios de demonstração.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navegação inferior: mesmo rodapé de todas as telas -->
+    <nav class="rodape" aria-label="Navegação principal"></nav>
+  </div>
+
+  <script src="../assets/js/rodape.js"></script>
+  <script src="../assets/js/navegacao.js"></script>
+  <script type="module" src="../assets/js/perfil.js"></script>
+</body>
+</html>
