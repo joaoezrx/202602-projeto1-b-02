@@ -1,0 +1,32 @@
+[
+  {
+    "clienteId": 3,
+    "protocolo": "BLB-2026-09-0412",
+    "datas": {
+      "solicitacao": "2026-09-20",
+      "analise": "2026-09-22"
+    },
+    "previsaoAtivacao": null
+  },
+  {
+    "clienteId": 4,
+    "protocolo": "BLB-2026-06-0318",
+    "datas": {
+      "solicitacao": "2026-06-18",
+      "analise": "2026-06-20",
+      "preparando": "2026-06-24",
+      "ativa": "2026-07-01"
+    },
+    "previsaoAtivacao": null
+  },
+  {
+    "clienteId": 5,
+    "protocolo": "BLB-2026-11-0457",
+    "datas": {
+      "solicitacao": "2026-11-05",
+      "analise": "2026-11-06",
+      "preparando": "2026-11-10"
+    },
+    "previsaoAtivacao": "2026-11-20"
+  }
+]

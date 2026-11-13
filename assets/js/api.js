@@ -26,6 +26,12 @@ export function buscarUsuarios() {
   return lerJSON('usuarios.json');
 }
 
+// Acompanhamento da adesão (dados demonstrativos), usado na home.
+export async function buscarAdesaoDoCliente(clienteId) {
+  const adesoes = await lerJSON('adesao.json');
+  return adesoes.find((adesao) => adesao.clienteId === clienteId);
+}
+
 export function buscarFaturas() {
   return lerJSON('faturas.json');
 }
