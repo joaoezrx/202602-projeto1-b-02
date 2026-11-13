@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Indique e ganhe — Bulbe</title>
+
+  <!-- Login: sem sessão, vai para pages/login.html (assets/js/sessao.js) -->
+  <script src="../assets/js/sessao.js"></script>
+
+  <!-- Shell do app (mesmo do index.html) + estilo próprio da tela -->
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/rodape.css">
+  <link rel="stylesheet" href="../assets/css/navegacao.css">
+  <link rel="stylesheet" href="../assets/css/indique.css">
+</head>
+<body>
+  <div class="app">
+
+    <!-- Cabeçalho padrão do projeto -->
+    <header class="cabecalho">
+      <img class="imagem-cabecalho" src="../assets/img/header.svg" alt="Bulbe - Menu, notificações e perfil">
+    </header>
+
+    <main class="conteudo">
+      <div class="indique">
+
+        <!-- Título com voltar (mesmo padrão das telas internas) -->
+        <div class="indique-titulo">
+          <a class="indique-voltar" href="../index.html" aria-label="Voltar">
+            <svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FFFFFF" stroke-width="2"><path d="M15 5l-7 7 7 7"/></svg>
+          </a>
+          <h1>Indique e ganhe</h1>
+        </div>
+
+        <div class="indique-pilha">
+
+          <!-- 1. Programa + benefício -->
+          <section class="card indique-beneficio" aria-labelledby="titulo-beneficio">
+            <span class="selo-demo">Valor demonstrativo</span>
+            <h2 id="titulo-beneficio">Ganhe <strong id="valor-indicacao">R$ 50</strong> por amigo</h2>
+            <p class="suave">Indique a Bulbe para quem também quer pagar menos na conta de luz.</p>
+            <ol class="indique-passos">
+              <li><span aria-hidden="true">1</span>Compartilhe seu código.</li>
+              <li><span aria-hidden="true">2</span>Seu amigo contrata a Bulbe usando o código.</li>
+              <li><span aria-hidden="true">3</span>Quando ele pagar a primeira fatura, vocês dois ganham o desconto.</li>
+            </ol>
+          </section>
+
+          <!-- 2 e 3. Código + copiar + compartilhar -->
+          <section class="card indique-codigo" aria-labelledby="titulo-codigo">
+            <h2 id="titulo-codigo">Seu código de indicação</h2>
+            <div class="codigo-caixa">
+              <span class="codigo" id="codigo-indicacao">—</span>
+              <button type="button" class="botao-copiar" id="copiar-codigo" aria-label="Copiar código de indicação">
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h10a1 1 0 0 1 1 1v1"/></svg>
+                <span>Copiar</span>
+              </button>
+            </div>
+            <button type="button" class="botao" id="compartilhar">
+              <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+              Compartilhar
+            </button>
+            <button type="button" class="botao-texto" id="copiar-mensagem">Copiar mensagem de convite</button>
+          </section>
+
+          <!-- 4. Histórico -->
+          <section class="card indique-historico" aria-labelledby="titulo-historico">
+            <div class="linha">
+              <h2 id="titulo-historico">Suas indicações</h2>
+              <span class="total-ganho" id="total-ganho"></span>
+            </div>
+            <ul class="lista-indicacoes" id="lista-indicacoes"></ul>
+          </section>
+
+          <p class="indique-nota">Protótipo: código, histórico e valores são demonstrativos. Nenhum desconto ou crédito real é gerado.</p>
+        </div>
+      </div>
+    </main>
+
+    <!-- Navegação inferior: mesmo rodapé de todas as telas -->
+    <nav class="rodape" aria-label="Navegação principal"></nav>
+  </div>
+
+  <script src="../assets/js/rodape.js"></script>
+  <script src="../assets/js/navegacao.js"></script>
+  <script type="module" src="../assets/js/indique.js"></script>
+</body>
+</html>
